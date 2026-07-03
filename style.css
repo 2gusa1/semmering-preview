@@ -844,3 +844,19 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
   pointer-events:none;border-radius:0 0 inherit inherit;}
 .exp-card .ph{text-shadow:0 1px 4px rgba(0,0,0,.45);}
 .exp-card .ph .badge{z-index:2;}
+
+/* ══ TBL — единый премиум-стиль таблиц (rounded container + zebra + mobile-scroll) ══ */
+.tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;box-shadow:var(--shadow);
+  border:1px solid var(--hellgrau);margin:14px 0;background:#fff;}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:480px;}
+.tbl th,.tbl td{padding:11px 15px;text-align:left;}
+.tbl th:not(:first-child),.tbl td:not(:first-child){text-align:center;}
+/* шапка: первая строка th (таблицы без thead) ИЛИ thead */
+.tbl tr:first-child th, .tbl thead th{
+  background:var(--anthrazit);color:#fff;font-family:'Montserrat';font-weight:700;
+  font-size:12px;text-transform:uppercase;letter-spacing:.4px;padding:12px 15px;position:sticky;top:0;}
+.tbl tbody td, .tbl tr td{border-top:1px solid var(--hellgrau);color:var(--anthrazit);}
+.tbl tbody tr:nth-child(odd) td, .tbl tr:nth-child(even) td{background:var(--beige-l);}
+.tbl td:first-child{font-weight:600;}
+.tbl b{color:var(--blau-dd);}
+@media(max-width:520px){.tbl{font-size:13px;min-width:440px;}.tbl th,.tbl td{padding:9px 11px;}}
