@@ -631,3 +631,14 @@ body.hotelbrand .price{color:#911233;}
 /* ── Галерея главной: адаптив ── */
 @media(max-width:900px){.galgrid{grid-template-columns:repeat(3,1fr) !important;}}
 @media(max-width:520px){.galgrid{grid-template-columns:repeat(2,1fr) !important;}}
+
+/* ── Journey-таймлайн аудиторий-лендингов ── */
+.journey{max-width:840px;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);}
+.jstep{display:grid;grid-template-columns:56px 18px 1fr;gap:0 12px;position:relative;padding:9px 0;}
+.jtime{font-family:Montserrat;font-weight:800;color:var(--blau-dd);font-size:14px;}
+.jdot{width:12px;height:12px;border-radius:50%;background:var(--blau);margin-top:4px;box-shadow:0 0 0 3px var(--hellblau-l);position:relative;z-index:1;}
+.jstep::before{content:"";position:absolute;left:73.5px;top:24px;bottom:-6px;width:2px;background:var(--hellblau);}
+.jstep:last-child::before{display:none;}
+.jtxt{font-size:14.5px;color:var(--dunkel);}
+.jtxt a{color:var(--blau-dd);font-weight:700;}
+@media(max-width:520px){.jstep{grid-template-columns:46px 14px 1fr;}.jstep::before{left:59px;}}
