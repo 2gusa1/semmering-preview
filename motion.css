@@ -32,8 +32,10 @@
 
 /* ── 3. Hero: медленный Ken-Burns после загрузки ── */
 @keyframes mo-kb{from{transform:scale(1)}to{transform:scale(1.06)}}
-body.mo-ready .hero .bg,body.mo-ready .bp-hero .bg,body.mo-ready .li-hero .bg{
-  animation:mo-kb 16s var(--mo-out) forwards;transform-origin:center 40%;}
+@media (prefers-reduced-motion: no-preference){
+  .hero .bg,.bp-hero .bg,.li-hero .bg{
+    animation:mo-kb 16s var(--mo-out) forwards;transform-origin:center 40%;}
+}
 
 /* ── 4. Дропдауны: вход с воздухом (display→block триггерит анимацию) ── */
 @keyframes mo-drop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
