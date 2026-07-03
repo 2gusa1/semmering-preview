@@ -57,7 +57,13 @@
       if(e.target.classList.contains('stb-num')) countUp(e.target);
     });
   }, {threshold:.15, rootMargin:'0px 0px -36px 0px'});
-  document.querySelectorAll('.mo-rv').forEach(function(el){ io.observe(el); });
+  var vh=window.innerHeight;
+  document.querySelectorAll('.mo-rv').forEach(function(el){
+    var r=el.getBoundingClientRect();
+    if(r.top < vh*0.9){ el.style.transition='none'; el.classList.add('mo-in');
+      requestAnimationFrame(function(){ el.style.transition=''; }); return; }
+    io.observe(el);
+  });
   document.querySelectorAll('.stb-num').forEach(function(el){ el.classList.add('mo-rv'); io.observe(el); });
 
   /* ── season-wipe: перехватываем клик по тумблеру (capture, до app.js) ── */
