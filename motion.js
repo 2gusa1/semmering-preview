@@ -182,3 +182,10 @@ document.addEventListener('click', function(e){
       function(){ run(48.21,16.37,false); }, {timeout:3500,maximumAge:600000});
   } else run(48.21,16.37,false);
 })();
+
+/* ── GR-2: чипы категорий групп открывают аккордеон ── */
+(function(){
+  function openTarget(id){ var el=document.getElementById(id); if(el){ el.classList.add('open'); el.scrollIntoView({behavior:'smooth',block:'center'}); } }
+  document.querySelectorAll('.grp-open').forEach(function(c){ c.addEventListener('click',function(){ openTarget(c.getAttribute('data-grp')); }); });
+  if(location.hash.startsWith('#grp-')) openTarget(location.hash.slice(1));
+})();

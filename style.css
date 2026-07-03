@@ -222,7 +222,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .cardgrid.c4{grid-template-columns:repeat(4,1fr);}
 .exp-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:.2s;cursor:pointer;}
 .exp-card:hover{transform:translateY(-4px);}
-.exp-card .ph{height:170px;position:relative;display:flex;align-items:flex-end;padding:12px;color:#fff;font-family:'Montserrat';font-weight:700;font-size:18px;}
+.exp-card .ph{height:170px;position:relative;display:flex;align-items:flex-end;padding:12px;color:#fff;font-family:'Montserrat';font-weight:700;font-size:18px;background-color:#9db8cf;}
 .exp-card .ph .badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);font-size:11px;font-weight:600;
   padding:3px 9px;border-radius:20px;font-family:'Montserrat';}
 .exp-card .body{padding:16px 16px 18px;}
@@ -722,3 +722,7 @@ body.hotelbrand .btn.secondary{border-color:#911233;color:#911233;}
 body.hotelbrand .hq-q::after{color:#911233;}
 body.hotelbrand a[style*="color:var(--blau-dd)"]{color:#911233 !important;}
 body.hotelbrand .season-note a{color:#911233;}
+
+/* ── N-10: floatpanel крупнее, в стилистике ── */
+.floatpanel a{width:56px;height:56px;font-size:22px;border:2px solid var(--hellblau);}
+.floatpanel a:hover{transform:scale(1.07);border-color:var(--blau);}
