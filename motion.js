@@ -106,7 +106,18 @@
     ["2026-07-18","Après-Hike: Greyshadow","Après-Hike: Greyshadow"],
     ["2026-07-19","Familien-Bergfest","Family mountain festival"],
     ["2026-07-25","Après-Hike: RHAYN + DJ & Sax","Après-Hike: RHAYN + DJ & sax"],
-    ["2026-08-29","Ö3 Silent Cinema","Ö3 Silent Cinema"],
+    ["2026-08-01","Après-Hike: Harry Dean Lewis","Après-Hike: Harry Dean Lewis"],
+    ["2026-08-08","Après-Hike: ISTZUSTAND","Après-Hike: ISTZUSTAND"],
+    ["2026-08-15","Après-Hike: Philipp Griessler Band","Après-Hike: Philipp Griessler Band"],
+    ["2026-08-29","Ö3 Silent Cinema + Après-Hike: Zwasam","Ö3 Silent Cinema + Après-Hike: Zwasam"],
+    ["2026-09-05","auner Austrian Gravity Series","auner Austrian Gravity Series"],
+    ["2026-09-12","Après-Hike: Sleep in the Shine","Après-Hike: Sleep in the Shine"],
+    ["2026-09-19","Après-Hike: JUSTHERE","Après-Hike: JUSTHERE"],
+    ["2026-09-26","Après-Hike: 2TREES","Après-Hike: 2TREES"],
+    ["2026-10-03","Après-Hike: Reiner Wagner","Après-Hike: Reiner Wagner"],
+    ["2026-10-10","Après-Hike Finale: Erwin R.","Après-Hike finale: Erwin R."],
+    ["2026-10-31","Halloweenfest 🎃","Halloween Festival 🎃"],
+    ["2026-12-12","Hüttenkrimi im Liechtensteinhaus","Hüttenkrimi crime dinner"],
     ["2026-12-31","Silvester im Grand View","NYE at Grand View"]];
   var push=document.querySelector('.notif .push');
   if(!push) return;
