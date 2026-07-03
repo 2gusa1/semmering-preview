@@ -647,3 +647,21 @@ body.hotelbrand .price{color:#911233;}
 .cardgrid.big{grid-template-columns:repeat(3,1fr);gap:18px;}
 @media(max-width:900px){.cardgrid.big{grid-template-columns:repeat(2,1fr);}}
 @media(max-width:560px){.cardgrid.big{grid-template-columns:1fr;}}
+
+
+/* ── Live redesign: 7-Tage-Prognose (#wk-forecast) + статус-группы ── */
+.wk-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:14px;}
+.wk-day{background:var(--white);border-radius:14px;padding:14px 6px 12px;text-align:center;box-shadow:var(--shadow);}
+.wk-day.today{outline:2.5px solid var(--blau);outline-offset:-2.5px;}
+.wk-dow{font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.5px;color:var(--blau-dd);text-transform:uppercase;}
+.wk-date{font-size:11.5px;color:#5b6470;margin-top:1px;}
+.wk-ico{font-size:30px;line-height:1.25;margin:7px 0 5px;}
+.wk-max{font-family:'Montserrat';font-weight:800;font-size:19px;color:var(--anthrazit);}
+.wk-min{font-size:13px;color:#5b6470;}
+.wk-loading{grid-column:1/-1;font-size:14px;color:#5b6470;font-style:italic;padding:18px 0;text-align:center;}
+.status-h{font-family:'Montserrat';font-weight:800;font-size:14px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blau-dd);margin:26px 0 0;}
+#webcams,#wetter,#status{scroll-margin-top:86px;}
+@media(max-width:760px){
+  .wk-grid{display:flex;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
+  .wk-day{min-width:96px;flex:0 0 auto;}
+}
