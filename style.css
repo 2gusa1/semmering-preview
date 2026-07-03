@@ -799,3 +799,16 @@ body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
 .promo-pop .pp-ev b{color:var(--blau-dd)}
 .promo-pop .pp-nl{display:flex;gap:10px;align-items:center;border-top:1px solid var(--hellgrau);padding-top:10px;cursor:pointer;color:var(--dunkel)}
 @media(max-width:520px){.promo-pop{left:10px;right:10px;max-width:none;bottom:12px}}
+@media(max-width:700px){.bp-tickets{grid-template-columns:1fr!important}}
+
+/* ── N-10: Floatpanel-редизайн (крупнее, бренд-стиль) ── N10-FLOATPANEL */
+.floatpanel{gap:10px;}
+.floatpanel a{width:58px;height:58px;border-radius:18px;background:rgba(255,255,255,.96);
+  border:1.5px solid rgba(117,171,214,.45);backdrop-filter:blur(6px);
+  box-shadow:0 6px 22px rgba(10,25,45,.18);flex-direction:column;gap:2px;}
+.floatpanel .fp-ic{font-size:21px;}
+.floatpanel a::after{content:"";position:absolute;inset:0;border-radius:18px;transition:.15s;}
+.floatpanel a:hover{background:var(--blau-dd);border-color:var(--blau-dd);color:#fff;transform:translateX(-3px);}
+.floatpanel .fp-lb{position:static;transform:none;opacity:1;background:none;box-shadow:none;padding:0;
+  font-family:Montserrat;font-weight:700;font-size:8.5px;letter-spacing:.4px;text-transform:uppercase;color:inherit;}
+.hirschi-fab{box-shadow:0 6px 22px rgba(10,25,45,.24);border:2px solid #fff;}
