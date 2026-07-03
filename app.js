@@ -82,3 +82,51 @@
     });
   });
 })();
+
+/* ═══ CONSENT-GA4 (WR-P0-5, 04.07.2026) — согласие + гейтированная аналитика ═══
+   GA4_ID пуст → баннер НЕ показывается, ничего не грузится (сайт использует только
+   функциональный storage). Как только Саша даст ID — вписать сюда, всё включится. */
+(function(){
+  var GA4_ID="";                       // ← сюда G-XXXXXXX от Саши
+  if(!GA4_ID) return;
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag=gtag;
+  gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+  function loadGA(){
+    gtag('consent','update',{analytics_storage:'granted'});
+    var s=document.createElement('script');s.async=true;
+    s.src='https://www.googletagmanager.com/gtag/js?id='+GA4_ID;
+    document.head.appendChild(s);
+    gtag('js',new Date());gtag('config',GA4_ID,{anonymize_ip:true});
+    hookEvents();
+  }
+  function hookEvents(){
+    document.addEventListener('click',function(e){
+      var a=e.target.closest('a,button'); if(!a) return;
+      var h=a.getAttribute('href')||'';
+      if(h.indexOf('axess.shop')>-1) gtag('event','ticket_click',{page:location.pathname,label:(a.textContent||'').trim().slice(0,40)});
+      else if(h.indexOf('hotellogin')>-1) gtag('event','booking_click',{page:location.pathname});
+      else if(h.indexOf('choiceqr')>-1) gtag('event','table_booking_click',{});
+      else if(h.indexOf('tel:')===0) gtag('event','phone_click',{});
+      else if(h.indexOf('mailto:')===0) gtag('event','email_click',{page:location.pathname});
+      else if(a.closest('.season-toggle')) gtag('event','season_toggle',{});
+      else if(a.closest('.lang-toggle')) gtag('event','lang_toggle',{});
+      else if(a.classList.contains('pp-ev')) gtag('event','popup_event_click',{});
+    },true);
+    document.addEventListener('submit',function(e){
+      var f=e.target.closest('form[data-mail]'); if(f) gtag('event','form_submit',{type:f.getAttribute('data-subject')||'form'});
+    },true);
+  }
+  var choice=localStorage.getItem('cookieConsent');
+  if(choice==='all'){loadGA();return;}
+  if(choice==='essential') return;
+  var b=document.createElement('div');
+  b.className='consent-bar';b.setAttribute('role','dialog');b.setAttribute('aria-label','Cookie-Einwilligung');
+  b.innerHTML='<div class="cb-txt"><span class="t-d">Wir nutzen Cookies für anonyme Statistik (Google Analytics), nur mit deiner Zustimmung. <a href="datenschutz.html">Mehr dazu</a>.</span><span class="t-e">We use cookies for anonymous statistics (Google Analytics), only with your consent. <a href="datenschutz.html">Learn more</a>.</span></div>'
+   +'<div class="cb-btns"><button class="cb-ok"><span class="t-d">Alle akzeptieren</span><span class="t-e">Accept all</span></button>'
+   +'<button class="cb-min"><span class="t-d">Nur notwendige</span><span class="t-e">Essential only</span></button></div>';
+  document.body.appendChild(b);
+  b.querySelector('.cb-ok').addEventListener('click',function(){localStorage.setItem('cookieConsent','all');b.remove();loadGA();});
+  b.querySelector('.cb-min').addEventListener('click',function(){localStorage.setItem('cookieConsent','essential');b.remove();});
+})();

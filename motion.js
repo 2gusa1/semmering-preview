@@ -115,6 +115,7 @@
     ["2026-08-01","Après-Hike: Harry Dean Lewis","Après-Hike: Harry Dean Lewis"],
     ["2026-08-08","Après-Hike: ISTZUSTAND","Après-Hike: ISTZUSTAND"],
     ["2026-08-15","Après-Hike: Philipp Griessler Band","Après-Hike: Philipp Griessler Band"],
+    ["2026-08-22","Après-Hike: Elena Shirin","Après-Hike: Elena Shirin"],
     ["2026-08-29","Ö3 Silent Cinema + Après-Hike: Zwasam","Ö3 Silent Cinema + Après-Hike: Zwasam"],
     ["2026-09-05","AAGS Downhill — Austrian Gravity Series","AAGS Downhill — Austrian Gravity Series"],
     ["2026-09-12","Après-Hike: Sleep in the Shine","Après-Hike: Sleep in the Shine"],
@@ -130,13 +131,14 @@
   var up=EV.filter(function(e){return new Date(e[0])>=today;});
   if(!up.length) return;
   window.__nextEv=up[0];
-  var push=document.querySelector('.notif .push');
-  if(!push) return;
+  var pushes=document.querySelectorAll('.notif .push');
+  if(!pushes.length) return;
   function fmt(iso){var p=iso.split('-');return (+p[2])+'.'+(+p[1])+'.';}
   var h='🎪 <span class="t-d"><b>'+up[0][1]+'</b> · '+fmt(up[0][0])+'</span><span class="t-e"><b>'+up[0][2]+'</b> · '+fmt(up[0][0])+'</span>';
-  push.innerHTML=h;
-  push.style.cursor='pointer';
-  push.addEventListener('click',function(){location.href='events.html';});
+  for(var pi=0;pi<pushes.length;pi++){(function(p){
+    p.innerHTML=h; p.style.cursor='pointer';
+    p.addEventListener('click',function(){location.href='events.html';});
+  })(pushes[pi]);}
 })();
 
 /* ── Волна 1: сезонный вайб у wipe ── */
