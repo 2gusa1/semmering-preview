@@ -813,3 +813,24 @@ body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;colo
 }
 /* отель — бордо-бренд у sticky-CTA (в тон body.hotelbrand) */
 body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
+
+/* ═══ HERO-GHOST-FROSTED (visual audit 04.07) — фикс невидимых ghost-кнопок на фото-героях.
+   Причина: поздняя light-section .btn.ghost (тёмно-синий текст) перекрывала hero-правило.
+   Решение: матовое стекло (тёмная подложка + blur) = гарантированный контраст на ЛЮБОМ фото. ── */
+.hero .btn.ghost, .bp-hero .btn.ghost, .li-hero .btn.ghost,
+.hero .btn.ghost2, .li-hero .btn.ghost2, .bp-hero .btn.ghost2{
+  background:rgba(16,30,48,.44)!important;
+  border-color:rgba(255,255,255,.72)!important;
+  color:#fff!important;
+  backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+  text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+.hero .btn.ghost:hover, .bp-hero .btn.ghost:hover, .li-hero .btn.ghost:hover,
+.hero .btn.ghost2:hover, .li-hero .btn.ghost2:hover{
+  background:rgba(16,30,48,.66)!important;border-color:#fff!important;
+}
+/* hero-why буллеты — тень для читаемости поверх фото */
+.hero .hero-why span, .bp-hero .hero-why span, .li-hero .hero-why span{
+  text-shadow:0 1px 3px rgba(0,0,0,.45);
+}
+
