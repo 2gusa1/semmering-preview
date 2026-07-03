@@ -790,3 +790,12 @@ body.hotelbrand section[style*="var(--beige-l)"] .season-note{color:#5b6470;}
 /* Fix-11. wellness-spa: ghost-кнопки (белые, для тёмных hero) на светлой секции */
 body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
   background:transparent;border-color:var(--blau-dd);color:var(--blau-dd);}
+
+/* ── D-7: Promo-Popup ── */
+.promo-pop{position:fixed;left:18px;bottom:18px;z-index:1200;max-width:330px;background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(10,20,35,.28);padding:16px 16px 14px;opacity:0;transform:translateY(14px);transition:opacity .4s,transform .4s;font-size:14px;color:var(--anthrazit)}
+.promo-pop.on{opacity:1;transform:none}
+.promo-pop .pp-x{position:absolute;top:6px;right:10px;background:none;border:0;font-size:20px;color:var(--grau);cursor:pointer;line-height:1}
+.promo-pop .pp-ev{display:block;text-decoration:none;color:var(--anthrazit);margin-bottom:10px;padding-right:14px}
+.promo-pop .pp-ev b{color:var(--blau-dd)}
+.promo-pop .pp-nl{display:flex;gap:10px;align-items:center;border-top:1px solid var(--hellgrau);padding-top:10px;cursor:pointer;color:var(--dunkel)}
+@media(max-width:520px){.promo-pop{left:10px;right:10px;max-width:none;bottom:12px}}

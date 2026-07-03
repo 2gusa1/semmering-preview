@@ -116,7 +116,7 @@
     ["2026-08-08","Après-Hike: ISTZUSTAND","Après-Hike: ISTZUSTAND"],
     ["2026-08-15","Après-Hike: Philipp Griessler Band","Après-Hike: Philipp Griessler Band"],
     ["2026-08-29","Ö3 Silent Cinema + Après-Hike: Zwasam","Ö3 Silent Cinema + Après-Hike: Zwasam"],
-    ["2026-09-05","auner Austrian Gravity Series","auner Austrian Gravity Series"],
+    ["2026-09-05","AAGS Downhill — Austrian Gravity Series","AAGS Downhill — Austrian Gravity Series"],
     ["2026-09-12","Après-Hike: Sleep in the Shine","Après-Hike: Sleep in the Shine"],
     ["2026-09-19","Après-Hike: JUSTHERE","Après-Hike: JUSTHERE"],
     ["2026-09-26","Après-Hike: 2TREES","Après-Hike: 2TREES"],
@@ -126,11 +126,12 @@
     ["2026-12-12","Hüttenkrimi im Liechtensteinhaus","Hüttenkrimi crime dinner"],
     ["2026-12-19","Après-Ski Saisonstart — jeden Sa DJ & Show","Après-ski season opener — Sat DJ & shows"],
     ["2026-12-31","Silvester im Grand View","NYE at Grand View"]];
-  var push=document.querySelector('.notif .push');
-  if(!push) return;
   var today=new Date(); today.setHours(0,0,0,0);
   var up=EV.filter(function(e){return new Date(e[0])>=today;});
   if(!up.length) return;
+  window.__nextEv=up[0];
+  var push=document.querySelector('.notif .push');
+  if(!push) return;
   function fmt(iso){var p=iso.split('-');return (+p[2])+'.'+(+p[1])+'.';}
   var h='🎪 <span class="t-d"><b>'+up[0][1]+'</b> · '+fmt(up[0][0])+'</span><span class="t-e"><b>'+up[0][2]+'</b> · '+fmt(up[0][0])+'</span>';
   push.innerHTML=h;
@@ -194,4 +195,24 @@ document.addEventListener('click', function(e){
   function openTarget(id){ var el=document.getElementById(id); if(el){ el.classList.add('open'); el.scrollIntoView({behavior:'smooth',block:'center'}); } }
   document.querySelectorAll('.grp-open').forEach(function(c){ c.addEventListener('click',function(){ openTarget(c.getAttribute('data-grp')); }); });
   if(location.hash.startsWith('#grp-')) openTarget(location.hash.slice(1));
+})();
+
+/* ── D-7: Promo-Popup — ближайший ивент + Hirschi-Brief (1× за сессию) ── */
+(function(){
+  if(sessionStorage.getItem('promoSeen')) return;
+  setTimeout(function(){
+    var ev=window.__nextEv;
+    function fmt(iso){var p=iso.split('-');return (+p[2])+'.'+(+p[1])+'.';}
+    var pop=document.createElement('div');
+    pop.className='promo-pop';
+    pop.innerHTML='<button class="pp-x" aria-label="Schließen">×</button>'
+      +(ev?'<a href="events.html" class="pp-ev">🎪 <span class="t-d"><b>'+ev[1]+'</b><br>'+fmt(ev[0])+' am Berg — alle Events →</span><span class="t-e"><b>'+ev[2]+'</b><br>'+fmt(ev[0])+' on the mountain — all events →</span></a>':'')
+      +'<div class="pp-nl"><img src="assets/hirschi/Hirschi-Brief.png" alt="" style="width:34px"><span class="t-d">Hirschi-Brief abonnieren — Saisonstart, Events & Angebote zuerst.</span><span class="t-e">Subscribe to the Hirschi letter — season openings, events & offers first.</span></div>';
+    document.body.appendChild(pop);
+    requestAnimationFrame(function(){pop.classList.add('on');});
+    function seen(){sessionStorage.setItem('promoSeen','1');}
+    pop.querySelector('.pp-x').addEventListener('click',function(){seen();pop.classList.remove('on');setTimeout(function(){pop.remove();},400);});
+    pop.querySelector('.pp-nl').addEventListener('click',function(){seen();var nl=document.querySelector('.foot-nl');if(nl){nl.scrollIntoView({behavior:'smooth',block:'center'});}pop.classList.remove('on');setTimeout(function(){pop.remove();},400);});
+    var pe=pop.querySelector('.pp-ev'); if(pe) pe.addEventListener('click',seen);
+  },9000);
 })();
