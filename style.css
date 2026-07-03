@@ -847,7 +847,7 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 
 /* ══ TBL — единый премиум-стиль таблиц (rounded container + zebra + mobile-scroll) ══ */
 .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:14px;box-shadow:var(--shadow);
-  border:1px solid var(--hellgrau);margin:14px 0;background:#fff;}
+  border:1px solid var(--hellgrau);margin:14px 0;background:#fff;width:fit-content;max-width:100%;}
 .tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:480px;}
 .tbl th,.tbl td{padding:11px 15px;text-align:left;}
 .tbl th:not(:first-child),.tbl td:not(:first-child){text-align:center;}
