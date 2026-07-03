@@ -812,3 +812,7 @@ body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
 .floatpanel .fp-lb{position:static;transform:none;opacity:1;background:none;box-shadow:none;padding:0;
   font-family:Montserrat;font-weight:700;font-size:8.5px;letter-spacing:.4px;text-transform:uppercase;color:inherit;}
 .hirschi-fab{box-shadow:0 6px 22px rgba(10,25,45,.24);border:2px solid #fff;}
+
+/* ── H-4: точки статуса в «Heute am Semmering» — .stat лежит внутри <a> (не flex-item),
+   без display инлайновый span схлопывался в 0×0 и точка была невидима ── */
+.heute-list .stat{display:inline-block;vertical-align:1px;margin-right:4px;}
