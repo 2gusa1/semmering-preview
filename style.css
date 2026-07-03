@@ -642,3 +642,8 @@ body.hotelbrand .price{color:#911233;}
 .jtxt{font-size:14.5px;color:var(--dunkel);}
 .jtxt a{color:var(--blau-dd);font-weight:700;}
 @media(max-width:520px){.jstep{grid-template-columns:46px 14px 1fr;}.jstep::before{left:59px;}}
+
+/* ── H-7: крупные карточки активностей на главной ── */
+.cardgrid.big{grid-template-columns:repeat(3,1fr);gap:18px;}
+@media(max-width:900px){.cardgrid.big{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.cardgrid.big{grid-template-columns:1fr;}}
