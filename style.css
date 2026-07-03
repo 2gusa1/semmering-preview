@@ -793,3 +793,5 @@ body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;colo
    «ab/from» в booking-card) — инлайн бьётся только атрибут-селектором + !important: */
 .exp-card [style*="color:var(--grau)"],
 .booking-card [style*="color:var(--grau)"]{color:#5b6470!important;}
+/* media-wave */
+@media(max-width:900px){.only-desktop{display:none!important}.grp-strip{grid-template-columns:repeat(2,1fr)!important}}
