@@ -160,7 +160,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .hero .wrap{position:relative;z-index:2;padding-bottom:54px;}
 .hero .photo-tag{position:absolute;top:14px;right:18px;z-index:2;font-size:11px;color:rgba(255,255,255,.7);
   font-family:'Montserrat';letter-spacing:1px;}
-.hero h1{color:#fff;font-size:58px;font-weight:900;letter-spacing:-1.5px;max-width:760px;text-shadow:0 2px 8px rgba(0,0,0,.4),0 2px 30px rgba(0,0,0,.5);}
+.hero h1,.hero .hero-h1{color:#fff;font-size:58px;font-weight:900;letter-spacing:-1.5px;max-width:760px;text-shadow:0 2px 8px rgba(0,0,0,.4),0 2px 30px rgba(0,0,0,.5);}
 .hero .sub{font-size:21px;font-weight:300;margin:14px 0 8px;max-width:600px;}
 .hero .frische{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.45);
   border-radius:30px;padding:6px 16px;font-family:'Montserrat';font-weight:600;font-size:14px;margin-bottom:18px;}
@@ -421,7 +421,7 @@ body.lichten{background:var(--lichten);color:#dfe4ee;}
   .heute-grid,.split,.adetail{grid-template-columns:1fr;}
   .tiles{grid-template-columns:repeat(2,1fr);}
   .cardgrid,.cardgrid.c4,.stats,.bp-stats,.trailcards,.reviews,.li-facts,.principle,.formgrid{grid-template-columns:1fr 1fr;}
-  .hero h1,.bp-hero h1,.li-hero h1{font-size:40px;}
+  .hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1{font-size:40px;}
   footer.site .cols{grid-template-columns:1fr 1fr;}
   .floatpanel,.bp-livepanel{display:none;}
   .booking-card{position:static;}
@@ -525,7 +525,7 @@ body.en .t-e{display:inline;}
   .season-toggle span svg{vertical-align:middle;}
 }
 @media(max-width:540px){
-  .hero h1{font-size:31px!important;letter-spacing:-1px;}
+  .hero h1,.hero .hero-h1{font-size:31px!important;letter-spacing:-1px;}
   .hero .sub{font-size:16px;}
   .bp-hero h1{font-size:34px!important;}
   .notif .push{display:none;}
@@ -544,9 +544,9 @@ body.en .t-e{display:inline;}
 /* ===== P0 fix: горизонтальный overflow на мобиле (375px) ===== */
 html,body{overflow-x:hidden;max-width:100%;}
 .notif .wrap>*{min-width:0;}
-.hero h1,.bp-hero h1,.li-hero h1,.notif .wrap,.hero .sub{overflow-wrap:break-word;}
+.hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1,.notif .wrap,.hero .sub{overflow-wrap:break-word;}
 @media(max-width:400px){
-  .hero h1,.bp-hero h1,.li-hero h1{font-size:26px!important;}
+  .hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1{font-size:26px!important;}
   .head-right{gap:8px;}
   .logo{font-size:18px;}
 }
