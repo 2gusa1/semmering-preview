@@ -726,3 +726,67 @@ body.hotelbrand .season-note a{color:#911233;}
 /* ── N-10: floatpanel крупнее, в стилистике ── */
 .floatpanel a{width:56px;height:56px;font-size:22px;border:2px solid var(--hellblau);}
 .floatpanel a:hover{transform:scale(1.07);border-color:var(--blau);}
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE-QA-390 — аддитивный блок (03.07.2026)
+   Заменяет мёртвый фикс TEARDOWN №21 (селектор .topbar в HTML
+   не существует; строки 566–571 можно удалить при случае).
+   ═══════════════════════════════════════════════════════════ */
+
+/* Fix-1. Бургер: <button class="burger"> пуст (0×0) — рисуем иконку CSS.
+   Работает на всех ширинах ≤900, клик уже обрабатывает app.js. */
+.burger{width:38px;height:38px;flex:0 0 38px;position:relative;padding:0;}
+.burger::before{content:"";position:absolute;left:7px;right:7px;top:50%;height:2.5px;border-radius:2px;
+  background:currentColor;transform:translateY(-50%);box-shadow:0 -7px 0 currentColor,0 7px 0 currentColor;}
+
+@media(max-width:520px){
+  /* Fix-2. Шапка влезает в 390: лого + сезон + язык + Tickets + бургер
+     (проверено: последний элемент заканчивается на x=389) */
+  header.site .wrap{padding:0 10px;gap:5px;}
+  .logo{font-size:14px!important;gap:5px;letter-spacing:.4px;}
+  .logo svg{width:20px;height:14px;}
+  .season-toggle span{padding:4px 6px!important;}
+  .lang-toggle span{padding:3px 6px;font-size:11px;}
+  header.site .btn.sm{padding:6px 9px;font-size:11.5px;}
+  header.site .btn.sm svg{display:none!important;} /* у svg инлайн display */
+  /* Fix-3. Livebar: auto-высота — 2-я строка выпадала из тёмной подложки */
+  .livebar .wrap{height:auto;padding:8px 22px;}
+  /* Fix-4. Пункты открытого моб-меню не режутся (white-space:nowrap у .submenu a) */
+  body.navopen .submenu a{white-space:normal;}
+  /* Fix-5. live: статус-строки переносятся, «geöffnet» не упирается в край */
+  .statusrow{flex-wrap:wrap;}
+  /* Fix-6. nachtaktive: стикер не закрывает подзаголовок hero */
+  .hero img[src*="Hirschi_Apres_Ski"]{display:none;}
+}
+
+/* ── Контраст-фиксы после Color-Draft «Alpine Tiefe» (все вьюпорты) ── */
+
+/* Fix-7a. gruppen: полосатая таблица — прозрачные строки на тёмном band */
+section[style*="var(--beige-l)"] .wrap table tr:not([style*="background"]){color:#eaf3fa;}
+/* Fix-7b. gruppen: белые плашки логотипов глушились multiply на тёмном
+   (!important — mix-blend-mode задан инлайном) */
+section[style*="var(--beige-l)"] img[style*="mix-blend-mode:multiply"]{mix-blend-mode:normal!important;}
+/* Fix-7c. winter: белый заголовок на светлой карточке .split .txt внутри band */
+section[style*="var(--beige-l)"] .split .txt h2.title,
+section[style*="var(--beige-l)"] .split .txt h3{color:var(--anthrazit);}
+section[style*="var(--beige-l)"] .split .txt .eyebrow{color:var(--blau-dd);}
+section[style*="var(--beige-l)"] .split .txt .lead{color:var(--dunkel);}
+
+/* Fix-8. lichten: секции без фона лежат на тёмно-синем body —
+   h2 наследовал антрацит («Après-Hike…» был нечитаем) */
+body.lichten section:not([style*="background"]) h2.title{color:#fff;}
+body.lichten section:not([style*="background"]) .lead{color:#dfe4ee;}
+/* Fix-9. lichten: лейблы формы на белой секции наследовали светлый цвет body */
+#reservierung .ff label{color:var(--blau-dd);}
+
+/* Fix-10. hotel: «Ein Haus mit Geschichte» — hotelbrand вернул бежевый фон,
+   а белые цвета Color-Draft остались */
+body.hotelbrand section[style*="var(--beige-l)"] h2.title,
+body.hotelbrand section[style*="var(--beige-l)"] h3{color:#3d2229;}
+body.hotelbrand section[style*="var(--beige-l)"] .lead{color:var(--dunkel);}
+body.hotelbrand section[style*="var(--beige-l)"] .eyebrow{color:#911233;}
+body.hotelbrand section[style*="var(--beige-l)"] .season-note{color:#5b6470;}
+
+/* Fix-11. wellness-spa: ghost-кнопки (белые, для тёмных hero) на светлой секции */
+body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
+  background:transparent;border-color:var(--blau-dd);color:var(--blau-dd);}
