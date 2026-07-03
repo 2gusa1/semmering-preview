@@ -118,6 +118,7 @@
     ["2026-10-10","Après-Hike Finale: Erwin R.","Après-Hike finale: Erwin R."],
     ["2026-10-31","Halloweenfest 🎃","Halloween Festival 🎃"],
     ["2026-12-12","Hüttenkrimi im Liechtensteinhaus","Hüttenkrimi crime dinner"],
+    ["2026-12-19","Après-Ski Saisonstart — jeden Sa DJ & Show","Après-ski season opener — Sat DJ & shows"],
     ["2026-12-31","Silvester im Grand View","NYE at Grand View"]];
   var push=document.querySelector('.notif .push');
   if(!push) return;

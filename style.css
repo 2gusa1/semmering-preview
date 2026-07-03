@@ -665,3 +665,60 @@ body.hotelbrand .price{color:#911233;}
   .wk-grid{display:flex;overflow-x:auto;padding-bottom:6px;-webkit-overflow-scrolling:touch;}
   .wk-day{min-width:96px;flex:0 0 auto;}
 }
+/* ══════════════════════════════════════════════════════════════════
+   COLOR DRAFT 1 — «Alpine Tiefe»
+   Ритм: hellblau-l → тонированный белый → blau-deep (тёмные band'ы),
+   футер глубже антрацита. Дописать в КОНЕЦ style.css, HTML не трогать.
+   ══════════════════════════════════════════════════════════════════ */
+:root{
+  --hellblau-l:#e3eef7;                    /* пастель чуть глубже — фон различим */
+  --v-page:#f3f8fc;                        /* тонированный «белый» страницы */
+  --v-deep:linear-gradient(168deg,#33617f 0%,#274b63 55%,#1d3a4e 100%);
+  --v-footer:#14242f;                      /* футер глубже антрацита */
+  --shadow:0 6px 24px rgba(20,40,60,.13);
+}
+body{background:var(--v-page);}
+.livebar{background:var(--blau-deep);}
+
+/* бежевые секции → тёмно-синие контраст-блоки с белым текстом */
+section[style*="var(--beige-l)"]{background:var(--v-deep)!important;}
+section[style*="var(--beige-l)"] h2.title,
+section[style*="var(--beige-l)"] h3{color:#fff;}
+section[style*="var(--beige-l)"] .eyebrow{color:#9cc7e8;}
+section[style*="var(--beige-l)"] .lead{color:#d9e7f2;}
+section[style*="var(--beige-l)"] .season-note{color:#a9c3d5;}
+section[style*="var(--beige-l)"] .season-note a[style]{color:#bfe0f7!important;}
+section[style*="var(--beige-l)"] .chip{background:rgba(255,255,255,.13);color:#eaf3fa;}
+section[style*="var(--beige-l)"] .chip.active,
+section[style*="var(--beige-l)"] .chip:hover{background:var(--blau);color:#fff;}
+section[style*="var(--beige-l)"] .btn.primary{background:#fff;color:var(--blau-dd);}
+section[style*="var(--beige-l)"] .btn.primary:hover{background:var(--hellblau-l);}
+
+/* светло-голубые паузы: секция карты (6) и band под newsletter (12) */
+#main>section:nth-of-type(6),
+#main>section:nth-of-type(12){background:var(--hellblau-l);}
+
+/* тёплый беж внутри сплита и «принципов» → холодный светлый */
+.split .txt{background:var(--hellblau-l);}
+.principle .p{background:var(--hellblau-l);}
+
+/* карточки принципиально белые — «выпрыгивают» из тонированных фонов */
+.exp-card,.rev,.heute-card,.tc-card,.journey,.hb-now{background:#fff;}
+
+/* футер: глубокий сине-чёрный вместо коричневого антрацита */
+footer.site{background:var(--v-footer);color:#c3d2dd;}
+footer.site a{color:#c3d2dd;}
+footer.site .trust span{background:#22404f;}
+footer.site .bottom{border-top-color:#2b4a5c;color:#8ba4b3;}
+.foot-nl{border-top-color:#2b4a5c;}
+
+/* ── Отель: полный бренд Sporthotel, минимум пересечений с курортной палитрой ── */
+body.hotelbrand{background:#fbf7f2;}
+body.hotelbrand section[style*="var(--hellblau-l)"]{background:#f7ecef !important;}
+body.hotelbrand section[style*="var(--beige-l)"]{background:#f3e7db !important;}
+body.hotelbrand section[style*="linear-gradient(135deg,var(--blau-dd)"]{background:linear-gradient(135deg,#5a1020,#911233) !important;}
+body.hotelbrand .btn.ghost2{border-color:#911233;color:#911233;}
+body.hotelbrand .btn.secondary{border-color:#911233;color:#911233;}
+body.hotelbrand .hq-q::after{color:#911233;}
+body.hotelbrand a[style*="color:var(--blau-dd)"]{color:#911233 !important;}
+body.hotelbrand .season-note a{color:#911233;}
