@@ -831,3 +831,16 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
   text-shadow:0 1px 3px rgba(0,0,0,.45);
 }
 
+/* ── PHOTO-STRIP (thumbnail preview rows) — не схлопывать в 1 колонку как контент-cardgrid ── */
+.photo-strip{display:grid;gap:10px;}
+.photo-strip.s3{grid-template-columns:repeat(3,1fr);}
+.photo-strip.s2{grid-template-columns:1fr 1fr;}
+@media(max-width:430px){.photo-strip.s3{grid-template-columns:1fr 1fr;}}
+
+/* ── CARD-TITLE-GRADIENT — читаемость белых заголовков карточек на светлых фото ── */
+.exp-card .ph, .trailcard, .li-hero, .split .ph{position:relative;}
+.exp-card .ph::before{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;
+  background:linear-gradient(to top,rgba(10,20,35,.66),rgba(10,20,35,.12) 55%,transparent);
+  pointer-events:none;border-radius:0 0 inherit inherit;}
+.exp-card .ph{text-shadow:0 1px 4px rgba(0,0,0,.45);}
+.exp-card .ph .badge{z-index:2;}

@@ -224,6 +224,10 @@ document.addEventListener('click', function(e){
       document.removeEventListener('keydown',esc);
       seen(); pop.classList.remove('on'); setTimeout(function(){pop.remove();},400);
     });
+    // авто-скрытие: чтобы попап не преследовал по всей странице
+    function autohide(){ if(!pop.parentNode) return; seen(); pop.classList.remove('on'); setTimeout(function(){pop.remove();},400); }
+    var autoT=setTimeout(autohide,14000), startY=window.scrollY;
+    window.addEventListener('scroll',function sc(){ if(!pop.parentNode){window.removeEventListener('scroll',sc);return;} if(Math.abs(window.scrollY-startY)>1400){window.removeEventListener('scroll',sc);clearTimeout(autoT);autohide();} },{passive:true});
   },9000);
 })();
 
