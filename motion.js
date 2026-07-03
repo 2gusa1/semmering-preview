@@ -290,3 +290,23 @@ document.addEventListener('click', function(e){
     e.preventDefault(); t.click();
   });
 })();
+
+/* ═══ CRO-POLISH: sticky mobile CTA injector ═══
+   Читает data-атрибуты с <body>: data-stickycta-href / -label-de / -label-en
+   (+ optional -tel). Рендерит бар только если атрибут задан → одна логика,
+   разные money-URL на hotel/tickets/bikepark. Иконка не нужна (текст-CTA). */
+(function(){
+  var b=document.body, href=b.getAttribute('data-stickycta-href');
+  if(!href) return;
+  b.classList.add('has-stickycta');
+  var lde=b.getAttribute('data-stickycta-label-de')||'Jetzt buchen';
+  var len=b.getAttribute('data-stickycta-label-en')||'Book now';
+  var tel=b.getAttribute('data-stickycta-tel');
+  var bar=document.createElement('div'); bar.className='sticky-cta';
+  var ext=/^https?:/.test(href)?' target="_blank" rel="noopener"':'';
+  var telBtn=tel?('<a href="tel:'+tel+'" class="btn ghost2 sc-2nd" aria-label="Anrufen / Call">'
+     +'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L20 18v-2l-5-1M4 4v4a16 16 0 0 0 16 16h0"/></svg></a>'):'';
+  bar.innerHTML='<a href="'+href+'"'+ext+' class="btn primary">'
+    +'<span class="t-d">'+lde+'</span><span class="t-e">'+len+'</span></a>'+telBtn;
+  b.appendChild(bar);
+})();

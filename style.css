@@ -795,3 +795,21 @@ body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;colo
 .booking-card [style*="color:var(--grau)"]{color:#5b6470!important;}
 /* media-wave */
 @media(max-width:900px){.only-desktop{display:none!important}.grp-strip{grid-template-columns:repeat(2,1fr)!important}}
+
+/* ═══ CRO-POLISH: STICKY MOBILE CTA (money-страницы) ═══
+   Только ≤720px, на body.has-stickycta. z-index 1390 < consent-bar (1400):
+   пока баннер согласия виден — он приоритетнее; после его remove() — CTA виден.
+   left:84px оставляет место Hirschi-FAB (left:18px, ~56px). ── */
+.sticky-cta{display:none;}
+@media(max-width:720px){
+  body.has-stickycta .sticky-cta{
+    display:flex;position:fixed;left:84px;right:12px;bottom:12px;z-index:1390;
+    gap:8px;align-items:stretch;}
+  body.has-stickycta{padding-bottom:76px;}
+  .sticky-cta .btn{flex:1;justify-content:center;box-shadow:0 8px 26px rgba(10,25,45,.28);
+    font-size:15px;padding:14px 16px;border-radius:12px;}
+  /* второстепенная кнопка (напр. «Anrufen») — компактнее */
+  .sticky-cta .sc-2nd{flex:0 0 auto;padding:14px 15px;}
+}
+/* отель — бордо-бренд у sticky-CTA (в тон body.hotelbrand) */
+body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
