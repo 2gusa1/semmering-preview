@@ -130,3 +130,54 @@
   b.querySelector('.cb-ok').addEventListener('click',function(){localStorage.setItem('cookieConsent','all');b.remove();loadGA();});
   b.querySelector('.cb-min').addEventListener('click',function(){localStorage.setItem('cookieConsent','essential');b.remove();});
 })();
+
+/* ═══════════════════════════════════════════════════════════════
+   FORMS-UX — FUN-05 (WARROOM_FUNNELS) + WA-15. Аддитивный блок.
+   1) required на ключевые поля: нативная валидация браузера БЛОКИРУЕТ
+      событие submit у невалидной формы → mailto из основного IIFE не
+      уходит пустым, юзер видит браузерную подсказку (DE/EN по локали).
+      (inline onsubmit="return false" этому не мешает — при невалидной
+      форме submit-событие вообще не диспатчится.)
+   2) После реального submit — видимый inline-фидбек DE/EN в страницу
+      («откроется почтовик; если нет — вот адрес») вместо тишины.
+      Document-слушатель (bubble) срабатывает ПОСЛЕ form-хэндлера с mailto.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  /* 1) required/aria-required: e-mail везде; имя и дата — в анкетных формах.
+        Матчится: gf-name «Name/Organisation», lr-name «Name», gf-dat
+        «Wunschdatum», lr-date «Datum». Newsletter (name="E-Mail") имя не матчит. */
+  document.querySelectorAll('form input[type="email"], form input[name*="Name"], form input[name*="atum"]')
+    .forEach(function(el){ el.required=true; el.setAttribute('aria-required','true'); });
+  /* звёздочка в связанный label (если он есть) */
+  document.querySelectorAll('form input[required]').forEach(function(el){
+    var lb=el.id ? document.querySelector('label[for="'+el.id+'"]') : null;
+    if(lb && !/\*\s*$/.test(lb.textContent)){
+      var st=document.createElement('span');
+      st.setAttribute('aria-hidden','true'); st.textContent=' *';
+      lb.appendChild(st);
+    }
+  });
+  /* 2) inline-фидбек после отправки (mailto не перезагружает страницу) */
+  document.addEventListener('submit', function(e){
+    var f=e.target; if(!f || f.tagName!=='FORM') return;
+    var to=f.getAttribute('data-mail')||'info@semmering.com';
+    var fb=f.querySelector('.form-feedback');
+    if(!fb){
+      fb=document.createElement('div');
+      fb.className='form-feedback';
+      fb.setAttribute('role','status');
+      fb.setAttribute('aria-live','polite');
+      /* flex-basis — для flex-форм (newsletter), grid-column — для .formgrid */
+      fb.style.cssText='flex-basis:100%;width:100%;grid-column:1/-1;margin-top:10px;'
+        +'padding:10px 14px;border-radius:10px;font-size:14px;line-height:1.45;'
+        +'background:rgba(127,224,138,.16);border:1px solid rgba(127,224,138,.55);color:inherit;';
+      f.appendChild(fb);
+    }
+    fb.innerHTML='📨 <span class="t-d">Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht. '
+      +'Falls sich nichts öffnet: schreib direkt an <a href="mailto:'+to
+      +'" style="font-weight:700;text-decoration:underline;color:inherit">'+to+'</a>.</span>'
+      +'<span class="t-e">Your e-mail app opens with the pre-filled message. '
+      +'If nothing opens, e-mail us directly at <a href="mailto:'+to
+      +'" style="font-weight:700;text-decoration:underline;color:inherit">'+to+'</a>.</span>';
+  });
+})();

@@ -720,13 +720,13 @@ body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
   background:transparent;border-color:var(--blau-dd);color:var(--blau-dd);}
 
 /* ── D-7: Promo-Popup ── */
-.promo-pop{position:fixed;left:18px;bottom:18px;z-index:1200;max-width:330px;background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(10,20,35,.28);padding:16px 16px 14px;opacity:0;transform:translateY(14px);transition:opacity .4s,transform .4s;font-size:14px;color:var(--anthrazit)}
+.promo-pop{position:fixed;right:18px;bottom:18px;z-index:1200;max-width:330px;background:#fff;border-radius:16px;box-shadow:0 12px 40px rgba(10,20,35,.28);padding:16px 16px 14px;opacity:0;transform:translateY(14px);transition:opacity .4s,transform .4s;font-size:14px;color:var(--anthrazit)}
 .promo-pop.on{opacity:1;transform:none}
-.promo-pop .pp-x{position:absolute;top:6px;right:10px;background:none;border:0;font-size:20px;color:var(--grau);cursor:pointer;line-height:1}
-.promo-pop .pp-ev{display:block;text-decoration:none;color:var(--anthrazit);margin-bottom:10px;padding-right:14px}
+.promo-pop .pp-x{position:absolute;top:2px;right:2px;width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:0;font-size:20px;color:#5b6470;cursor:pointer;line-height:1}
+.promo-pop .pp-ev{display:block;text-decoration:none;color:var(--anthrazit);margin-bottom:10px;padding-right:30px}
 .promo-pop .pp-ev b{color:var(--blau-dd)}
-.promo-pop .pp-nl{display:flex;gap:10px;align-items:center;border-top:1px solid var(--hellgrau);padding-top:10px;cursor:pointer;color:var(--dunkel)}
-@media(max-width:520px){.promo-pop{left:10px;right:10px;max-width:none;bottom:12px}}
+.promo-pop .pp-nl{display:flex;gap:10px;align-items:center;width:100%;background:none;border:0;border-top:1px solid var(--hellgrau);padding:10px 0 0;cursor:pointer;color:var(--dunkel);font:inherit;text-align:left}
+@media(max-width:520px){.promo-pop{left:10px;right:10px;max-width:none;bottom:84px}}
 @media(max-width:700px){.bp-tickets{grid-template-columns:1fr!important}}
 
 /* ── N-10: Floatpanel-редизайн (крупнее, бренд-стиль) ── N10-FLOATPANEL */
@@ -754,3 +754,42 @@ body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
 .consent-bar .cb-ok{background:#fff;color:var(--anthrazit)}
 .consent-bar .cb-min{background:transparent;color:#cdd7e1;border:1.5px solid #5a6672}
 @media(max-width:520px){.consent-bar{font-size:13px;padding:12px 14px}}
+
+/* ══ WARROOM FUN-06: bikepark — .floatpanel и .bp-livepanel были ОБЕ
+   fixed right:14px; top:50%; translateY(-50%); z-index:55 (style.css:150/:335)
+   и накрывали друг друга. Раскладываем стопкой вокруг вертикального центра:
+   live-статус (≈230px, 3 блока) — НАД центром, тикет-шорткаты (4×58+гэпы
+   ≈262px) — ПОД. Стек ≈500px — влезает при vh ≥ ~560px (десктоп >900px,
+   на ≤900 обе панели и так скрыты старым правилом style.css:426). ══ */
+body.bikepark .bp-livepanel{top:calc(50% - 8px);transform:translateY(-100%);}
+body.bikepark .floatpanel{top:calc(50% + 8px);transform:none;}
+
+/* ══ WARROOM WA-01/WA-06 — контраст главных CTA и мелкого серого текста ══ */
+/* WA-01: белый на var(--blau) #75abd6 = 2.46:1 (фейл AA). → var(--blau-dd)
+   #33617f = 6.6:1. Переменные проверены в :root (стр.81): --blau-dd, --blau-deep есть.
+   hotel.html не задет: body.hotelbrand .btn.primary{#911233} (стр.624) специфичнее.
+   Тёмные band'ы Color-Draft: их белые .btn.primary (стр.694) специфичнее — остаются. */
+.btn.primary{background:var(--blau-dd);}
+.btn.primary:hover{background:var(--blau-deep);}
+.chip.active,.chip:hover{background:var(--blau-dd);color:#fff;}
+/* чипы внутри тёмных band'ов (Color-Draft стр.692 задавал var(--blau)) —
+   тоже темним + светлый бордер, чтобы чип не сливался с band-фоном */
+section[style*="var(--beige-l)"] .chip.active,
+section[style*="var(--beige-l)"] .chip:hover{background:var(--blau-dd);border-color:var(--hellblau);color:#fff;}
+/* hotelbrand: чипы в бордо — не тащим синий в палитру отеля (белый на #911233 ≈ 9:1) */
+body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;color:#fff;}
+/* Betriebszeiten: текущий период (стр.616 задавал var(--blau)) */
+.hb-chip.hb-current{background:var(--blau-dd);border-color:var(--blau-dd);}
+/* CTA на тёмных заливках (gruppen-.formbox, .newsletter, футер-.foot-nl):
+   blau-dd слился бы с градиентом blau-dd→blau — там кнопки белые,
+   по паттерну Color-Draft (стр.694). Стоит ПОСЛЕ hover-правила: при равной
+   специфичности с .btn.primary:hover побеждает порядок в файле. */
+.formbox .btn.primary,.newsletter .btn.primary,.foot-nl .btn.primary{background:#fff;color:var(--blau-dd);}
+.formbox .btn.primary:hover,.newsletter .btn.primary:hover,.foot-nl .btn.primary:hover{background:var(--hellblau-l);color:var(--blau-dd);}
+/* WA-06: var(--grau) #8b919b на белом = 3.17:1 → #5b6470 (6.0:1, уже юзается
+   в .season-note-фиксе стр.574). Классовые случаи: */
+.booking-card .field,.tc-note{color:#5b6470;}
+/* инлайновые случаи (wandern-билет-карточки <p class="small" style="color:var(--grau)">,
+   «ab/from» в booking-card) — инлайн бьётся только атрибут-селектором + !important: */
+.exp-card [style*="color:var(--grau)"],
+.booking-card [style*="color:var(--grau)"]{color:#5b6470!important;}

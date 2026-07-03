@@ -207,14 +207,86 @@ document.addEventListener('click', function(e){
     function fmt(iso){var p=iso.split('-');return (+p[2])+'.'+(+p[1])+'.';}
     var pop=document.createElement('div');
     pop.className='promo-pop';
-    pop.innerHTML='<button class="pp-x" aria-label="Schließen">×</button>'
+    pop.setAttribute('role','dialog');
+    pop.setAttribute('aria-label','Angebote & Events / Offers & events');
+    pop.innerHTML='<button class="pp-x" aria-label="Schließen / Close">×</button>'
       +(ev?'<a href="events.html" class="pp-ev">🎪 <span class="t-d"><b>'+ev[1]+'</b><br>'+fmt(ev[0])+' am Berg — alle Events →</span><span class="t-e"><b>'+ev[2]+'</b><br>'+fmt(ev[0])+' on the mountain — all events →</span></a>':'')
-      +'<div class="pp-nl"><img src="assets/hirschi/Hirschi-Brief.png" alt="" style="width:34px"><span class="t-d">Hirschi-Brief abonnieren — Saisonstart, Events & Angebote zuerst.</span><span class="t-e">Subscribe to the Hirschi letter — season openings, events & offers first.</span></div>';
+      +'<button type="button" class="pp-nl"><img src="assets/hirschi/Hirschi-Brief.png" alt="" style="width:34px"><span class="t-d">Hirschi-Brief abonnieren — Saisonstart, Events & Angebote zuerst.</span><span class="t-e">Subscribe to the Hirschi letter — season openings, events & offers first.</span></button>';
     document.body.appendChild(pop);
     requestAnimationFrame(function(){pop.classList.add('on');});
     function seen(){sessionStorage.setItem('promoSeen','1');}
     pop.querySelector('.pp-x').addEventListener('click',function(){seen();pop.classList.remove('on');setTimeout(function(){pop.remove();},400);});
     pop.querySelector('.pp-nl').addEventListener('click',function(){seen();var nl=document.querySelector('.foot-nl');if(nl){nl.scrollIntoView({behavior:'smooth',block:'center'});}pop.classList.remove('on');setTimeout(function(){pop.remove();},400);});
     var pe=pop.querySelector('.pp-ev'); if(pe) pe.addEventListener('click',seen);
+    document.addEventListener('keydown', function esc(ev){
+      if(!pop.parentNode){ document.removeEventListener('keydown',esc); return; }
+      if(ev.key!=='Escape') return;
+      document.removeEventListener('keydown',esc);
+      seen(); pop.classList.remove('on'); setTimeout(function(){pop.remove();},400);
+    });
   },9000);
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   KEYBOARD-A11Y — WA-03/04/07/12 (WARROOM_MOBILE_A11Y, 03.07.2026)
+   Runtime-шим для всех 76 страниц без пересборки генераторов:
+   role/tabindex для чипов-фильтров и 106 аккордеонов + aria-expanded/
+   aria-pressed. НЕ зависит от prefers-reduced-motion (a11y работает всегда).
+   app.js:64 уже ловит Enter/Space на [role="button"] → click; здесь только
+   атрибуты + фолбэк-keydown с гардом от двойного срабатывания.
+   Дублирования click-обработчиков нет: открытие по-прежнему делает app.js.
+   ═══════════════════════════════════════════════════════════════ */
+(function(){
+  var SEL='.chip[data-f],.accordion .ac h4,.grp-open,.season-toggle span,.lang-toggle span';
+  /* 1) role="button"/tabindex="0" — только где их нет; нативно фокусируемые
+        теги не трогаем (.grp-open = <a href>, чипы tickets = <a>) */
+  document.querySelectorAll(SEL).forEach(function(el){
+    var tg=el.tagName;
+    if(tg==='A'||tg==='BUTTON'||tg==='INPUT') return;
+    if(!el.hasAttribute('role')) el.setAttribute('role','button');
+    if(!el.hasAttribute('tabindex')) el.setAttribute('tabindex','0');
+  });
+  /* 2) aria-expanded: стартовое состояние аккордеонов (.ac h4 ×106, .hq-q) и бургера */
+  document.querySelectorAll('.accordion .ac h4').forEach(function(h){
+    h.setAttribute('aria-expanded', h.parentElement.classList.contains('open')?'true':'false');
+  });
+  document.querySelectorAll('.hq-q').forEach(function(q){
+    q.setAttribute('aria-expanded', q.parentElement.classList.contains('open')?'true':'false');
+  });
+  var brg=document.querySelector('.burger');
+  if(brg) brg.setAttribute('aria-expanded', document.body.classList.contains('navopen')?'true':'false');
+  /* 3) aria-pressed: чипы-фильтры + сезон/язык-тумблеры (WA-03/WA-07) */
+  function pressChips(){
+    document.querySelectorAll('.chip[data-f]').forEach(function(c){
+      c.setAttribute('aria-pressed', c.classList.contains('active')?'true':'false');
+    });
+  }
+  function pressToggles(){
+    document.querySelectorAll('.season-toggle span,.lang-toggle span').forEach(function(s){
+      s.setAttribute('aria-pressed', s.classList.contains('on')?'true':'false');
+    });
+  }
+  pressChips(); pressToggles();
+  /* 4) синк aria-* после клика: bubble-слушатель регистрируется ПОСЛЕ app.js
+        (motion.js подключён после app.js) → читает уже переключённые классы */
+  document.addEventListener('click', function(e){
+    var ah=e.target.closest('.accordion .ac h4');
+    if(ah) ah.setAttribute('aria-expanded', ah.parentElement.classList.contains('open')?'true':'false');
+    var hq=e.target.closest('.hq-q');
+    if(hq) hq.setAttribute('aria-expanded', hq.parentElement.classList.contains('open')?'true':'false');
+    if(brg && e.target.closest('.burger'))
+      brg.setAttribute('aria-expanded', document.body.classList.contains('navopen')?'true':'false');
+    if(e.target.closest('.chip[data-f]')) pressChips();
+    if(e.target.closest('.season-toggle span')||e.target.closest('.lang-toggle span')) pressToggles();
+  });
+  /* 5) фолбэк-keydown для динамических элементов без role="button".
+        Гард e.defaultPrevented: если app.js:64 уже обработал (он ставит
+        preventDefault перед click) — выходим, двойного click не будет. */
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Enter' && e.key!==' ') return;
+    if(e.defaultPrevented) return;
+    var t=e.target.closest(SEL); if(!t) return;
+    if(t.tagName==='A'||t.tagName==='BUTTON') return;
+    e.preventDefault(); t.click();
+  });
 })();
