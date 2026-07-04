@@ -83,6 +83,33 @@
       });
     });
   });
+
+  // ---- Erlebnis-Planer: Audience-Selector → Szenario-Spotlight + Aktivitäten-Highlight ----
+  document.querySelectorAll('[data-audbar]').forEach(function(bar){
+    var spots = document.querySelector('[data-audspots]');
+    var grid  = document.querySelector('[data-audgrid]');
+    bar.addEventListener('click', function(e){
+      var c = e.target.closest('.aud-chip'); if(!c) return;
+      bar.querySelectorAll('.aud-chip').forEach(x=>x.classList.remove('active'));
+      c.classList.add('active');
+      var aud = c.getAttribute('data-aud');
+      if(spots){ spots.querySelectorAll('.aud-spot').forEach(function(s){
+        s.hidden = (aud==='all' || s.getAttribute('data-aud')!==aud);
+      }); }
+      if(grid){
+        if(aud==='all'){
+          grid.classList.remove('aud-active');
+          grid.querySelectorAll('.exp-card').forEach(x=>x.classList.remove('match'));
+        } else {
+          grid.classList.add('aud-active');
+          grid.querySelectorAll('[data-cat]').forEach(function(card){
+            card.classList.toggle('match', card.getAttribute('data-cat').indexOf(aud)>-1);
+          });
+          if(spots){ var el=spots.querySelector('.aud-spot[data-aud="'+aud+'"]'); if(el){ el.scrollIntoView({behavior:'smooth',block:'nearest'}); } }
+        }
+      }
+    });
+  });
 })();
 
 /* ═══ CONSENT-GA4 (WR-P0-5, 04.07.2026) — согласие + гейтированная аналитика ═══

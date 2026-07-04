@@ -895,3 +895,37 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .pl-seg.pl-one{min-width:0;background:transparent;padding:5px 2px}
 .pl-seg.pl-one b{font-size:15px;color:var(--blau-dd)}
 .pl-star .pl-seg{background:var(--hellblau-l)}
+
+/* ── Erlebnis-Planer: Audience-Selector + Szenario-Spotlight (home) ── */
+.aud-selector{display:flex;gap:9px;flex-wrap:wrap;margin:6px 0 20px}
+.aud-chip{font-family:Montserrat;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--hellgrau);background:#fff;color:var(--blau-dd);cursor:pointer;transition:all .16s ease;line-height:1}
+.aud-chip:hover{border-color:var(--blau);transform:translateY(-1px)}
+.aud-chip.active{background:var(--blau-dd);border-color:var(--blau-dd);color:#fff;box-shadow:0 4px 14px rgba(30,60,90,.25)}
+.aud-spots{margin-bottom:6px}
+.aud-spot[hidden]{display:none!important}
+.aud-spot{display:grid;grid-template-columns:minmax(280px,42%) 1fr;gap:0;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--hellgrau);background:#fff;animation:audfade .28s ease}
+@keyframes audfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.aud-spot-media{position:relative;min-height:320px;background-size:cover;background-position:center}
+.aud-spot-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);color:var(--blau-dd);font-family:Montserrat;font-weight:800;font-size:13px;padding:6px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+.aud-spot-body{padding:26px 28px 24px}
+.aud-spot-title{font-family:Montserrat;font-weight:800;font-size:27px;color:var(--anthrazit);margin:2px 0 6px;line-height:1.1}
+.aud-spot-hook{font-size:16px;color:var(--dunkel);margin:0 0 14px;line-height:1.4}
+.aud-spot-lbl{font-family:Montserrat;font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--grau);margin:12px 0 7px}
+.aud-chiprow{display:flex;gap:8px;flex-wrap:wrap}
+.aud-actchip{font-size:13.5px;font-weight:700;font-family:Montserrat;text-decoration:none;padding:7px 13px;border-radius:999px;background:var(--blau-dd);color:#fff;transition:transform .14s}
+.aud-actchip:hover{transform:translateY(-1px);background:var(--blau)}
+.aud-svc{font-size:13px;padding:6px 12px;border-radius:999px;background:var(--hellblau-l);color:var(--blau-dd);border:1px solid var(--hellblau)}
+.aud-day{margin:16px 0 18px;font-family:Montserrat;font-weight:600;font-size:13.5px;color:var(--blau-dd);background:var(--beige-l);border-radius:12px;padding:11px 14px;line-height:1.5}
+.aud-day-ic{opacity:.8}
+.aud-spot-cta{margin-top:2px}
+.aud-more{font-size:13.5px;color:var(--grau);margin:2px 0 26px}
+.aud-more a{color:var(--blau-dd);font-weight:600;text-decoration:none}
+.aud-more a:hover{text-decoration:underline}
+.aud-actsheading{font-family:Montserrat;font-weight:800;font-size:22px;color:var(--anthrazit);margin:8px 0 14px}
+/* Подсветка подходящих активностей при выбранной аудитории */
+[data-audgrid] .exp-card{transition:box-shadow .2s,transform .2s,opacity .2s;position:relative}
+[data-audgrid].aud-active .exp-card:not(.match){opacity:.5}
+[data-audgrid].aud-active .exp-card.match{box-shadow:0 0 0 3px var(--blau),var(--shadow);transform:translateY(-2px)}
+[data-audgrid] .exp-card.match::after{content:"★";position:absolute;top:10px;right:10px;z-index:3;background:var(--blau-dd);color:#fff;width:26px;height:26px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+[data-audgrid].aud-active .exp-card.match::after{display:flex}
+@media(max-width:760px){.aud-spot{grid-template-columns:1fr}.aud-spot-media{min-height:200px}.aud-spot-title{font-size:23px}.aud-spot-body{padding:20px}}
