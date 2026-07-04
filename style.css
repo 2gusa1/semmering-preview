@@ -446,11 +446,13 @@ body.en .t-e{display:inline;}
 }
 
 /* P3 mobile fixes round 2 */
+.season-toggle .tico,.season-toggle .tlbl{padding:0!important;box-shadow:none!important;background:none!important;}
 @media(max-width:900px){
-  /* season toggle back on mobile — icons only */
-  .season-toggle{display:flex;}
-  .season-toggle span{font-size:0;padding:6px 9px;}
-  .season-toggle span svg{vertical-align:middle;}
+  /* season toggle bleibt sichtbar, aber nur Emoji-Icon (Text „Sommer/Winter" ausgeblendet) */
+  .season-toggle{display:flex!important;}
+  .season-toggle .tlbl{display:none;}
+  .season-toggle>span.s,.season-toggle>span.w{padding:6px 11px;}
+  .season-toggle .tico{font-size:15px;}
 }
 @media(max-width:540px){
   .hero h1,.hero .hero-h1{font-size:31px!important;letter-spacing:-1px;}
