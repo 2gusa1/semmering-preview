@@ -929,3 +929,7 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 [data-audgrid] .exp-card.match::after{content:"★";position:absolute;top:10px;right:10px;z-index:3;background:var(--blau-dd);color:#fff;width:26px;height:26px;border-radius:50%;display:none;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.3)}
 [data-audgrid].aud-active .exp-card.match::after{display:flex}
 @media(max-width:760px){.aud-spot{grid-template-columns:1fr}.aud-spot-media{min-height:200px}.aud-spot-title{font-size:23px}.aud-spot-body{padding:20px}}
+
+/* Hero-Video (home, Sommer) — drone-Loop, Poster = AIR-01 (LCP-Fallback) */
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+@media(prefers-reduced-motion:reduce){.hero-video{display:none}}
