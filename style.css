@@ -874,3 +874,21 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
   font-family:'Montserrat';font-size:14px;transition:.15s}
 .aud-acts a:hover{border-color:var(--blau);transform:translateY(-2px)}
 .aud-acts a .ic{color:var(--blau-dd);flex:0 0 auto}
+
+/* ═══ PRICELIST — заменяет плотные .tbl прайс-матрицы (моб-первый, группируемый) ═══ */
+.pricelist{margin:6px 0 2px}
+.pl-group+.pl-group{margin-top:20px}
+.pl-gtitle{display:flex;align-items:center;gap:10px;font-family:'Montserrat',system-ui,sans-serif;font-size:12px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blau-dd);margin:0 0 10px}
+.pl-gtitle::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(51,97,127,.22),transparent)}
+.pl-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 14px;padding:11px 15px;background:#fff;border:1px solid rgba(20,40,60,.09);border-radius:12px;margin-bottom:8px}
+.pl-row.pl-star{border:1.5px solid var(--blau);box-shadow:0 4px 16px rgba(80,134,179,.15)}
+.pl-name{flex:1 1 220px;font-weight:600;color:var(--anthrazit);font-size:14.5px;line-height:1.3}
+.pl-badge{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:var(--blau);border-radius:999px;padding:2px 9px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.pl-prices{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.pl-seg{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;min-width:66px;background:var(--v-page);border-radius:9px;padding:5px 9px;text-align:center}
+.pl-seg small{font-size:9px;text-transform:uppercase;letter-spacing:.03em;color:#8494a3;line-height:1.1;margin-bottom:1px}
+.pl-seg b{font-size:14.5px;color:var(--blau-dd);line-height:1.2;white-space:nowrap}
+.pl-seg.pl-muted b{color:#c2ccd4;font-weight:500}
+.pl-seg.pl-one{min-width:0;background:transparent;padding:5px 2px}
+.pl-seg.pl-one b{font-size:15px;color:var(--blau-dd)}
+.pl-star .pl-seg{background:var(--hellblau-l)}
