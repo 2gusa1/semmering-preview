@@ -528,7 +528,7 @@ html,body{overflow-x:hidden;max-width:100%;}
 
 /* ── Волна 2: белые горы-дивайдер под hero (бренд-графика) ── */
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:72px;z-index:1;pointer-events:none;
-  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 72" preserveAspectRatio="none"><path d="M0 72 L0 44 L120 12 L230 48 L360 4 L500 52 L620 20 L760 56 L890 8 L1020 46 L1120 28 L1200 40 L1200 72 Z" fill="white"/></svg>') bottom/100% 100% no-repeat;}
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 72" preserveAspectRatio="none"><path d="M0 72 L0 42 L190 32 L360 40 L500 20 L610 32 L780 8 L840 20 L940 50 L1050 34 L1150 42 L1200 38 L1200 72 Z" fill="white"/></svg>') bottom/100% 100% no-repeat;}
 .hero .wrap{padding-bottom:108px;}
 .hero .photo-tag{display:none;}
 
@@ -964,3 +964,17 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .hero-vidbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
 .hero-vidbtn svg{fill:currentColor;display:block;}
 @media (max-width:640px){.hero-vidbtn{width:44px;height:44px;right:12px;bottom:12px;}}
+
+
+/* Cross-Season-CTA am Seitenende (Brand Semmering Blau) — additiv */
+.xseason-cta{background:linear-gradient(135deg,var(--blau-dd),var(--blau-deep));color:#fff;}
+.xseason-cta .wrap{padding:26px 20px;}
+.xs-inner{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.xs-hirschi{width:54px;height:54px;border-radius:50%;background:#fff;padding:2px;flex:0 0 auto;object-fit:cover;}
+.xs-ico{font-size:26px;flex:0 0 auto;line-height:1;}
+.xs-txt{flex:1 1 320px;min-width:0;}
+.xs-txt b{display:block;font-family:'Montserrat';font-size:19px;margin-bottom:3px;color:#fff;}
+.xs-txt span{font-size:14px;opacity:.92;line-height:1.5;}
+.xseason-cta a.btn.primary.xs-btn{background:#fff;color:var(--blau-dd);flex:0 0 auto;}
+.xseason-cta a.btn.primary.xs-btn:hover{background:var(--hellblau);color:var(--blau-dd);}
+@media(max-width:640px){.xs-inner{gap:12px}.xs-txt{flex-basis:100%}.xseason-cta a.btn.primary.xs-btn{width:100%;text-align:center}}
