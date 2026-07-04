@@ -6,7 +6,9 @@
     document.querySelectorAll('.season-toggle .s').forEach(e=>e.classList.toggle('on', s!=='winter'));
     document.querySelectorAll('.season-toggle .w').forEach(e=>e.classList.toggle('on', s==='winter'));
   }
-  applySeason(localStorage.getItem('semmering_season') || 'summer');
+  // Saison-Default nach Datum (Nov–März = Winter, Apr–Okt = Sommer); manueller Toggle überschreibt & bleibt gespeichert.
+  function seasonByDate(){var m=new Date().getMonth()+1;return (m>=11||m<=3)?'winter':'summer';}
+  applySeason(localStorage.getItem('semmering_season') || seasonByDate());
 
   // ---- Language toggle DE/EN (default DE, persists across pages) ----
   var monthsDE=['Jän','Feb','März','Apr','Mai','Juni','Juli','Aug','Sep','Okt','Nov','Dez'];
