@@ -860,3 +860,17 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .tbl td:first-child{font-weight:600;}
 .tbl b{color:var(--blau-dd);}
 @media(max-width:520px){.tbl{font-size:13px;min-width:440px;}.tbl th,.tbl td{padding:9px 11px;}}
+
+/* ── INTERWEAVE: audience strip on activity/hub cards ── */
+.aud-strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:14px 0 4px;padding:12px 14px;
+  background:var(--hellblau-l);border-radius:12px}
+.aud-strip .aud-lb{font-family:'Montserrat';font-weight:700;font-size:13px;color:var(--blau-dd);white-space:nowrap}
+.aud-strip .aud-chips{display:flex;gap:8px;flex-wrap:wrap}
+.aud-strip .chip{background:#fff}
+/* ── INTERWEAVE: audience→activity block on scenario landings ── */
+.aud-acts{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:14px}
+.aud-acts a{display:flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--hellgrau);
+  border-radius:12px;padding:11px 13px;text-decoration:none;color:var(--anthrazit);font-weight:600;
+  font-family:'Montserrat';font-size:14px;transition:.15s}
+.aud-acts a:hover{border-color:var(--blau);transform:translateY(-2px)}
+.aud-acts a .ic{color:var(--blau-dd);flex:0 0 auto}
