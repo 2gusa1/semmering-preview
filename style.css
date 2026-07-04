@@ -935,3 +935,11 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 /* Hero-Video (home, Sommer) — drone-Loop, Poster = AIR-01 (LCP-Fallback) */
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
 @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
+
+/* Bergluft / Höhenluftkurort (wellness-spa) */
+.air-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:center;margin-top:6px}
+.air-stats{display:flex;flex-direction:column;gap:10px}
+.air-s{background:#fff;border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+.air-s b{font-family:Montserrat;font-weight:800;font-size:23px;color:var(--blau-dd);display:block}
+.air-s small{color:var(--dunkel);font-size:13px}
+@media(max-width:760px){.air-grid{grid-template-columns:1fr}}
