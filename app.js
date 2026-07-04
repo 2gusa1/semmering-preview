@@ -1,10 +1,11 @@
 // semmering.com прототип — интерактив (season + language toggle)
 (function(){
   // ---- Season toggle (persists across pages) ----
+  function _tog(el,on){ el.classList.toggle('on',on); el.setAttribute('aria-pressed', on?'true':'false'); }
   function applySeason(s){
     document.body.classList.toggle('winter', s==='winter');
-    document.querySelectorAll('.season-toggle .s').forEach(e=>e.classList.toggle('on', s!=='winter'));
-    document.querySelectorAll('.season-toggle .w').forEach(e=>e.classList.toggle('on', s==='winter'));
+    document.querySelectorAll('.season-toggle .s').forEach(e=>_tog(e, s!=='winter'));
+    document.querySelectorAll('.season-toggle .w').forEach(e=>_tog(e, s==='winter'));
   }
   // Saison-Default nach Datum (Nov–März = Winter, Apr–Okt = Sommer); manueller Toggle überschreibt & bleibt gespeichert.
   function seasonByDate(){var m=new Date().getMonth()+1;return (m>=11||m<=3)?'winter':'summer';}
@@ -21,8 +22,8 @@
   }
   function applyLang(l){
     document.body.classList.toggle('en', l==='en');
-    document.querySelectorAll('.lang-toggle .len').forEach(e=>e.classList.toggle('on', l==='en'));
-    document.querySelectorAll('.lang-toggle .lde').forEach(e=>e.classList.toggle('on', l!=='en'));
+    document.querySelectorAll('.lang-toggle .len').forEach(e=>_tog(e, l==='en'));
+    document.querySelectorAll('.lang-toggle .lde').forEach(e=>_tog(e, l!=='en'));
     document.documentElement.lang = l;
     setDates();
   }
@@ -45,6 +46,13 @@
     if(e.target.closest('.hp-close')){ var h2=document.getElementById('hirschi'); if(h2) h2.classList.remove('open'); return; }
     var hqq = e.target.closest('.hq-q');
     if(hqq){ hqq.parentElement.classList.toggle('open'); return; }
+  });
+
+  // ---- Tastatur-Aktivierung für role=button (Toggles ohne native button) ----
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Enter' && e.key!==' ' && e.key!=='Spacebar') return;
+    var b = e.target.closest('.season-toggle span, .lang-toggle span, [role="button"]');
+    if(b && (b.closest('.season-toggle') || b.closest('.lang-toggle'))){ e.preventDefault(); b.click(); }
   });
 
   // ---- Forms: mailto fallback (kein Backend nötig) ----
@@ -211,14 +219,29 @@
   });
 })();
 
-/* Hero-Video play-gate: preload=none → per JS starten; bei Save-Data/2G nur Poster (spart Daten mobil) */
+/* Hero-Video play-gate + Pause-Steuerung (WCAG 2.2.2): preload=none → per JS starten;
+   Save-Data/2G oder prefers-reduced-motion → nur Poster; Pause/Play-Button für alle. */
 (function(){
   var vids=document.querySelectorAll('video.hero-video'); if(!vids.length) return;
   var c=navigator.connection||{};
   var slow=c.saveData===true || (typeof c.effectiveType==='string' && c.effectiveType.indexOf('2g')>-1);
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var PLAY='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
+  var PAUSE='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   vids.forEach(function(v){
-    if(slow) return;                 // nur Poster
+    var host=v.parentElement; if(!host) return;
+    var btn=document.createElement('button');
+    btn.type='button'; btn.className='hero-vidbtn';
+    function label(){ var playing=!v.paused && !v.ended;
+      btn.setAttribute('aria-label', playing?'Video pausieren':'Video abspielen');
+      btn.innerHTML = playing?PAUSE:PLAY; }
+    btn.addEventListener('click', function(){
+      if(v.paused){ if(v.getAttribute('preload')==='none') v.preload='auto'; var q=v.play(); if(q&&q.catch) q.catch(function(){}); }
+      else v.pause(); });
+    v.addEventListener('play', label); v.addEventListener('pause', label);
+    host.appendChild(btn);
+    if(slow || reduce){ label(); return; }   // nur Poster; Button bietet Play
     if(v.getAttribute('preload')==='none') v.preload='auto';
-    var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){});
+    var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){}); label();
   });
 })();

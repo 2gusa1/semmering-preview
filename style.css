@@ -952,3 +952,15 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .dl-card b{font-family:'Montserrat';color:var(--blau-dd)}
 .dl-card small{color:var(--dunkel);font-size:12px}
 @media(max-width:640px){.dl-grid{grid-template-columns:1fr 1fr}}
+
+
+/* Hero-Video Pause/Play-Steuerung (WCAG 2.2.2) — additiv */
+.hero-vidbtn{position:absolute;right:16px;bottom:44px;z-index:4;width:40px;height:40px;
+  display:inline-flex;align-items:center;justify-content:center;padding:0;border-radius:50%;
+  background:rgba(18,28,46,.55);color:#fff;border:1px solid rgba(255,255,255,.55);cursor:pointer;
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);transition:background .15s,transform .15s;}
+.hero-vidbtn:hover{background:rgba(18,28,46,.8);}
+.hero-vidbtn:active{transform:scale(.94);}
+.hero-vidbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+.hero-vidbtn svg{fill:currentColor;display:block;}
+@media (max-width:640px){.hero-vidbtn{width:44px;height:44px;right:12px;bottom:12px;}}
