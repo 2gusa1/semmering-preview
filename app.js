@@ -210,3 +210,15 @@
       +'" style="font-weight:700;text-decoration:underline;color:inherit">'+to+'</a>.</span>';
   });
 })();
+
+/* Hero-Video play-gate: preload=none → per JS starten; bei Save-Data/2G nur Poster (spart Daten mobil) */
+(function(){
+  var vids=document.querySelectorAll('video.hero-video'); if(!vids.length) return;
+  var c=navigator.connection||{};
+  var slow=c.saveData===true || (typeof c.effectiveType==='string' && c.effectiveType.indexOf('2g')>-1);
+  vids.forEach(function(v){
+    if(slow) return;                 // nur Poster
+    if(v.getAttribute('preload')==='none') v.preload='auto';
+    var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){});
+  });
+})();
