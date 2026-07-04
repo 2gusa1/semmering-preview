@@ -943,3 +943,12 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .air-s b{font-family:Montserrat;font-weight:800;font-size:23px;color:var(--blau-dd);display:block}
 .air-s small{color:var(--dunkel);font-size:13px}
 @media(max-width:760px){.air-grid{grid-template-columns:1fr}}
+
+/* Downloads-Hub */
+.dl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:8px 0 20px}
+.dl-card{display:flex;flex-direction:column;gap:4px;background:#fff;border-radius:14px;padding:16px;box-shadow:var(--shadow);text-decoration:none;color:inherit;border:1px solid var(--hellgrau);transition:transform .14s}
+.dl-card:hover{transform:translateY(-2px)}
+.dl-ic{font-size:24px}
+.dl-card b{font-family:'Montserrat';color:var(--blau-dd)}
+.dl-card small{color:var(--dunkel);font-size:12px}
+@media(max-width:640px){.dl-grid{grid-template-columns:1fr 1fr}}
