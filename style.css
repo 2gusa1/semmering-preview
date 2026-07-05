@@ -12,7 +12,7 @@
   --beige:#d8cab7; --beige-l:#f6f0e7;
   --lichten:#1a2f5a; --lichten-2:#22407a; --lichten-acc:#7fae6f; --lichten-green:#244319;
   --red:#911233; --green:#07484b;
-  --bikedark:#16181c; --bikedark-2:#22262c; --orange:#e8633a; --gold:#c6a15b;
+  --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:#c6a15b; /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -41,7 +41,7 @@ h2.title{font-size:34px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
 .btn.ghost{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);color:#fff;}
 .btn.ghost:hover{background:rgba(255,255,255,.28);}
 .btn.dark{background:var(--anthrazit);color:#fff;}
-.btn.orange{background:var(--orange);color:#fff;}
+.btn.orange{background:var(--orange);color:var(--anthrazit);} /* яркий бренд-синий + тёмный текст: контраст на тёмном фоне байкпарка */
 .btn.orange:hover{filter:brightness(1.08);}
 .btn.sm{padding:9px 18px;font-size:13px;}
 
@@ -52,7 +52,7 @@ h2.title{font-size:34px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
 .notif .dot{width:7px;height:7px;border-radius:50%;background:#7fe08a;display:inline-block;margin-right:5px;
   box-shadow:0 0 0 3px rgba(127,224,138,.28);}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,224,138,.6);}70%{box-shadow:0 0 0 7px rgba(127,224,138,0);}100%{box-shadow:0 0 0 0 rgba(127,224,138,0);}}
-.notif .push{margin-left:auto;background:var(--orange);padding:3px 12px;border-radius:20px;font-weight:700;font-size:12.5px;}
+.notif .push{margin-left:auto;background:var(--hellblau-l);color:var(--blau-dd);padding:3px 12px;border-radius:20px;font-weight:700;font-size:12.5px;}
 
 /* ---------- header ---------- */
 header.site{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
@@ -296,8 +296,8 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 .statusrow .open{color:#7fe08a;font-weight:700;font-family:'Montserrat';font-size:13px;margin-left:auto;}
 .statusrow .closed{color:#ff7a6d;}
 .sticker20{display:inline-flex;align-items:center;justify-content:center;width:120px;height:120px;border-radius:50%;
-  background:var(--orange);color:#fff;font-family:'Montserrat';font-weight:900;text-align:center;line-height:1.05;
-  transform:rotate(-12deg);font-size:17px;box-shadow:0 8px 24px rgba(232,99,58,.4);padding:10px;}
+  background:var(--orange);color:var(--anthrazit);font-family:'Montserrat';font-weight:900;text-align:center;line-height:1.05;
+  transform:rotate(-12deg);font-size:17px;box-shadow:0 8px 24px rgba(51,97,127,.38);padding:10px;}
 
 /* ---------- activity detail ---------- */
 .adetail{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;align-items:start;margin-top:8px;}
@@ -554,6 +554,9 @@ body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns=
 /* ── Hirschi-позы у booking-card ── */
 .hpose{width:96px;display:block;margin:0 auto -10px;filter:drop-shadow(0 6px 14px rgba(20,40,60,.2));position:relative;z-index:2;}
 /* Свежий проход 05.07 — единый компонент карточки активности (act_card compact) */
+/* .actgrid — надёжная сетка для act_card (auto-fit, любое число, без orphan-хака .cardgrid) */
+.actgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:18px;}
+@media(max-width:430px){.actgrid{grid-template-columns:1fr 1fr;gap:11px;}}
 .actc .ph{height:130px;}
 .actc .body{padding:12px 14px 14px;}
 .actc-name{display:block;font-family:'Montserrat';font-weight:800;font-size:14.5px;color:var(--blau-dd);line-height:1.25;margin:0 0 8px;}
