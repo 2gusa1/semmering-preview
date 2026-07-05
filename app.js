@@ -276,7 +276,7 @@
 /* Reel-Videos (Hochformat auf Aktivitätsseiten): spielt beim Scrollen in den Blick, pausiert außerhalb.
    preload=none → erst laden, wenn sichtbar. reduced-motion → nur Poster. */
 (function(){
-  var reels=document.querySelectorAll('.reel-vid'); if(!reels.length || !('IntersectionObserver' in window)) return;
+  var reels=document.querySelectorAll('.reel-vid, .hv-v, .hir-anim-v'); if(!reels.length || !('IntersectionObserver' in window)) return;
   var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce) return; // nur Poster anzeigen
   var io=new IntersectionObserver(function(entries){
