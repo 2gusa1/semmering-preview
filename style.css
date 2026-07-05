@@ -1026,3 +1026,15 @@ footer.site .soc svg{width:19px;height:19px;}
 /* Tickets: Kategorie-Jump-Nav sticky beim Scrollen der Preistabellen */
 #shopnav{position:sticky;top:56px;z-index:40;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,.06);}
 @media(max-width:900px){#shopnav{top:52px;}}
+
+
+/* Mega-Footer (AREA47-inspiriert): granulare Kategorien + Partner-Strip — additiv */
+footer.site .cols.mega{grid-template-columns:minmax(220px,1.5fr) repeat(4,minmax(115px,1fr));gap:22px 18px;}
+footer.site .cols.mega .fcol-brand{max-width:none;}
+@media(max-width:1000px){footer.site .cols.mega{grid-template-columns:1fr 1fr 1fr;}footer.site .cols.mega .fcol-brand{grid-column:1/-1;}}
+@media(max-width:600px){footer.site .cols.mega{grid-template-columns:1fr 1fr;}}
+.fpartners{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:20px;}
+.fp-lbl{font-family:"Montserrat";font-weight:700;font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6);}
+.fp-strip{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.fp{background:#fff;border-radius:10px;padding:6px 11px;display:inline-flex;align-items:center;justify-content:center;height:44px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
+.fp img{height:30px;width:auto;display:block;}
