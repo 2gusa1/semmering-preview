@@ -288,3 +288,20 @@
   },{threshold:0.5});
   reels.forEach(function(v){ io.observe(v); });
 })();
+
+/* Preisrechner: Summe gewählter Erlebnisse × Personen (Sommer-Erwachsenenpreise) */
+document.querySelectorAll('[data-calc]').forEach(function(c){
+  var n=1;
+  function upd(){
+    var sum=0;
+    c.querySelectorAll('input[data-price]:checked').forEach(function(i){ sum+=parseFloat(i.getAttribute('data-price'))||0; });
+    var cn=c.querySelector('[data-cn]'), ct=c.querySelector('[data-ct]');
+    if(cn) cn.textContent=n;
+    if(ct) ct.textContent=(sum*n)+' €';
+  }
+  c.addEventListener('change',upd);
+  var cp=c.querySelector('[data-cp]'), cm=c.querySelector('[data-cm]');
+  if(cp) cp.addEventListener('click',function(){ n=Math.min(20,n+1); upd(); });
+  if(cm) cm.addEventListener('click',function(){ n=Math.max(1,n-1); upd(); });
+  upd();
+});

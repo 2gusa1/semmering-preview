@@ -1118,3 +1118,18 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .ig-tile.ig-vid{overflow:hidden;}
 .ig-tile.ig-vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
 .ig-tile.ig-vid .ig-ico{z-index:2;}
+
+/* Preisrechner (Bergtag) */
+.calc{max-width:520px;background:#fff;border-radius:16px;padding:16px 20px;box-shadow:var(--shadow);}
+.calc-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--hellgrau);cursor:pointer;font-size:15px;color:var(--anthrazit);}
+.calc-item input{width:18px;height:18px;accent-color:var(--blau);flex:none;cursor:pointer;}
+.calc-item span{flex:1;}
+.calc-item b{color:var(--blau-dd);font-family:"Montserrat",system-ui,sans-serif;white-space:nowrap;}
+.calc-people{display:flex;align-items:center;gap:12px;padding:12px 0;font-family:"Montserrat",system-ui,sans-serif;font-weight:600;color:var(--anthrazit);}
+.calc-people span{flex:1;}
+.calc-people button{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--blau);background:#fff;color:var(--blau-dd);font-size:19px;cursor:pointer;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .15s;}
+.calc-people button:hover{background:var(--hellblau-l);}
+.calc-people b{min-width:24px;text-align:center;font-size:17px;}
+.calc-total{display:flex;align-items:center;justify-content:space-between;padding:14px 0 6px;border-top:2px solid var(--blau);font-family:"Montserrat",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--grau);}
+.calc-total b{color:var(--blau-dd);font-size:26px;font-variant-numeric:tabular-nums;}
+.calc-tip{font-size:13px;color:var(--grau);margin:6px 0 2px;line-height:1.4;}
