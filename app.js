@@ -287,6 +287,11 @@
     });
   },{threshold:0.5});
   reels.forEach(function(v){ io.observe(v); });
+  document.addEventListener('visibilitychange', function(){
+    if(document.hidden){ reels.forEach(function(v){ v.pause(); }); return; }
+    var vh=window.innerHeight||document.documentElement.clientHeight;
+    reels.forEach(function(v){ var r=v.getBoundingClientRect(); if(r.bottom>0 && r.top<vh && v.offsetParent!==null){ var q=v.play(); if(q&&q.catch) q.catch(function(){}); } });
+  });
 })();
 
 /* Preisrechner: Summe gewählter Erlebnisse × Personen (Sommer-Erwachsenenpreise) */

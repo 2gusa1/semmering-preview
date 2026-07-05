@@ -50,7 +50,7 @@ h2.title{font-size:34px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px;}
 .notif .wrap{display:flex;align-items:center;gap:22px;height:38px;flex-wrap:wrap;overflow:hidden;}
 .notif b{font-weight:700;}
 .notif .dot{width:7px;height:7px;border-radius:50%;background:#7fe08a;display:inline-block;margin-right:5px;
-  box-shadow:0 0 0 0 rgba(127,224,138,.6);animation:pulse 2s infinite;}
+  box-shadow:0 0 0 3px rgba(127,224,138,.28);}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(127,224,138,.6);}70%{box-shadow:0 0 0 7px rgba(127,224,138,0);}100%{box-shadow:0 0 0 0 rgba(127,224,138,0);}}
 .notif .push{margin-left:auto;background:var(--orange);padding:3px 12px;border-radius:20px;font-weight:700;font-size:12.5px;}
 
@@ -147,6 +147,15 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 
 /* ---------- cards grid ---------- */
 .cardgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px;}
+/* einsame letzte Karte (3er-Grid, Rest 1) mittig statt links — nur Desktop */
+@media(min-width:768px){.cardgrid>*:last-child:nth-child(3n+1){grid-column:2;}}
+/* Sichtbare Breadcrumb (nur tiefe Zweige) */
+.crumbs{font-size:13px;padding:12px 0 2px;}
+.crumbs .wrap{display:flex;flex-wrap:wrap;gap:7px;align-items:center;}
+.crumbs a{color:var(--grau);text-decoration:none;}
+.crumbs a:hover{color:var(--blau);text-decoration:underline;}
+.crumbs .sep{color:var(--grau);opacity:.55;}
+.crumbs [aria-current]{color:var(--anthrazit);font-weight:600;}
 .cardgrid.c4{grid-template-columns:repeat(4,1fr);}
 .exp-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);transition:.2s;cursor:pointer;}
 .exp-card:hover{transform:translateY(-4px);}
@@ -210,7 +219,7 @@ footer.site .bottom{border-top:1px solid #4a443f;margin-top:34px;padding-top:18p
 /* ---------- hirschi ---------- */
 .hirschi{position:fixed;bottom:18px;left:18px;z-index:56;}
 .hirschi-fab{width:108px;height:108px;border-radius:50%;background:#fff;box-shadow:var(--shadow);border:none;
-  display:flex;align-items:center;justify-content:center;font-size:34px;cursor:pointer;animation:bob 3s ease-in-out infinite;}
+  display:flex;align-items:center;justify-content:center;font-size:34px;cursor:pointer;}
 .hirschi.open .hirschi-fab{animation:none;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
 .hirschi-panel{position:absolute;bottom:76px;left:0;width:320px;max-width:82vw;background:#fff;border-radius:16px;
@@ -535,7 +544,7 @@ body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns=
 
 /* ── Волна 2: часы работы — виджет вместо таблицы ── */
 .hb-now{display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
-.hb-now .stat{width:12px;height:12px;border-radius:50%;background:#7fe08a;flex:0 0 12px;animation:pulse 2s infinite;}
+.hb-now .stat{width:12px;height:12px;border-radius:50%;background:#7fe08a;flex:0 0 12px;box-shadow:0 0 0 3px rgba(127,224,138,.22);}
 .hb-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;}
 .hb-chip{background:#fff;border:1px solid var(--hellblau);border-radius:24px;padding:7px 14px;font-size:13.5px;color:var(--dunkel);}
 .hb-chip b{color:var(--blau-dd);}
