@@ -209,7 +209,7 @@ footer.site .bottom{border-top:1px solid #4a443f;margin-top:34px;padding-top:18p
 
 /* ---------- hirschi ---------- */
 .hirschi{position:fixed;bottom:18px;left:18px;z-index:56;}
-.hirschi-fab{width:64px;height:64px;border-radius:50%;background:#fff;box-shadow:var(--shadow);border:none;
+.hirschi-fab{width:108px;height:108px;border-radius:50%;background:#fff;box-shadow:var(--shadow);border:none;
   display:flex;align-items:center;justify-content:center;font-size:34px;cursor:pointer;animation:bob 3s ease-in-out infinite;}
 .hirschi.open .hirschi-fab{animation:none;}
 @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
@@ -229,7 +229,7 @@ footer.site .bottom{border-top:1px solid #4a443f;margin-top:34px;padding-top:18p
 .hq-a{display:none;padding:0 16px 12px;font-size:13.5px;color:var(--dunkel);line-height:1.5;}
 .hq.open .hq-a{display:block;}
 .hq-a a{display:inline-block;margin-top:6px;color:var(--blau-dd);font-weight:700;}
-@media(max-width:900px){.hirschi{bottom:12px;left:12px;}.hirschi-fab{width:56px;height:56px;font-size:30px;}}
+@media(max-width:900px){.hirschi{bottom:12px;left:12px;}.hirschi-fab{width:98px;height:98px;font-size:30px;}}
 
 /* ---------- season show/hide ---------- */
 .only-summer{display:block;} .only-winter{display:none;}
