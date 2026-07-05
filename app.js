@@ -31,7 +31,7 @@
 
   // ---- Delegated clicks ----
   document.addEventListener('click', function(e){
-    var st = e.target.closest('.season-toggle span');
+    var st = e.target.closest('.season-toggle .s, .season-toggle .w');
     if(st){ var s = st.classList.contains('w') ? 'winter' : 'summer';
       localStorage.setItem('semmering_season', s); applySeason(s); return; }
     var lt = e.target.closest('.lang-toggle span');
@@ -232,8 +232,9 @@
   var PAUSE='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   vids.forEach(function(v){
     var host=v.parentElement; if(!host) return;
+    var seas = v.classList.contains('only-winter')?' only-winter':(v.classList.contains('only-summer')?' only-summer':'');
     var btn=document.createElement('button');
-    btn.type='button'; btn.className='hero-vidbtn';
+    btn.type='button'; btn.className='hero-vidbtn'+seas;
     function label(){ var playing=!v.paused && !v.ended;
       btn.setAttribute('aria-label', playing?'Video pausieren':'Video abspielen');
       btn.innerHTML = playing?PAUSE:PLAY; }
@@ -246,7 +247,7 @@
     var EYE='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
     var TXT='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 5h18v2H3zm0 4h18v2H3zm0 4h12v2H3zm0 4h12v2H3z"/></svg>';
     var tbtn=document.createElement('button');
-    tbtn.type='button'; tbtn.className='hero-textbtn';
+    tbtn.type='button'; tbtn.className='hero-textbtn'+seas;
     function tlabel(){ var on=host.classList.contains('vidfocus');
       tbtn.setAttribute('aria-pressed', on?'true':'false');
       tbtn.setAttribute('aria-label', on?'Text wieder einblenden':'Text ausblenden und Video ansehen');
