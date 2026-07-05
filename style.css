@@ -1000,3 +1000,9 @@ footer.site .logo-img{height:32px;}
 }
 
 @media(max-width:900px){body.navopen nav.main{box-sizing:border-box;max-width:100vw;overflow-x:hidden;}}/*panelbox*/
+
+
+/* Live-Webcam YouTube-Embeds (16:9 responsiv) — additiv */
+.webcam-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#0a0a0a;}
+.webcam-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+.webcam-cap{font-family:"Montserrat";font-weight:700;font-size:13px;color:var(--blau-dd);margin-top:8px;text-align:center;}
