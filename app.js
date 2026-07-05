@@ -297,7 +297,8 @@ document.querySelectorAll('[data-calc]').forEach(function(c){
     c.querySelectorAll('input[data-price]:checked').forEach(function(i){ sum+=parseFloat(i.getAttribute('data-price'))||0; });
     var cn=c.querySelector('[data-cn]'), ct=c.querySelector('[data-ct]');
     if(cn) cn.textContent=n;
-    if(ct) ct.textContent=(sum*n)+' €';
+    var v=sum*n;
+    if(ct) ct.textContent=(Number.isInteger(v)? String(v) : v.toFixed(2).replace('.',','))+' €';
   }
   c.addEventListener('change',upd);
   var cp=c.querySelector('[data-cp]'), cm=c.querySelector('[data-cm]');
