@@ -1098,6 +1098,13 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
   .hirschi-fab,.hpose,.hir-live,.xs-hirschi{animation:none!important;}
 }
 
+/* Hirschi — echtes Higgsfield-Video (ersetzt statisches hir-live in der Buy-Card), runder Badge, reduced-motion-sicher */
+.hir-anim{float:right;width:96px;height:96px;margin:-6px -4px 6px 10px;border-radius:50%;overflow:hidden;
+  background:#fff;border:3px solid #fff;box-shadow:0 5px 16px rgba(20,40,60,.22);position:relative;}
+.hir-anim-v,.hir-anim-s{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 44%;display:block;}
+.hir-anim-s{display:none;}
+@media (prefers-reduced-motion:reduce){.hir-anim-v{display:none;}.hir-anim-s{display:block;}}
+
 /* Reel-Video (Hochformat, echte Semmering-Clips) auf Aktivitätsseiten */
 .act-reel{display:flex;gap:20px;align-items:center;margin:22px 0;flex-wrap:wrap;}
 .ar-frame{position:relative;width:196px;flex:0 0 196px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;
