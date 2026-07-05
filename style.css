@@ -553,6 +553,17 @@ body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns=
 
 /* ── Hirschi-позы у booking-card ── */
 .hpose{width:96px;display:block;margin:0 auto -10px;filter:drop-shadow(0 6px 14px rgba(20,40,60,.2));position:relative;z-index:2;}
+/* Свежий проход 05.07 — единый компонент карточки активности (act_card compact) */
+.actc .ph{height:130px;}
+.actc .body{padding:12px 14px 14px;}
+.actc-name{display:block;font-family:'Montserrat';font-weight:800;font-size:14.5px;color:var(--blau-dd);line-height:1.25;margin:0 0 8px;}
+.actc .act-meta{margin:0 0 8px;}
+.actc-more{color:var(--blau-dd);font-weight:700;font-family:'Montserrat';font-size:12.5px;}
+/* Сценарный маскот в hero — на классе, чтобы не наезжал на первую карточку на мобайле (был inline absolute bottom:-8px) */
+.scen-pose{width:90px;position:absolute;right:24px;bottom:-8px;z-index:2;filter:drop-shadow(0 6px 14px rgba(20,40,60,.25));}
+@media(max-width:768px){.scen-pose{width:60px;right:12px;bottom:10px;}}
+/* Длинные односоставные заголовки (Datenschutzerklärung, Geschäftsbedingungen) не обрезаются на узких экранах */
+h1.title,h2.title{overflow-wrap:break-word;}
 
 /* ── HO-1: страница отеля в бренд-цветах Sporthotel (бордо #911233) ── */
 body.hotelbrand .eyebrow{color:#911233;}
