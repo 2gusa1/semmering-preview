@@ -261,3 +261,19 @@
     var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){}); label();
   });
 })();
+
+/* Reel-Videos (Hochformat auf Aktivitätsseiten): spielt beim Scrollen in den Blick, pausiert außerhalb.
+   preload=none → erst laden, wenn sichtbar. reduced-motion → nur Poster. */
+(function(){
+  var reels=document.querySelectorAll('.reel-vid'); if(!reels.length || !('IntersectionObserver' in window)) return;
+  var reduce=window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return; // nur Poster anzeigen
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v=e.target;
+      if(e.isIntersecting){ if(v.getAttribute('preload')==='none') v.preload='auto'; var q=v.play(); if(q&&q.catch) q.catch(function(){}); }
+      else { v.pause(); }
+    });
+  },{threshold:0.5});
+  reels.forEach(function(v){ io.observe(v); });
+})();
