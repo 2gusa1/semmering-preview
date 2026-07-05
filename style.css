@@ -1105,6 +1105,11 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .hir-anim-s{display:none;}
 @media (prefers-reduced-motion:reduce){.hir-anim-v{display:none;}.hir-anim-s{display:block;}}
 
+/* Hirschi-Video-Sticker (hvid) — animierte Posen, ersetzt statische PNGs; reduced-motion → PNG-Fallback */
+.hvid .hv-s{display:none;}
+.hvid .hv-v{display:block;}
+@media (prefers-reduced-motion:reduce){.hvid .hv-v{display:none;}.hvid .hv-s{display:block;}}
+
 /* Reel-Video (Hochformat, echte Semmering-Clips) auf Aktivitätsseiten */
 .act-reel{display:flex;gap:20px;align-items:center;margin:22px 0;flex-wrap:wrap;}
 .ar-frame{position:relative;width:196px;flex:0 0 196px;aspect-ratio:9/16;border-radius:18px;overflow:hidden;
