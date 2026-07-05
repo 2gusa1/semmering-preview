@@ -1107,3 +1107,10 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .ar-cap .ar-lbl{font-family:'Montserrat',system-ui,sans-serif;font-weight:800;font-size:12px;letter-spacing:.07em;text-transform:uppercase;color:var(--blau-dd);}
 .ar-cap p{font-size:15.5px;color:var(--dunkel);margin-top:7px;line-height:1.4;}
 @media(max-width:560px){.act-reel{gap:14px;}.ar-frame{width:150px;flex-basis:150px;}}
+
+/* Bikepark-Trail §Charakter/Für wen/Tipp (dunkle Welt) */
+.trail-cwt{display:grid;gap:11px;margin:14px 0 18px;background:#16181c;border:1px solid #2a2e35;border-radius:14px;padding:16px 18px;}
+.cwt-i{display:flex;gap:12px;align-items:flex-start;}
+.cwt-ic{color:var(--orange,#f0743a);font-size:14px;line-height:1.7;flex:none;}
+.cwt-l{display:block;font-family:"Montserrat",system-ui,sans-serif;font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8b929c;}
+.cwt-i p{color:#dfe3e8;font-size:15px;margin:2px 0 0;line-height:1.4;}
