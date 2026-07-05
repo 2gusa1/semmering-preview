@@ -242,6 +242,20 @@
       else v.pause(); });
     v.addEventListener('play', label); v.addEventListener('pause', label);
     host.appendChild(btn);
+    /* Text-Ausblenden-Toggle (Gafs 05.07: Text über Hero verdeckt das Video) */
+    var EYE='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 5C5 5 1 12 1 12s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 110-10 5 5 0 010 10zm0-8a3 3 0 100 6 3 3 0 000-6z"/></svg>';
+    var TXT='<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 5h18v2H3zm0 4h18v2H3zm0 4h12v2H3zm0 4h12v2H3z"/></svg>';
+    var tbtn=document.createElement('button');
+    tbtn.type='button'; tbtn.className='hero-textbtn';
+    function tlabel(){ var on=host.classList.contains('vidfocus');
+      tbtn.setAttribute('aria-pressed', on?'true':'false');
+      tbtn.setAttribute('aria-label', on?'Text wieder einblenden':'Text ausblenden und Video ansehen');
+      tbtn.innerHTML = (on?TXT:EYE)+'<span>'+(on?'Text':'Video')+'</span>'; }
+    tbtn.addEventListener('click', function(){
+      var on=host.classList.toggle('vidfocus');
+      if(on && v.paused){ if(v.getAttribute('preload')==='none') v.preload='auto'; var q=v.play(); if(q&&q.catch) q.catch(function(){}); }
+      tlabel(); });
+    host.appendChild(tbtn); tlabel();
     if(slow || reduce){ label(); return; }   // nur Poster; Button bietet Play
     if(v.getAttribute('preload')==='none') v.preload='auto';
     var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){}); label();

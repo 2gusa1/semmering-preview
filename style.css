@@ -965,6 +965,18 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .hero-vidbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
 .hero-vidbtn svg{fill:currentColor;display:block;}
 @media (max-width:640px){.hero-vidbtn{width:44px;height:44px;right:12px;bottom:12px;}}
+/* Hero-Text-Ausblenden-Toggle (Gafs: Text verdeckt das Video) */
+.hero-textbtn{position:absolute;right:16px;bottom:92px;z-index:4;display:inline-flex;align-items:center;gap:6px;
+  height:40px;padding:0 14px;border-radius:20px;background:rgba(18,28,46,.55);color:#fff;border:1px solid rgba(255,255,255,.55);
+  font-family:'Montserrat',system-ui,sans-serif;font-size:13px;font-weight:600;cursor:pointer;
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);transition:background .15s,transform .15s;}
+.hero-textbtn:hover{background:rgba(18,28,46,.8);}
+.hero-textbtn:active{transform:scale(.95);}
+.hero-textbtn:focus-visible{outline:3px solid #fff;outline-offset:2px;}
+.hero-textbtn svg{fill:currentColor;display:block;flex:none;}
+.hero .wrap{transition:opacity .35s ease;}
+.hero.vidfocus .wrap{opacity:0;pointer-events:none;}
+@media (max-width:640px){.hero-textbtn{right:12px;bottom:64px;height:38px;padding:0 12px;font-size:12px;}}
 
 
 /* Cross-Season-CTA am Seitenende (Brand Semmering Blau) — additiv */
