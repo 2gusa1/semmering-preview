@@ -1114,3 +1114,7 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .cwt-ic{color:var(--orange,#f0743a);font-size:14px;line-height:1.7;flex:none;}
 .cwt-l{display:block;font-family:"Montserrat",system-ui,sans-serif;font-weight:800;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#8b929c;}
 .cwt-i p{color:#dfe3e8;font-size:15px;margin:2px 0 0;line-height:1.4;}
+/* IG-Feed: Video-Kacheln (echte Reels, spielen beim Scrollen) */
+.ig-tile.ig-vid{overflow:hidden;}
+.ig-tile.ig-vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.ig-tile.ig-vid .ig-ico{z-index:2;}
