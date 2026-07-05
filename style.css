@@ -980,3 +980,9 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 @media(max-width:640px){.xs-inner{gap:12px}.xs-txt{flex-basis:100%}.xseason-cta a.btn.primary.xs-btn{width:100%;text-align:center}}
 
 @media (max-width:640px){.hero::after{height:66px}}
+
+
+/* Echtes Marken-Logo (Header blau / Footer weiß) — additiv */
+.logo-img{height:30px;width:auto;display:block;}
+footer.site .logo-img{height:32px;}
+@media (max-width:640px){.logo-img{height:22px;}}
