@@ -257,9 +257,20 @@
       tlabel(); });
     host.appendChild(tbtn); tlabel();
     if(slow || reduce){ label(); return; }   // nur Poster; Button bietet Play
-    if(v.getAttribute('preload')==='none') v.preload='auto';
-    var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){}); label();
+    if(v.offsetParent!==null){ if(v.getAttribute('preload')==='none') v.preload='auto'; var p=v.play(); if(p&&typeof p.catch==='function') p.catch(function(){}); }
+    label();
   });
+  // Saisonwechsel: nur das sichtbare Saison-Hero-Video spielt, verstecktes pausiert (spart Bandbreite)
+  if(!slow && !reduce){
+    document.querySelectorAll('.season-toggle .s, .season-toggle .w').forEach(function(btn){
+      btn.addEventListener('click', function(){ setTimeout(function(){
+        vids.forEach(function(v){
+          if(v.offsetParent!==null){ if(v.getAttribute('preload')==='none') v.preload='auto'; var q=v.play(); if(q&&q.catch) q.catch(function(){}); }
+          else { v.pause(); }
+        });
+      },60); });
+    });
+  }
 })();
 
 /* Reel-Videos (Hochformat auf Aktivitätsseiten): spielt beim Scrollen in den Blick, pausiert außerhalb.
