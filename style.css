@@ -976,6 +976,7 @@ body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
 .dl-card b{font-family:'Montserrat';color:var(--blau-dd)}
 .dl-card small{color:var(--dunkel);font-size:12px}
 @media(max-width:640px){.dl-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:641px){.dl-grid>*:last-child:nth-child(3n+1){grid-column:2}} /* центрировать одиночку в неполном ряду (как .cardgrid) */
 
 
 /* Hero-Video Pause/Play-Steuerung (WCAG 2.2.2) — additiv */
