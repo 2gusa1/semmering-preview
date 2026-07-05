@@ -1072,3 +1072,16 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .am-d2 .am-seg.on{background:#e0a53b;}
 .am-d3 .am-seg.on{background:#c85a44;}
 .am-k{color:var(--grau);}
+
+/* Hirschi §Belebung (Variante C ohne Higgsfield) — dezente Idle-Bewegung der Maskottchen-Illustrationen + Hover-Reaktion, reduced-motion-sicher */
+@media (prefers-reduced-motion:no-preference){
+  .hpose,.hir-live{animation:hir-sway 4.6s ease-in-out infinite;transform-origin:50% 92%;will-change:transform;}
+  .hpose:hover,.hir-live:hover{animation:hir-hop .6s ease;}
+  .xs-hirschi{animation:hir-bob 3.4s ease-in-out infinite;transform-origin:50% 90%;}
+  @keyframes hir-sway{0%,100%{transform:translateY(0) rotate(-1.3deg);}50%{transform:translateY(-7px) rotate(1.3deg);}}
+  @keyframes hir-bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-5px);}}
+  @keyframes hir-hop{0%{transform:translateY(0) rotate(0);}35%{transform:translateY(-14px) rotate(-7deg);}65%{transform:translateY(0) rotate(5deg);}100%{transform:translateY(0) rotate(0);}}
+}
+@media (prefers-reduced-motion:reduce){
+  .hirschi-fab,.hpose,.hir-live,.xs-hirschi{animation:none!important;}
+}
