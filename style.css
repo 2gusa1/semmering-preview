@@ -1038,3 +1038,23 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .fp-strip{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
 .fp{background:#fff;border-radius:10px;padding:6px 11px;display:inline-flex;align-items:center;justify-content:center;height:44px;box-shadow:0 2px 8px rgba(0,0,0,.15);}
 .fp img{height:30px;width:auto;display:block;}
+
+/* Tickets §density — sammelbare Sekundär-Tarife (native details) + Stat-Strip + Foto-Divider-Bänder */
+.pl-fold{margin:14px 0 2px;border:1px solid rgba(20,40,60,.1);border-radius:14px;background:#fff;overflow:hidden;}
+.pl-fold>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:14px 16px;font-family:"Montserrat",system-ui,sans-serif;font-weight:700;font-size:14.5px;color:var(--blau-dd);user-select:none;}
+.pl-fold>summary::-webkit-details-marker{display:none;}
+.pl-fold>summary::after{content:"▾";margin-left:auto;font-size:13px;color:var(--blau);transition:transform .2s;}
+.pl-fold[open]>summary::after{transform:rotate(180deg);}
+.pl-fold>summary:hover{background:var(--hellblau-l);}
+.pl-fold .pl-hint{font-weight:500;font-size:12px;color:var(--grau);letter-spacing:0;text-transform:none;}
+.pl-foldbody{padding:2px 16px 14px;}
+.pl-foldbody .pricelist{margin-top:2px;}
+.tk-stats{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 6px;}
+.tk-stat{flex:1 1 130px;background:#fff;border:1px solid rgba(20,40,60,.09);border-radius:14px;padding:14px 12px;text-align:center;}
+.tk-stat b{display:block;font-family:"Montserrat",system-ui,sans-serif;font-size:26px;font-weight:800;color:var(--blau-dd);line-height:1;}
+.tk-stat small{display:block;margin-top:6px;font-size:11.5px;color:var(--grau);text-transform:uppercase;letter-spacing:.04em;}
+.tk-band{position:relative;height:132px;border-radius:16px;overflow:hidden;margin:26px 0 12px;background-size:cover;background-position:center;display:flex;align-items:flex-end;}
+.tk-band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,25,40,.15) 30%,rgba(10,25,40,.62));}
+.tk-band h2{position:relative;z-index:1;margin:0;padding:0 22px 16px;color:#fff;font-size:26px;text-shadow:0 2px 14px rgba(0,0,0,.55);}
+.tk-band .bsub{position:relative;z-index:1;margin-left:auto;padding:0 22px 18px;color:rgba(255,255,255,.9);font-size:12.5px;font-weight:600;font-family:"Montserrat",system-ui,sans-serif;align-self:flex-end;}
+@media(max-width:600px){.tk-stat b{font-size:22px;}.tk-band{height:104px;}.tk-band h2{font-size:20px;}.tk-band .bsub{display:none;}}
