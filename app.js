@@ -306,3 +306,17 @@ document.querySelectorAll('[data-calc]').forEach(function(c){
   if(cm) cm.addEventListener('click',function(){ n=Math.max(1,n-1); upd(); });
   upd();
 });
+
+/* FAQ-Suche: filtert .ac-Akkordeons live nach Stichwort (season-hidden bleibt versteckt) */
+document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
+  var nohit=document.querySelector('[data-faqnohit]');
+  inp.addEventListener('input',function(){
+    var q=inp.value.trim().toLowerCase(), any=false;
+    document.querySelectorAll('.accordion .ac').forEach(function(ac){
+      var m=!q || (ac.textContent||'').toLowerCase().indexOf(q)>-1;
+      ac.style.display=m?'':'none';
+      if(m && q && ac.offsetParent!==null) any=true;
+    });
+    if(nohit) nohit.hidden=(!q || any);
+  });
+});
