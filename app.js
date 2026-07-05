@@ -40,6 +40,8 @@
     var ah = e.target.closest('.accordion .ac h4');
     if(ah){ ah.parentElement.classList.toggle('open'); }
     if(e.target.closest('.burger')){ document.body.classList.toggle('navopen'); }
+    var navt = e.target.closest('.nav-toggle');
+    if(navt){ e.preventDefault(); var ni=navt.closest('.navitem'); if(ni){ var op=ni.classList.toggle('open'); navt.setAttribute('aria-expanded', op?'true':'false'); } return; }
     // ---- Hirschi assistant ----
     var hf = e.target.closest('.hirschi-fab');
     if(hf){ var hr=document.getElementById('hirschi'); if(hr) hr.classList.toggle('open'); return; }
