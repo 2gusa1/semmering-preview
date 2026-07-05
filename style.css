@@ -1006,3 +1006,10 @@ footer.site .logo-img{height:32px;}
 .webcam-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:#0a0a0a;}
 .webcam-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
 .webcam-cap{font-family:"Montserrat";font-weight:700;font-size:13px;color:var(--blau-dd);margin-top:8px;text-align:center;}
+
+
+/* Social-Icon-Bar (Footer) — additiv */
+.social-bar{display:flex;gap:9px;margin:8px 0 2px;}
+footer.site .soc{width:38px;height:38px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.12);color:#fff;transition:background .15s,color .15s;padding:0;flex:0 0 auto;}
+footer.site .soc:hover{background:#fff;color:var(--blau-dd);}
+footer.site .soc svg{width:19px;height:19px;}
