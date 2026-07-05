@@ -84,7 +84,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 /* ---------- hero ---------- */
 .hero{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;overflow:hidden;}
 .hero .bg{position:absolute;inset:0;z-index:0;}
-.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,34,54,.28) 0%,rgba(18,34,54,.10) 42%,rgba(18,34,54,.66) 100%);}
+.hero .bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,34,54,.30) 0%,rgba(18,34,54,.12) 38%,rgba(18,34,54,.56) 76%,rgba(18,34,54,.82) 100%);} /* усилен низ для читаемости белого текста на светлых фото (tagesgast/senioren) */
 .hero .wrap{position:relative;z-index:2;padding-bottom:54px;}
 .hero .photo-tag{position:absolute;top:14px;right:18px;z-index:2;font-size:11px;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.55);
   font-family:'Montserrat';letter-spacing:1px;}
@@ -303,8 +303,8 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 .adetail{display:grid;grid-template-columns:1.4fr 1fr;gap:34px;align-items:start;margin-top:8px;}
 .booking-card{position:sticky;top:120px;background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:24px;border:1px solid var(--hellgrau);}
 .booking-card .price{font-family:'Montserrat';font-weight:800;font-size:32px;color:var(--anthrazit);}
-.booking-card .row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--hellgrau);font-size:15px;}
-.booking-card .row b{font-family:'Montserrat';}
+.booking-card .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--hellgrau);font-size:15px;}
+.booking-card .row b{font-family:'Montserrat';text-align:right;overflow-wrap:anywhere;} /* длинные значения (schneeschuh «Optional: Bergfahrt…») переносятся, не наезжают на label */
 .booking-card .field{color:var(--grau);}
 .tip{background:#fff8e9;border:1px solid #f0dca8;border-radius:10px;padding:12px 16px;margin:14px 0;font-size:14.5px;}
 .tip b{color:#b3870c;}
