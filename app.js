@@ -353,3 +353,25 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
     } else { inview=true; }
   });
 })();
+
+
+/* A11Y: accordion headers keyboard-accessible (additive 2026-07-06) */
+(function(){
+  function syncExp(h){var ac=h.closest('.ac'); if(ac) h.setAttribute('aria-expanded', ac.classList.contains('open')?'true':'false');}
+  function initAcc(){
+    document.querySelectorAll('.accordion .ac > h4').forEach(function(h){
+      if(h.getAttribute('role')==='button') return;
+      h.setAttribute('role','button'); h.setAttribute('tabindex','0'); syncExp(h);
+    });
+  }
+  if(document.readyState!=='loading') initAcc(); else document.addEventListener('DOMContentLoaded', initAcc);
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Enter' && e.key!==' ' && e.key!=='Spacebar') return;
+    var h=e.target.closest('.accordion .ac > h4'); if(!h) return;
+    e.preventDefault(); h.click();
+  });
+  document.addEventListener('click', function(e){
+    var h=e.target.closest('.accordion .ac > h4'); if(!h) return;
+    setTimeout(function(){ syncExp(h); }, 0);
+  });
+})();
