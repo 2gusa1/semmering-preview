@@ -1283,3 +1283,8 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 /* Reel-Videos groesser auf Aktivitaeten (additive 2026-07-06) */
 .ar-frame{width:300px;flex:0 0 300px;}
 @media(max-width:560px){.ar-frame{width:240px;flex-basis:240px;}}
+
+
+/* R-05: CTA-Kontrast WCAG AA (additive 2026-07-07) — Primary dunkler, weisser Text >4.5:1 */
+.btn.primary{background:var(--blau-dd);}
+.btn.primary:hover{background:var(--blau-deep);}

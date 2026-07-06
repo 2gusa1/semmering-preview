@@ -375,3 +375,22 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
     setTimeout(function(){ syncExp(h); }, 0);
   });
 })();
+
+
+/* R-06: Filter-Chips (data-f) tastaturzugaenglich (additive 2026-07-07) */
+(function(){
+  function initChips(){
+    document.querySelectorAll('.chip[data-f]').forEach(function(c){
+      if(c.getAttribute('role')==='button') return;
+      c.setAttribute('role','button'); c.setAttribute('tabindex','0');
+      if(c.getAttribute('aria-pressed')===null) c.setAttribute('aria-pressed', (c.classList.contains('active')||c.classList.contains('on'))?'true':'false');
+    });
+  }
+  if(document.readyState!=='loading') initChips(); else document.addEventListener('DOMContentLoaded', initChips);
+  document.addEventListener('keydown', function(e){
+    if(e.key!=='Enter' && e.key!==' ' && e.key!=='Spacebar') return;
+    var c=e.target.closest('.chip[data-f]'); if(!c) return;
+    e.preventDefault(); c.click();
+    setTimeout(function(){ c.setAttribute('aria-pressed', (c.classList.contains('active')||c.classList.contains('on'))?'true':'false'); },0);
+  });
+})();
