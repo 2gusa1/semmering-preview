@@ -557,8 +557,9 @@ body.hotelbrand .hero::after{background:url('assets/mountain-mask-cream.png') bo
 footer.site{position:relative;margin-top:52px;}
 footer.site::before{content:"";position:absolute;left:0;right:0;top:0;transform:translateY(-100%);height:52px;background:url('assets/mountain-mask-footer.png') bottom/100% 100% no-repeat;pointer-events:none;}
 /* Gafs 06.07: Marken-Aktivitäts-Icon (Semmering-Piktogramme) als Badge auf Aktivitätskarten */
-.exp-card .ph{position:relative;}
-.actc-ico{position:absolute;top:8px;left:8px;width:40px;height:40px;border-radius:9px;box-shadow:0 2px 9px rgba(0,0,0,.30);border:1.5px solid rgba(255,255,255,.9);z-index:2;}
+.exp-card .body{position:relative;}
+.actc-ico{position:absolute;top:14px;right:14px;width:50px;height:50px;border-radius:11px;box-shadow:0 2px 8px rgba(20,30,45,.15);z-index:2;}
+.exp-card .body .tags{padding-right:58px;}
 
 /* ── Волна 2: часы работы — виджет вместо таблицы ── */
 .hb-now{display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
