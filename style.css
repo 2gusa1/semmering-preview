@@ -75,7 +75,11 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .burger{display:none;font-size:24px;cursor:pointer;color:var(--blau-dd);background:none;border:none;}
 
 /* ---------- right floating panel ---------- */
-.floatpanel{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:55;
+/* Gafs 06.07: Rail war top:50% (Viewport-Mitte) — auf hohen/Hochformat-Screens
+   rutschte er nach unten und überdeckte die Hero-Video-Controls (.hero-textbtn/.hero-vidbtn,
+   die absolut am Hero-BODEN sitzen). Fix: Rail oben-rechts unter dem Header verankern
+   (top:132px) → immer klar ÜBER den Video-Controls, auf jeder Screenhöhe. */
+.floatpanel{position:fixed;right:14px;top:132px;transform:none;z-index:55;
   display:flex;flex-direction:column;gap:8px;}
 .floatpanel a{width:46px;height:46px;border-radius:50%;background:#fff;box-shadow:var(--shadow);
   display:flex;align-items:center;justify-content:center;font-size:19px;color:var(--blau-dd);transition:.15s;}
