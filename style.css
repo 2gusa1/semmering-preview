@@ -561,14 +561,14 @@ footer.site::before{content:"";position:absolute;left:0;right:0;top:0;transform:
 .actc-ico{position:absolute;top:14px;right:14px;width:50px;height:50px;border-radius:11px;box-shadow:0 2px 8px rgba(20,30,45,.15);z-index:2;}
 .exp-card .body .tags{padding-right:58px;}
 /* Gafs 06.07: Hirschi-Hint — kleine Sprechblase am Maskottchen, signalisiert „Fragen-Helfer" (blendet nach ~8s aus / bei geöffnetem Panel) */
-.hirschi-hint{position:absolute;left:74px;bottom:16px;max-width:198px;background:#fff;color:var(--anthrazit);border-radius:13px;padding:8px 13px;font-size:12.5px;line-height:1.35;box-shadow:0 6px 20px rgba(10,25,45,.20);z-index:54;animation:hhin .5s ease .9s both, hhout .6s ease 8s both;}
+.hirschi-hint{position:absolute;left:74px;bottom:20px;width:212px;background:#fff;color:var(--anthrazit);border-radius:13px;padding:9px 14px;font-size:12.5px;line-height:1.4;box-shadow:0 6px 20px rgba(10,25,45,.20);z-index:54;animation:hhin .5s ease .9s both, hhout .6s ease 8s both;}
 .hirschi-hint b{color:var(--blau-dd)}
 .hirschi-hint::after{content:"";position:absolute;left:-7px;bottom:20px;border:7px solid transparent;border-right-color:#fff}
 .hirschi.open .hirschi-hint{display:none}
 @keyframes hhin{from{opacity:0;transform:translateX(-10px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes hhout{to{opacity:0;transform:translateX(-8px);visibility:hidden}}
 @media(prefers-reduced-motion:reduce){.hirschi-hint{animation:none}}
-@media(max-width:560px){.hirschi-hint{max-width:150px;font-size:11.5px;left:66px}}
+@media(max-width:560px){.hirschi-hint{width:168px;font-size:11.5px;left:66px}}
 
 /* ── Волна 2: часы работы — виджет вместо таблицы ── */
 .hb-now{display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
