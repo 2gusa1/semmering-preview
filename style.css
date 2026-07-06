@@ -548,7 +548,7 @@ body.hotelbrand .hero::after{background:url('assets/mountain-mask-cream.png') bo
 .hero .photo-tag{display:none;}
 /* Gafs 06.07: Hero-VIDEO-Seiten fast vollflächig — immersives Video beim Einstieg statt Info-Overload;
    die weißen Berge maskieren den Übergang wie auf semmering.com. NUR Video-Heroes (nicht Content-Heroes). */
-.hero:has(.hero-video){min-height:92vh;}
+.hero:has(.hero-video){min-height:92vh!important;}
 .hero:has(.hero-video)::after{height:132px;}
 .hero:has(.hero-video) .wrap{padding-bottom:132px;}
 /* Gafs 06.07: ▲▲▲ Marken-Divider (triangels.svg — exakt vom Original semmering.com) über jeder Sektions-Eyebrow */
