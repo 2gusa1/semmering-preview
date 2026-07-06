@@ -394,22 +394,25 @@ body.en .t-e{display:inline;}
 .btn.ghost2:hover{background:var(--blau-dd);color:#fff;}
 
 /* ===== Temp-Compare Wien vs Semmering (Sommerfrische) ===== */
-/* Gafs 06.07: temp-Vergleich kompakter (war zu groß) */
-.tempcmp{display:flex;align-items:center;gap:12px;max-width:480px;margin:8px 0 2px;}
-.tc-card{flex:1;background:#fff;border-radius:13px;box-shadow:var(--shadow);padding:10px 14px 9px;text-align:center;}
+/* Gafs 06.07: temp-Vergleich mittelgroß, in 2-Spalten-Split (rechte Spalte) */
+.tempsplit .txt{flex:1.05}
+.tempsplit .tempcmp{flex:1}
+.tempcmp{display:flex;align-items:center;gap:14px;margin:0;flex:1;}
+.tc-card{flex:1;background:#fff;border-radius:14px;box-shadow:var(--shadow);padding:14px 16px 11px;text-align:center;}
 .tc-card.tc-hl{border:2px solid var(--blau);}
-.tc-city{font-family:'Montserrat';font-weight:800;font-size:13px;color:var(--anthrazit);}
-.tc-city span{font-weight:600;font-size:10.5px;color:var(--grau);display:block;}
-.tc-val{font-family:'Montserrat';font-weight:900;font-size:28px;color:var(--anthrazit);line-height:1.05;margin:2px 0 5px;}
+.tc-city{font-family:'Montserrat';font-weight:800;font-size:14px;color:var(--anthrazit);}
+.tc-city span{font-weight:600;font-size:11px;color:var(--grau);display:block;}
+.tc-val{font-family:'Montserrat';font-weight:900;font-size:34px;color:var(--anthrazit);line-height:1.05;margin:3px 0 6px;}
 .tc-hl .tc-val{color:var(--blau-dd);}
-.tc-bar{height:34px;width:9px;background:var(--hellgrau);border-radius:6px;margin:0 auto;display:flex;align-items:flex-end;overflow:hidden;}
-.tc-bar span{display:block;width:100%;border-radius:6px;background:linear-gradient(180deg,#e0554a,#e0a94a);}
+.tc-bar{height:46px;width:11px;background:var(--hellgrau);border-radius:7px;margin:0 auto;display:flex;align-items:flex-end;overflow:hidden;}
+.tc-bar span{display:block;width:100%;border-radius:7px;background:linear-gradient(180deg,#e0554a,#e0a94a);}
 .tc-hl .tc-bar span{background:linear-gradient(180deg,#75abd6,#4c7ba6);}
-.tc-note{font-size:10.5px;color:var(--grau);margin-top:5px;line-height:1.3;}
-.tc-delta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:56px;}
-.tc-delta b{font-family:'Montserrat';font-weight:900;font-size:17px;color:var(--blau-dd);background:var(--hellblau);border-radius:30px;padding:6px 9px;}
-.tc-delta span{font-size:10.5px;font-weight:700;font-family:'Montserrat';color:var(--blau-dd);}
-@media(max-width:640px){.tempcmp{gap:8px}.tc-val{font-size:23px}.tc-delta b{font-size:15px;padding:5px 7px}}
+.tc-note{font-size:11px;color:var(--grau);margin-top:6px;line-height:1.3;}
+.tc-delta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-width:58px;}
+.tc-delta b{font-family:'Montserrat';font-weight:900;font-size:20px;color:var(--blau-dd);background:var(--hellblau);border-radius:32px;padding:7px 10px;}
+.tc-delta span{font-size:11px;font-weight:700;font-family:'Montserrat';color:var(--blau-dd);}
+@media(max-width:760px){.tempsplit{flex-direction:column;align-items:stretch!important}.tempcmp{max-width:460px}}
+@media(max-width:640px){.tempcmp{gap:9px}.tc-val{font-size:27px}.tc-delta b{font-size:16px;padding:6px 8px}}
 
 /* ===== Nav-Dropdowns (§3) ===== */
 .navitem{position:relative;display:flex;align-items:center;}
@@ -542,8 +545,7 @@ html,body{overflow-x:hidden;max-width:100%;}
   .submenu a{border-radius:8px;font-size:14px;}
 }
 /* ── Волна 1: температурный виджет компактнее ── */
-.tempcmp{max-width:500px;margin:6px auto 0;}
-.tempcmp .tc-val{font-size:28px;}
+.tempcmp .tc-val{font-size:34px;}
 /* ── Волна 1: сезонный переключатель — «поп» при переключении ── */
 @keyframes sw-pop{50%{transform:scale(1.14)}}
 .season-toggle span.on{animation:sw-pop .32s cubic-bezier(.34,1.45,.64,1);}
