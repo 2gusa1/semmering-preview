@@ -546,6 +546,11 @@ html,body{overflow-x:hidden;max-width:100%;}
 body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M 0 160 L 0 150 L 292.7 51.3 L 380 74.4 L 554.6 21.4 L 684.7 52.3 L 878.2 6 L 1200 92.9 L 1200 160 Z" fill="%23fbf7f2"/></svg>') bottom/100% 100% no-repeat;}
 .hero .wrap{padding-bottom:108px;}
 .hero .photo-tag{display:none;}
+/* Gafs 06.07: Hero-VIDEO-Seiten fast vollflächig — immersives Video beim Einstieg statt Info-Overload;
+   die weißen Berge maskieren den Übergang wie auf semmering.com. NUR Video-Heroes (nicht Content-Heroes). */
+.hero:has(.hero-video){min-height:92vh;}
+.hero:has(.hero-video)::after{height:132px;}
+.hero:has(.hero-video) .wrap{padding-bottom:132px;}
 
 /* ── Волна 2: часы работы — виджет вместо таблицы ── */
 .hb-now{display:flex;align-items:center;gap:16px;background:#fff;border-radius:16px;padding:18px 22px;box-shadow:var(--shadow);flex-wrap:wrap;}
