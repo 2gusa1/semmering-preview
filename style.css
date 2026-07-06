@@ -542,8 +542,8 @@ html,body{overflow-x:hidden;max-width:100%;}
 
 /* ── Волна 2: белые горы-дивайдер под hero (бренд-графика) ── */
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:105px;z-index:1;pointer-events:none;
-  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M 0 160 L 0 150 L 292.7 51.3 L 380 74.4 L 554.6 21.4 L 684.7 52.3 L 878.2 6 L 1200 92.9 L 1200 160 Z" fill="%23f3f8fc"/></svg>') bottom/100% 100% no-repeat;}
-body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 160" preserveAspectRatio="none"><path d="M 0 160 L 0 150 L 292.7 51.3 L 380 74.4 L 554.6 21.4 L 684.7 52.3 L 878.2 6 L 1200 92.9 L 1200 160 Z" fill="%23fbf7f2"/></svg>') bottom/100% 100% no-repeat;}
+  background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 352" preserveAspectRatio="none"><path d="M0,352 L0,70 L210,18 L300,115 L500,22 L560,180 L700,32 L790,115 L910,72 L1085,200 L1185,72 L1310,135 L1420,112 L1700,250 L2000,320 L2000,352 Z" fill="%23f3f8fc"/></svg>') bottom/100% 100% no-repeat;}
+body.hotelbrand .hero::after{background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 352" preserveAspectRatio="none"><path d="M0,352 L0,70 L210,18 L300,115 L500,22 L560,180 L700,32 L790,115 L910,72 L1085,200 L1185,72 L1310,135 L1420,112 L1700,250 L2000,320 L2000,352 Z" fill="%23fbf7f2"/></svg>') bottom/100% 100% no-repeat;}
 .hero .wrap{padding-bottom:108px;}
 .hero .photo-tag{display:none;}
 /* Gafs 06.07: Hero-VIDEO-Seiten fast vollflächig — immersives Video beim Einstieg statt Info-Overload;
