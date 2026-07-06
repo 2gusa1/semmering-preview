@@ -1297,3 +1297,12 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .joooo .jo:nth-of-type(3){animation-delay:.26s}
 @keyframes jwave{0%,100%{transform:translateY(0)}45%{transform:translateY(-5px)}}
 @media(prefers-reduced-motion:reduce){.joooo .jo{animation:none}}
+
+
+/* B3v2: fliegender Joooo-Text (behind+front, additive 2026-07-07) */
+.joflow-band{position:relative;overflow:hidden;height:clamp(76px,11vw,150px);margin:-2px 0;background:#f3f8fc;display:flex;align-items:center}
+.joflow{position:absolute;left:0;white-space:nowrap;font-family:'Montserrat',sans-serif;font-weight:900;font-size:clamp(58px,11vw,150px);line-height:1;letter-spacing:-2px;will-change:transform;animation:joflow 30s linear infinite}
+.joflow.jb{color:rgba(117,171,214,.16)}
+.joflow.jf{color:transparent;-webkit-text-stroke:2px rgba(51,97,127,.42);pointer-events:none;animation-duration:30s}
+@keyframes joflow{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.joflow{animation:none}}
