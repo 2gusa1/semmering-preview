@@ -1291,3 +1291,12 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 
 
 /* B3 Joooo (alle Varianten) zurueckgerollt 2026-07-07 auf Sasha-Wunsch */
+
+
+/* R-16: Focus-Ring non-text Kontrast (WCAG 1.4.11) --blau-dd (additive 2026-07-07) */
+:focus-visible{outline-color:var(--blau-dd)}
+.pc-track:focus-visible,.wk-day.today{outline-color:var(--blau-dd)}
+.faq-search:focus{border-color:var(--blau-dd)}
+
+/* R-26: Tap-Target DE/EN-Umschalter >=24px mobil (WCAG 2.5.8, additive 2026-07-07) */
+@media(max-width:640px){.lang-toggle span{padding:7px 11px;font-size:12px;min-height:24px;display:inline-flex;align-items:center}}
