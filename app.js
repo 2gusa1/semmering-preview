@@ -326,3 +326,30 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
     if(nohit) nohit.hidden=(!q || any);
   });
 });
+
+/* Gafs 06.07: Foto-Karussells (.pc-track) rücken alle ~4 s automatisch eine Folie weiter,
+   loopen am Ende zurück; Pause bei Hover/Touch/Wheel/Fokus & wenn außer Sicht; reduced-motion aus. */
+(function(){
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var tracks=document.querySelectorAll('.pc-track'); if(!tracks.length) return;
+  tracks.forEach(function(track){
+    var paused=false, inview=false, rt=null;
+    function slideW(){ var s=track.querySelector('.pc-slide'); if(!s) return track.clientWidth*0.85;
+      var g=parseFloat(getComputedStyle(track).columnGap||getComputedStyle(track).gap||'14')||14;
+      return Math.round(s.getBoundingClientRect().width+g); }
+    function step(){ if(paused||!inview) return;
+      var max=track.scrollWidth-track.clientWidth-4;
+      if(track.scrollLeft>=max) track.scrollTo({left:0,behavior:'smooth'});
+      else track.scrollBy({left:slideW(),behavior:'smooth'}); }
+    setInterval(step,4000);
+    track.addEventListener('mouseenter',function(){paused=true;},{passive:true});
+    track.addEventListener('mouseleave',function(){paused=false;},{passive:true});
+    track.addEventListener('focusin',function(){paused=true;},{passive:true});
+    track.addEventListener('focusout',function(){paused=false;},{passive:true});
+    ['pointerdown','touchstart','wheel'].forEach(function(ev){
+      track.addEventListener(ev,function(){ paused=true; clearTimeout(rt); rt=setTimeout(function(){paused=false;},3500); },{passive:true}); });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ inview=e.isIntersecting; }); },{threshold:0.25}).observe(track);
+    } else { inview=true; }
+  });
+})();
