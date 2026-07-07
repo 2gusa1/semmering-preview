@@ -394,3 +394,14 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
     setTimeout(function(){ c.setAttribute('aria-pressed', (c.classList.contains('active')||c.classList.contains('on'))?'true':'false'); },0);
   });
 })();
+
+/* FAQ-Suche i18n: placeholder/aria nach Sprache (additive 2026-07-07) */
+(function(){
+  function upd(){var en=document.body.classList.contains('en');
+    document.querySelectorAll('[data-ph-de]').forEach(function(el){
+      var ph=en?el.getAttribute('data-ph-en'):el.getAttribute('data-ph-de'); if(ph!=null)el.placeholder=ph;
+      var al=en?el.getAttribute('data-al-en'):el.getAttribute('data-al-de'); if(al!=null)el.setAttribute('aria-label',al);
+    });}
+  try{new MutationObserver(upd).observe(document.body,{attributes:true,attributeFilter:['class']});}catch(e){}
+  if(document.readyState!=='loading')upd();else document.addEventListener('DOMContentLoaded',upd);
+})();
