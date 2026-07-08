@@ -1316,3 +1316,7 @@ h1.title{font-size:34px;font-weight:800;letter-spacing:-.5px}
 div.exp-card{cursor:default}                            /* нессылочные инфо-карточки; a.exp-card сохраняет pointer */
 @media(max-width:900px){footer.site a{padding:8px 0}}   /* tap-таргеты футера комфортнее */
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.season-toggle span.on{animation:none}.aud-spot{animation:none}}
+
+/* R-16: Fokus-Ring-Kontrast — dunkleres Blau (#33617f ~4.7:1 auf Weiss statt #75abd6 ~1.9:1); additiv, longhand nach shorthand gewinnt */
+:focus-visible{outline-color:#33617f}
+.pc-track:focus-visible{outline-color:#33617f}
