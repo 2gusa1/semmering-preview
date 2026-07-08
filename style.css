@@ -1320,3 +1320,16 @@ div.exp-card{cursor:default}                            /* нессылочны�
 /* R-16: Fokus-Ring-Kontrast — dunkleres Blau (#33617f ~4.7:1 auf Weiss statt #75abd6 ~1.9:1); additiv, longhand nach shorthand gewinnt */
 :focus-visible{outline-color:#33617f}
 .pc-track:focus-visible{outline-color:#33617f}
+
+/* Pakete-Teaser (cross-page) — R7 */
+.pkt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;margin-top:8px}
+.pkt-sub{color:var(--grau);font-size:14.5px;max-width:62ch;margin:2px 0 4px}
+.pkm{display:block;background:#fff;border:1px solid var(--hellgrau);border-radius:14px;overflow:hidden;box-shadow:var(--shadow);text-decoration:none;color:inherit;position:relative;transition:transform .15s,box-shadow .15s}
+.pkm:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(20,40,60,.14)}
+.pkm::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--rail);z-index:1}
+.pkm-img{height:118px;overflow:hidden}
+.pkm-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pkm-b{padding:11px 13px 13px}
+.pkm-badge{display:inline-block;color:#fff;font-size:11px;font-weight:800;border-radius:999px;padding:2px 9px;margin-bottom:5px}
+.pkm-name{font-family:Montserrat,sans-serif;font-weight:700;font-size:14px;line-height:1.22;color:var(--anthrazit)}
+.pkm-price{font-family:Montserrat,sans-serif;font-weight:800;font-size:18px;color:var(--blau-dd);margin-top:3px}
