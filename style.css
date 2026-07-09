@@ -1476,3 +1476,9 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .legal-row a{color:inherit;text-decoration:underline;padding:0}
 .legal-row>a::before{content:"·";opacity:.5;margin-right:8px;text-decoration:none;display:inline-block}
 
+/* doc#1/#9 — Brand-Manual: Hero = „Semmering Blau" #75abd6. Dunkle UI-Balken (#33617f = grau-teal)
+   und das Liechtensteinhaus-Theme (#1a2f5a = lila-navy, falscher Farbton) auf ein sattes
+   Dunkel-Semmering-Blau (Ableitung aus #75abd6) vereinheitlichen. */
+:root{--lichten:#26506f;--lichten-2:#357099}
+.livebar2,.notif{background:#2d5f83!important}
+
