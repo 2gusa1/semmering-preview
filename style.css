@@ -1376,3 +1376,6 @@ footer.site .fh{color:#fff;font-size:14px;font-weight:700;text-transform:upperca
 /* audit 09.07: SVG-погода вместо эмодзи-глифов на live */
 .wk-ico .wk-svg{width:32px;height:32px;color:var(--blau-dd);display:inline-block}
 .wk-day.today .wk-ico .wk-svg{color:#fff}
+
+/* audit: neutral price text не 30px-огромным */
+.exp-card .price:has(.t-d){font-size:18px;font-weight:700;color:var(--blau-dd)}
