@@ -1424,8 +1424,9 @@ footer.site a{padding:5px 0}
 footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09)}
 
 /* ================= REVIEW-FIX BLOCK — Google-Doc(14) + 10-Punkte-Feedback · 09.07 ================= */
-/* doc#2 — Berg-Divider: native Proportion halten (cover) statt horizontal stauchen (100% 100%) */
-.hero::after{background-size:cover!important;background-position:bottom center!important}
+/* doc#2 — Berg-Divider vorerst auf Original (100% 100%) zurück: cover/100%-auto haben die Kette
+   „zerbrochen". Saubere Lösung mit echtem Brand-„Berge"-Element (GRAPHICS) folgt mit Medien-Session. */
+.hero::after{background-size:100% 100%!important;background-position:bottom!important}
 
 /* doc#4 — Hero-Video hat z-index:1, der alte .bg::after-Scrim liegt darunter → Text kontrastarm.
    Scrim über das Video (im z2-Stacking-Context der .wrap, hinter dem Text) legen. */
