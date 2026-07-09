@@ -91,3 +91,12 @@
 .mo-wipe.to-winter{background:linear-gradient(105deg,rgba(207,226,240,0) 0%,rgba(207,226,240,.6) 30%,rgba(240,248,255,.78) 50%,rgba(207,226,240,.6) 70%,rgba(207,226,240,0) 100%);}
 .mo-wipe.to-summer{background:linear-gradient(105deg,rgba(232,244,225,0) 0%,rgba(232,244,225,.55) 30%,rgba(255,253,240,.72) 50%,rgba(232,244,225,.55) 70%,rgba(232,244,225,0) 100%);}
 .mo-wipe.on{animation:mo-wipe 520ms var(--mo-out);}
+
+/* #714 — Hero-Content: sanfte gestaffelte Entrance beim Laden (premium, smooth) */
+.hero .wrap>*,.bp-hero .wrap>*,.li-hero .wrap>*{animation:heroUp .7s var(--mo-out) both}
+.hero .wrap>.frische,.bp-hero .wrap>*:first-child{animation-delay:.05s}
+.hero .wrap>h1,.hero .wrap>.hero-h1,.bp-hero .wrap>h1{animation-delay:.13s}
+.hero .wrap>.sub,.bp-hero .wrap>.sub{animation-delay:.21s}
+.hero .wrap>.cta-row,.bp-hero .wrap>.cta-row{animation-delay:.29s}
+@keyframes heroUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.hero .wrap>*,.bp-hero .wrap>*,.li-hero .wrap>*{animation:none}}
