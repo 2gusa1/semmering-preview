@@ -1413,3 +1413,12 @@ body.legal .sec ul,body.legal .sec ol{line-height:1.7;margin:0 0 18px}
 .exp-card{border:1px solid rgba(30,45,60,.07)}
 .sec{padding:72px 0}
 .sec-sm{padding:46px 0}
+
+/* audit-visual-6: типо-шкала (открытее) + футер-когезия */
+.sec>.wrap>.title,.sec-sm>.wrap>.title{font-size:37px;line-height:1.14}
+@media(max-width:520px){.sec>.wrap>.title,.sec-sm>.wrap>.title{font-size:27px}}
+footer.site{padding:62px 0 30px}
+footer.site .cols{gap:26px 40px}
+footer.site h4{font-size:12.5px;letter-spacing:.14em;color:#e9edf1;margin-bottom:16px}
+footer.site a{padding:5px 0}
+footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09)}
