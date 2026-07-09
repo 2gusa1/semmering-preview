@@ -1397,3 +1397,9 @@ body.legal .sec h2{font-size:23px!important;font-weight:700;margin:44px 0 12px;p
 body.legal .sec h2:first-of-type{border-top:none;padding-top:0;margin-top:22px}
 body.legal .sec ul,body.legal .sec ol{line-height:1.7;margin:0 0 18px}
 @media(max-width:520px){body.legal h1.title{font-size:31px}body.legal .sec p{font-size:15.5px}body.legal .sec h2{font-size:20px!important;margin-top:34px}}
+
+/* audit-visual-2: премиум-микро глобально (визуал-аудит: eyebrow-акцент 35стр, контраст 53стр, карточки-hover 58стр) */
+:root{--dunkel:#3a4048}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:12.5px}
+.exp-card{transition:transform .18s ease,box-shadow .18s ease}
+.exp-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(20,40,60,.15)}
