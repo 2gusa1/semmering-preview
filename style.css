@@ -1379,3 +1379,6 @@ footer.site .fh{color:#fff;font-size:14px;font-weight:700;text-transform:upperca
 
 /* audit: neutral price text не 30px-огромным */
 .exp-card .price:has(.t-d){font-size:18px;font-weight:700;color:var(--blau-dd)}
+
+/* audit: #res ловил позиционный светло-голубой (6-я секция) на тёмной lichten — вернуть тёмный */
+#res{background:var(--lichten)}
