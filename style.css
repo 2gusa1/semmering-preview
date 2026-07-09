@@ -1430,9 +1430,8 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 
 /* doc#4 — Hero-Video hat z-index:1, der alte .bg::after-Scrim liegt darunter → Text kontrastarm.
    Scrim über das Video (im z2-Stacking-Context der .wrap, hinter dem Text) legen. */
-.hero:has(.hero-video) .wrap::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-70px;bottom:-170px;pointer-events:none;
-  background:linear-gradient(80deg,rgba(6,14,24,.66) 0%,rgba(6,14,24,.40) 38%,rgba(6,14,24,.08) 66%,rgba(6,14,24,0) 80%),
-             linear-gradient(0deg,rgba(6,14,24,.52) 0%,rgba(6,14,24,0) 48%);}
+.hero:has(.hero-video) .wrap::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-45vh;bottom:-200px;pointer-events:none;
+  background:linear-gradient(to top,rgba(6,14,24,.60) 0%,rgba(6,14,24,.30) 26%,rgba(6,14,24,.08) 42%,rgba(6,14,24,0) 58%);}
 
 /* 10pt#5 — dritte Hero-CTA als dezenter Text-Link (Primary=Tickets, Secondary=Aktivitäten, Tertiär=Live) */
 .hero .cta-live{align-self:center;color:#fff;font-family:'Montserrat';font-weight:700;font-size:14px;text-decoration:none;opacity:.94;
@@ -1483,3 +1482,21 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 :root{--lichten:#26506f;--lichten-2:#357099}
 .livebar2,.notif{background:#2d5f83!important}
 
+
+/* ============ MOBILE-AUDIT BATCH 1 (Sasha 09.07 Nacht) ============ */
+/* #647/#657 — Text über Foto: kräftiger dunkler Halo → Weiß auf jedem Bild lesbar */
+.exp-card .ph,.exp-card .ph .t-d,.exp-card .ph .t-e{color:#fff!important;text-shadow:0 1px 3px rgba(0,0,0,.92),0 2px 14px rgba(0,0,0,.75)!important}
+.exp-card .ph::before{height:90%!important;background:linear-gradient(to top,rgba(6,12,22,.90),rgba(6,12,22,.45) 46%,rgba(6,12,22,0))!important}
+
+/* #646/#659 — Hochkant-Reels (9:16) auf Mobile deutlich breiter statt schmal-zentriert */
+@media(max-width:560px){
+  .act-reel{flex-direction:column;gap:12px}
+  .ar-frame{width:min(86vw,340px)!important;flex-basis:auto!important;margin:0 auto}
+}
+
+/* #653 — Live-Status-Chips auf Mobile in EINER Reihe (horizontal scroll) statt Umbruch */
+@media(max-width:640px){
+  .lb-status{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:3px;-ms-overflow-style:none;scrollbar-width:none}
+  .lb-status::-webkit-scrollbar{display:none}
+  .lb-status .lb-chip,.lb-status .lb-all{flex:0 0 auto}
+}
