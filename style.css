@@ -1422,3 +1422,29 @@ footer.site .cols{gap:26px 40px}
 footer.site h4{font-size:12.5px;letter-spacing:.14em;color:#e9edf1;margin-bottom:16px}
 footer.site a{padding:5px 0}
 footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgba(255,255,255,.09)}
+
+/* ================= REVIEW-FIX BLOCK — Google-Doc(14) + 10-Punkte-Feedback · 09.07 ================= */
+/* doc#2 — Berg-Divider: native Proportion halten (cover) statt horizontal stauchen (100% 100%) */
+.hero::after{background-size:cover!important;background-position:bottom center!important}
+
+/* doc#4 — Hero-Video hat z-index:1, der alte .bg::after-Scrim liegt darunter → Text kontrastarm.
+   Scrim über das Video (im z2-Stacking-Context der .wrap, hinter dem Text) legen. */
+.hero:has(.hero-video) .wrap::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-70px;bottom:-170px;pointer-events:none;
+  background:linear-gradient(80deg,rgba(6,14,24,.66) 0%,rgba(6,14,24,.40) 38%,rgba(6,14,24,.08) 66%,rgba(6,14,24,0) 80%),
+             linear-gradient(0deg,rgba(6,14,24,.52) 0%,rgba(6,14,24,0) 48%);}
+
+/* 10pt#5 — dritte Hero-CTA als dezenter Text-Link (Primary=Tickets, Secondary=Aktivitäten, Tertiär=Live) */
+.hero .cta-live{align-self:center;color:#fff;font-family:'Montserrat';font-weight:700;font-size:14px;text-decoration:none;opacity:.94;
+  padding:6px 2px;border-bottom:1.5px solid rgba(255,255,255,.5);text-shadow:0 1px 10px rgba(8,16,26,.6);white-space:nowrap}
+.hero .cta-live:hover{opacity:1;border-bottom-color:#fff}
+
+/* doc#7 — Hirschi im All-In-Kreis vertikal zentrieren (war 50% 44%) */
+.hir-anim .hir-anim-v,.hir-anim .hir-anim-s{object-position:50% 50%!important}
+
+/* 10pt#6 — „Heute am Semmering" als kompaktes 2-Spalten-Karten-Raster statt langer 8-Zeilen-Liste */
+.heute-list{display:grid!important;grid-template-columns:1fr 1fr;gap:12px}
+.heute-list li{flex-direction:column;align-items:flex-start!important;gap:7px;padding:13px 14px!important;
+  border:1px solid var(--hellgrau)!important;border-radius:12px;background:#fbfdff}
+.heute-list li>a{display:flex;align-items:center;flex-wrap:wrap;gap:6px;width:100%}
+@media(max-width:720px){.heute-list{grid-template-columns:1fr}}
+
