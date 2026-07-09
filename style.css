@@ -1448,3 +1448,11 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .heute-list li>a{display:flex;align-items:center;flex-wrap:wrap;gap:6px;width:100%}
 @media(max-width:720px){.heute-list{grid-template-columns:1fr}}
 
+/* doc#6/#8/#11 — Bildrahmen von schmal-horizontal (fixe Höhe) auf füllbare Seitenverhältnisse.
+   16:9 skaliert mit der Kartenbreite → jedes Foto lässt sich sauber beschneiden. */
+.exp-card .ph{height:auto!important;aspect-ratio:16/9}
+.actc .ph{height:auto!important;aspect-ratio:16/9}
+.menu-card .ph{height:auto!important;aspect-ratio:16/9}
+.pkm-img{height:auto!important;aspect-ratio:3/2}
+.pkm-img img{width:100%;height:100%;object-fit:cover}
+
