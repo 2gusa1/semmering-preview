@@ -1408,3 +1408,8 @@ body.legal .sec ul,body.legal .sec ol{line-height:1.7;margin:0 0 18px}
 .eyebrow::before{content:"";display:inline-block;width:22px;height:2px;background:currentColor;opacity:.5;border-radius:2px;vertical-align:middle;margin-right:9px}
 .sec>.wrap>.title,.sec-sm>.wrap>.title{margin-bottom:12px}
 .sec .lead,.sec-sm .lead{margin-bottom:16px;line-height:1.55}
+
+/* audit-visual-5: определение карточек + ритм секций (визуал-аудит карточки-58/ритм-55) */
+.exp-card{border:1px solid rgba(30,45,60,.07)}
+.sec{padding:72px 0}
+.sec-sm{padding:46px 0}
