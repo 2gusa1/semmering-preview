@@ -731,8 +731,8 @@ section[style*="var(--beige-l)"] .btn.primary{background:#fff;color:var(--blau-d
 section[style*="var(--beige-l)"] .btn.primary:hover{background:var(--hellblau-l);}
 
 /* светло-голубые паузы: секция карты (6) и band под newsletter (12) */
-#main>section:nth-of-type(6),
-#main>section:nth-of-type(12){background:var(--hellblau-l);}
+#main>section:nth-of-type(6):not(.xseason-cta):not(.livebar2):not([class*=hero]):not([style*=background]),
+#main>section:nth-of-type(12):not(.xseason-cta):not(.livebar2):not([class*=hero]):not([style*=background]){background:var(--hellblau-l);}
 
 /* тёплый беж внутри сплита и «принципов» → холодный светлый */
 .split .txt{background:var(--hellblau-l);}
@@ -1518,3 +1518,7 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .hir-anim-s{display:block!important}
 .hvid .hv-v{display:none!important}
 .hvid .hv-s{display:block!important}
+
+/* #647/#650a/#683 KORREKTUR — nth-of-type-Zebra überschrieb dunkle Self-Styled-Sections (xseason-cta) → weißer Text unsichtbar. Erzwingen. */
+.xseason-cta{background:linear-gradient(135deg,var(--blau-dd),var(--blau-deep))!important;color:#fff!important}
+.xseason-cta .xs-txt b,.xseason-cta .xs-txt span{color:#fff!important}
