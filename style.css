@@ -1526,3 +1526,7 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 /* #647 verstärkt — Kartentitel auf Foto GARANTIERT lesbar (voller dunkler Bottom-Verlauf + starker Schatten) */
 .exp-card .ph::before{height:100%!important;background:linear-gradient(to top,rgba(4,10,18,.94) 0%,rgba(4,10,18,.52) 34%,rgba(4,10,18,.12) 62%,rgba(4,10,18,0) 82%)!important}
 .exp-card .ph,.exp-card .ph .t-d,.exp-card .ph .t-e{color:#fff!important;text-shadow:0 1px 4px rgba(0,0,0,.95),0 2px 16px rgba(0,0,0,.82)!important}
+
+/* #647 ECHTE URSACHE — Verlauf-::before lag ÜBER dem Titel (Titel=Flex-Content ohne z-index) → Text gedimmt. Titel über den Verlauf heben. */
+.exp-card .ph::before{z-index:1!important}
+.exp-card .ph>.t-d,.exp-card .ph>.t-e,.exp-card .ph>span:not(.badge){position:relative;z-index:2}
