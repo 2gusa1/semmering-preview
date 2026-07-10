@@ -1682,3 +1682,28 @@ nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
   .hirschi{transition:opacity .28s ease,transform .28s ease}
   .hirschi.fab-off{opacity:0;transform:translateY(16px) scale(.92);pointer-events:none}
 }
+
+/* ═══ #fix-tiny-price-labels — подписи цен были 9px (нечитаемо на телефоне) ═══
+   .pl-seg small — «ERWACHSENE / JUGEND/SEN. / KINDER» над ценой, uppercase 9px.
+   Минимум для uppercase-caption ~11px; letter-spacing чуть уже, чтобы 3 сегмента
+   по-прежнему влезали в ряд на 390px. */
+.pl-seg small{font-size:11px;letter-spacing:.02em}
+
+/* ═══ #fix-tkband-mobile — «Berg · Cart · Waldseilgarten» лип к «Sommer-Preisliste 2026» ═══
+   ≤600px правило 1310 возвращало .bsub (display:block;flex-basis:100%), но .tk-band —
+   flex БЕЗ wrap и с фиксированной height:104px → подпись не переносилась под заголовок,
+   а вставала вплотную справа. Даём перенос и высоту по контенту. */
+@media(max-width:600px){
+  .tk-band{flex-wrap:wrap;align-content:flex-end;height:auto;min-height:104px}
+  .tk-band h2{flex:0 0 100%;padding-bottom:4px}
+  .tk-band .bsub{flex:0 0 100%;margin-left:0;padding:0 22px 14px;align-self:auto}
+}
+
+/* ═══ #fix-cardgrid-price-baseline — цены в «Beliebteste Tickets» плясали по вертикали ═══
+   .exp-card .body — обычный блок, поэтому .price сидела сразу под описанием: карточка
+   с длинным текстом (All-In, 3 строки) опускала цену, короткая («18 km, alle Trails.»)
+   поднимала. В ряду три цены оказывались на трёх разных уровнях.
+   Прижимаем цену к низу карточки — цены выстраиваются по одной линии. */
+.cardgrid .exp-card{display:flex;flex-direction:column}
+.cardgrid .exp-card .body{display:flex;flex-direction:column;flex:1 1 auto}
+.cardgrid .exp-card .body .price{margin-top:auto;padding-top:8px}
