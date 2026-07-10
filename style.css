@@ -1789,3 +1789,9 @@ li.hide-dupe{display:none}
    (одиночка в неполном ряду → центр). Но .cardgrid.c4 = 4 колонки, и 4-я карта (4≡3n+1) падала
    во 2-й ряд, колонка 4 пустовала. Исключаем .c4 (спецификация выше правила 155). */
 @media(min-width:768px){.cardgrid.c4>*:last-child:nth-child(3n+1){grid-column:auto}}
+
+/* ═══ #fix-pkt-grid-autofit — 2-3 тизера пакетов клеились влево, справа пустота ═══
+   .pkt-grid = repeat(auto-fill,minmax(210px,1fr)) — auto-fill держит пустые треки (5 на 1136px),
+   а видимых карт в сезон обычно 2-3 → правая половина пустует; зимой одиночка растягивалась.
+   auto-fit схлопывает пустые треки: карты занимают доступную ширину без дыр. */
+.pkt-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
