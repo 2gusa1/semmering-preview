@@ -1795,3 +1795,26 @@ li.hide-dupe{display:none}
    а видимых карт в сезон обычно 2-3 → правая половина пустует; зимой одиночка растягивалась.
    auto-fit схлопывает пустые треки: карты занимают доступную ширину без дыр. */
 .pkt-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+
+/* ═══ #fb-exp-scrim — Titel auf exp-card-Foto war unter dem Scrim (Feedback Dima #12) ═══
+   Nur in <span class="t-d/e"> gewrappte Titel lagen bei z-index:2 über dem ::before-Scrim;
+   NACKTE Text-Knoten (z.B. «Kultur Sommer Semmering», «Golfclub Semmering») blieben darunter
+   und wirkten grau/kontrastarm, während gewrappte («Events & Feste») weiß & klar waren.
+   isolation:isolate macht .ph zum Stacking-Context → ::before z-index:-1 liegt ÜBER dem
+   Bild, aber UNTER allem Textinhalt (nackt ODER gewrappt). Badge/Spans (z-index:2) bleiben oben. */
+.exp-card .ph{isolation:isolate}
+.exp-card .ph::before{z-index:-1!important}
+
+/* ═══ #fb-cta-gap — Buttons «geklebt» (Feedback Dima #14) ═══
+   .cta-row hatte gap:12px; auf großen Hero-Pill-Buttons (Bikepark: «Tickets sichern» /
+   «Alle 14 Trails ansehen») wirkte das zusammengeklebt. 16px horizontaler Abstand gibt Luft. */
+.cta-row{gap:14px 16px}
+
+/* ═══ #fb-legal-dots — verwaiste «·»-Trenner im Footer (Feedback Dima #13) ═══
+   .legal-row>a::before{content:"·"} sitzt vor jedem Link; beim Umbruch startet die neue Zeile
+   mit einem freischwebenden «· Datenschutz» (links versetzt, wirkt wie verrutschter Bullet).
+   Mobil: Trenner ausblenden (rein dekorativ, kein Inhaltsverlust) + Links zentriert clustern. */
+@media(max-width:560px){
+  .legal-row{justify-content:center;gap:6px 14px}
+  .legal-row>a::before{display:none}
+}
