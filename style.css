@@ -1560,3 +1560,17 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 
 /* #664/#717 — auf saison-fixen Seiten (data-season) den Saison-Umschalter ausblenden: eine Winterseite in „Sommer" schalten ergäbe leeren Inhalt. Navigation via Mega-Menü. */
 body[data-season] .season-toggle{display:none!important}
+
+/* #687 — Grid-Orphans auf Mobile zentrieren: einzelnes Element in letzter 2-Spalten-Reihe (ungerade Anzahl) mittig statt links. Nur Karten-/Stat-Grids (nicht Formulare). */
+@media(max-width:767px){
+  .cardgrid>*:last-child:nth-child(odd),
+  .cardgrid.c4>*:last-child:nth-child(odd),
+  .reviews>*:last-child:nth-child(odd),
+  .principle>*:last-child:nth-child(odd),
+  .trailcards>*:last-child:nth-child(odd),
+  .stats>*:last-child:nth-child(odd),
+  .bp-stats>*:last-child:nth-child(odd),
+  .li-facts>*:last-child:nth-child(odd){
+    grid-column:1/-1;justify-self:center;width:calc(50% - 8px);
+  }
+}
