@@ -8,10 +8,11 @@
   document.body.classList.add('mo-ready');
 
   /* ── reveal-цели ── */
-  var solo = '.tempcmp,.booking-card,.tip,.mo-routes,.mo-schema,.statusrow,.hq';
+  /* #714 — mehr Leben: Content-Blöcke (split/reel/stats/newsletter/formbox) zusätzlich zu Karten-Grids einblenden */
+  var solo = '.tempcmp,.booking-card,.tip,.mo-routes,.mo-schema,.statusrow,.hq,.split,.act-reel,.stats,.newsletter,.formbox,.buy-card';
   document.querySelectorAll(solo).forEach(function(el){ el.classList.add('mo-rv'); });
   /* stagger внутри сеток */
-  document.querySelectorAll('.cardgrid,.nb-grid,.heute-grid,.partners').forEach(function(g){
+  document.querySelectorAll('.cardgrid,.nb-grid,.heute-grid,.partners,.cols').forEach(function(g){
     Array.prototype.forEach.call(g.children, function(c,i){
       c.classList.add('mo-rv'); c.style.setProperty('--mo-d', (i%6)*70+'ms');
     });
