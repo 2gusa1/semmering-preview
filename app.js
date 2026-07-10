@@ -9,7 +9,9 @@
   }
   // Saison-Default nach Datum (Nov–März = Winter, Apr–Okt = Sommer); manueller Toggle überschreibt & bleibt gespeichert.
   function seasonByDate(){var m=new Date().getMonth()+1;return (m>=11||m<=3)?'winter':'summer';}
-  applySeason(localStorage.getItem('semmering_season') || seasonByDate());
+  // #664/#717 — saison-spezifische Seiten (data-season) erzwingen ihre Saison; sonst gespeicherte Wahl / Datum.
+  var _forced = document.body.getAttribute('data-season');
+  applySeason(_forced || localStorage.getItem('semmering_season') || seasonByDate());
 
   // ---- Language toggle DE/EN (default DE, persists across pages) ----
   var monthsDE=['Jän','Feb','März','Apr','Mai','Juni','Juli','Aug','Sep','Okt','Nov','Dez'];
