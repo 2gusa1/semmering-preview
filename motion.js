@@ -315,3 +315,13 @@ document.addEventListener('click', function(e){
     +'<span class="t-d">'+lde+'</span><span class="t-e">'+len+'</span></a>'+telBtn;
   b.appendChild(bar);
 })();
+
+/* ── #fix-hirschi-overlap: на мобильном FAB не перекрывает hero (кликабельная .cta-live
+   попадала под маскот) — показываем его, как только клиент начал скроллить ── */
+(function(){
+  if(!window.matchMedia||!matchMedia('(max-width:720px)').matches) return;
+  var h=document.querySelector('.hirschi'); if(!h) return;
+  function upd(){ h.classList.toggle('fab-off', window.scrollY < 200); }
+  upd();
+  window.addEventListener('scroll',upd,{passive:true});
+})();

@@ -1635,3 +1635,50 @@ header.site{position:static}
 .nf-mood{width:100%;font-family:'Montserrat';font-weight:700;font-size:14px;line-height:1.3;color:#fff;margin:0}
 @media(max-width:768px){.nf-mood{font-size:13px}}
 body.hdr-compact .nf-mood{display:none}  /* #651: при скролле вниз прячем промо-слоган — залипающий бар компактится (богатый вверху, тонкий при скролле) */
+
+/* ═══ #fix-price-overflow — цена вылезала за пределы .buy-card ═══
+   Причина: .price{white-space:nowrap} (строка «Zahlen nie umbrechen») + маскот
+   float:right;width:150px → доступная ширина ~277px, а строка 34px её не переносила.
+   Решение: цена как стек (was / now+kid / note), clear:right под маскотом. */
+.buy-card .price.price-stack{white-space:normal;clear:right;line-height:1.15}
+.price-stack .p-was{display:block;font-size:15px;font-weight:400;opacity:.55;text-decoration:line-through;margin-bottom:2px}
+.price-stack .p-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price-stack .p-now{font-size:34px;font-weight:800;white-space:nowrap}
+.price-stack .p-kid{font-size:16px;font-weight:600;opacity:.88;white-space:nowrap}
+.price-stack .p-note{display:block;font-size:13.5px;font-weight:400;opacity:.85;margin-top:5px}
+@media(max-width:520px){.price-stack .p-now{font-size:30px}}
+
+/* ═══ #fix-heute-cards — карточки «Heute am Semmering» рвались на 3 строки ═══
+   Причина: имя+описание+бейдж+стрелка лежали в одном flex-wrap ряду → при длинном
+   названии («Millenniumswarte & Millennium Jump») бейдж и → уезжали вниз, тире
+   («— Plattform…») открывало строку. Теперь 2 ряда: имя сверху на всю ширину,
+   описание+бейдж+стрелка снизу (бейдж в верхнем ряду наезжал на «Liechtensteinhaus»). */
+.heute-list li>a.he-a{display:flex;flex-direction:column;gap:6px;width:100%}
+.he-top{display:flex;align-items:flex-start;gap:6px;width:100%}
+.he-top .he-ic{align-self:flex-start;margin-top:0}
+.he-top .stat{align-self:flex-start;margin-top:7px;flex:0 0 9px}
+.he-top b{flex:1 1 auto;min-width:0;line-height:1.28;overflow-wrap:break-word}  /* без hyphens:auto — рвал «Mill-ennium» */
+.he-bot{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;
+  font-size:14px;font-weight:400;color:#5b6b78;line-height:1.35}
+.he-txt{min-width:0}
+.he-r{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.he-r .tag-ev{margin-left:0}
+.he-arw{color:var(--blau-dd);flex:0 0 auto;font-weight:700}
+.heute-list li{justify-content:flex-start}
+
+/* ═══ #fix-nav-caret — каретка ▾ слипалась с буквой: «Sommeŕ», «Winteŕ», «Hoteĺ» ═══
+   Причина: nav.main a{padding:6px 2px} (специфичность 0,1,2) перебивало
+   .navitem>a{padding-right:15px} (0,1,1) → фактический отступ 2px, а ::after сидит right:0.
+   Поднимаем специфичность + чуть увеличиваем глиф (9px читался как обрубок буквы). */
+nav.main .navitem>a{padding-right:17px}
+nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
+
+/* ═══ #fix-hirschi-overlap — маскот-FAB накрывал кликабельную ссылку в hero ═══
+   Мобайл: .hirschi{fixed;bottom:12px;left:12px} + 68px FAB → верх на 80px от низа экрана,
+   и на первом экране он ложился на .cta-live («Heute geöffnet · Live-Infos →») + .geo-pos.
+   padding-bottom не помогает: hero растёт вместе с ним, текст остаётся у низа.
+   Решение: на мобильном FAB не показывается поверх hero — появляется после начала скролла. */
+@media(max-width:720px){
+  .hirschi{transition:opacity .28s ease,transform .28s ease}
+  .hirschi.fab-off{opacity:0;transform:translateY(16px) scale(.92);pointer-events:none}
+}
