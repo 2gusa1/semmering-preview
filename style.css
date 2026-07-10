@@ -1634,3 +1634,4 @@ header.site{position:static}
 .notif .wrap:has(.nf-mood){height:auto;padding-top:5px;padding-bottom:6px}
 .nf-mood{width:100%;font-family:'Montserrat';font-weight:700;font-size:14px;line-height:1.3;color:#fff;margin:0}
 @media(max-width:768px){.nf-mood{font-size:13px}}
+body.hdr-compact .nf-mood{display:none}  /* #651: при скролле вниз прячем промо-слоган — залипающий бар компактится (богатый вверху, тонкий при скролле) */
