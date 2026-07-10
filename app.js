@@ -300,13 +300,26 @@
 /* Preisrechner: Summe gewählter Erlebnisse × Personen (Sommer-Erwachsenenpreise) */
 document.querySelectorAll('[data-calc]').forEach(function(c){
   var n=1;
+  // #716 — dynamischer, präziser All-In-Nudge: echte Ersparnis, sobald ≥2 All-In-Bausteine (Waldseilgarten+Bahn+Cart) > 55 € einzeln kosten
+  var nudge=null, tot=c.querySelector('.calc-total');
+  if(tot){ nudge=document.createElement('div'); nudge.className='calc-nudge'; nudge.style.display='none'; tot.parentNode.insertBefore(nudge, tot.nextSibling); }
   function upd(){
-    var sum=0;
-    c.querySelectorAll('input[data-price]:checked').forEach(function(i){ sum+=parseFloat(i.getAttribute('data-price'))||0; });
+    var sum=0, allin=0;
+    c.querySelectorAll('input[data-price]:checked').forEach(function(i){
+      var p=parseFloat(i.getAttribute('data-price'))||0; sum+=p;
+      if(i.hasAttribute('data-allin')) allin+=p;
+    });
     var cn=c.querySelector('[data-cn]'), ct=c.querySelector('[data-ct]');
     if(cn) cn.textContent=n;
     var v=sum*n;
     if(ct) ct.textContent=(Number.isInteger(v)? String(v) : v.toFixed(2).replace('.',','))+' €';
+    if(nudge){
+      if(allin>55){
+        var save=Math.round((allin-55)*n), es=allin*n;
+        nudge.innerHTML='💡 <span class="t-d"><b>Diese Erlebnisse kosten einzeln '+es+' €.</b> Mit der <b>All-In Card</b> (Waldseilgarten + Bahn + Mountaincart) ab 55 €/Erw. — du sparst bis zu '+save+' €. <a href="#allin">All-In ansehen →</a></span><span class="t-e"><b>These experiences cost '+es+' € separately.</b> With the <b>All-In Card</b> (ropes park + ride + mountain cart) from €55/adult — you save up to '+save+' €. <a href="#allin">See All-In →</a></span>';
+        nudge.style.display='block';
+      } else nudge.style.display='none';
+    }
   }
   c.addEventListener('change',upd);
   var cp=c.querySelector('[data-cp]'), cm=c.querySelector('[data-cm]');

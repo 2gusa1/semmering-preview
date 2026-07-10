@@ -1587,3 +1587,8 @@ body[data-season] .season-toggle{display:none!important}
   .tc-delta b{font-size:15px;padding:5px 7px}
   .tempcmp{gap:7px}
 }
+
+/* #716 — dynamischer All-In-Nudge im Preisrechner */
+.calc-nudge{margin-top:10px;padding:12px 14px;border-radius:13px;background:linear-gradient(135deg,var(--blau-dd),var(--blau));color:#fff;font-size:13.5px;line-height:1.45;box-shadow:var(--shadow);animation:mo-nudge .3s ease}
+.calc-nudge a{color:#fff;font-weight:800;text-decoration:underline;white-space:nowrap}
+@keyframes mo-nudge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
