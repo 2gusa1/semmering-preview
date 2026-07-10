@@ -1707,3 +1707,14 @@ nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
 .cardgrid .exp-card{display:flex;flex-direction:column}
 .cardgrid .exp-card .body{display:flex;flex-direction:column;flex:1 1 auto}
 .cardgrid .exp-card .body .price{margin-top:auto;padding-top:8px}
+
+/* ═══ #fix-actcard-more-baseline — «Mehr →» плясал по вертикали ═══
+   Карточки активностей: у «Goldwaschanlage» нет мета-строки (сложность/время/возраст),
+   поэтому её «Mehr →» вставал на 86px выше соседей в ряду. Прижимаем к низу карточки. */
+.cardgrid .exp-card .body .actc-more{margin-top:auto;padding-top:10px}
+
+/* ═══ #fix-roomcard-cta-baseline — кнопки «Preis & Verfügbarkeit» не на одной линии ═══
+   Карточки комнат (hotel): у «Doppelzimmer Superior» описание на строку длиннее,
+   поэтому CTA опускалась на 23px ниже соседних. Inline style="margin-top:8px" бил
+   любое CSS-правило → в gen_hotel_v2 заменён на класс .room-cta. */
+.cardgrid .exp-card .body > .room-cta{margin-top:auto}
