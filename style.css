@@ -1847,3 +1847,19 @@ li.hide-dupe{display:none}
    Tag «Hauptsaison» macht klar, dass das die Hauptzeit ist; der Zusatz verweist auf den Betrieb bis 1. Nov
    (alle Zeiträume als Chips darunter). Keine neuen Daten — 1. Nov steht bereits in der Zeitraum-Liste. */
 .hb-tag{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--blau-dd);background:var(--hellblau-l);padding:3px 10px;border-radius:999px;margin-bottom:5px}
+
+/* ═══ #fb-hero-vidbtn — Pause-Button auf dem Hero-Video war leicht zu übersehen (Feedback Karoline) ═══
+   Vorher: 40px, Hintergrund 55% dunkel, dünner 55%-Rand → verschwand auf dunklem Video. Jetzt größer,
+   deutlich deckender, klarer weißer Rand + Schatten. Button/Logik unverändert (WCAG-Steuerung bleibt). */
+.hero-vidbtn{width:46px;height:46px;background:rgba(12,20,36,.74);border:1.6px solid rgba(255,255,255,.92);box-shadow:0 4px 16px rgba(0,0,0,.42);bottom:150px}
+.hero-vidbtn svg{width:20px;height:20px}
+.hero-vidbtn:hover{background:rgba(12,20,36,.92)}
+/* Text-Toggle knapp unter den Pausen-Button — Cluster in Sichtweite, nicht am 92vh-Rand unter dem Fold */
+.hero-textbtn{bottom:96px}
+@media(max-width:640px){.hero-vidbtn{width:46px;height:46px;right:12px;bottom:118px}.hero-textbtn{bottom:64px}}
+
+/* ═══ #fb-hero-text-contrast — kleiner Text auf dem Video war kontrastarm (Feedback Dima #4) ═══
+   .hero-proof (13px Sterne/Bewertungen) hatte nur einen weichen Schatten (inline) → wusch auf hellen
+   Video-Frames aus. Stärkerer Doppelschatten macht ihn frame-robust. .sub ebenso leicht verstärkt. */
+.hero-proof{text-shadow:0 1px 3px rgba(0,0,0,.88),0 2px 12px rgba(0,0,0,.62)!important}
+.hero .sub{text-shadow:0 1px 4px rgba(8,16,26,.78),0 2px 18px rgba(8,16,26,.55)}
