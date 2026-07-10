@@ -1783,3 +1783,9 @@ li.hide-dupe{display:none}
 .pkm{display:flex;flex-direction:column}
 .pkm-b{display:flex;flex-direction:column;flex:1 1 auto}
 .pkm-price{font-size:13.5px;font-weight:600;color:var(--grau);margin-top:auto;padding-top:6px}
+
+/* ═══ #fix-cardgrid-c4-lonely — правило центрирования одиночки ломало 4-колоночную .c4 ═══
+   .cardgrid>*:last-child:nth-child(3n+1){grid-column:2} (стр.155) задумано для 3-колоночной сетки
+   (одиночка в неполном ряду → центр). Но .cardgrid.c4 = 4 колонки, и 4-я карта (4≡3n+1) падала
+   во 2-й ряд, колонка 4 пустовала. Исключаем .c4 (спецификация выше правила 155). */
+@media(min-width:768px){.cardgrid.c4>*:last-child:nth-child(3n+1){grid-column:auto}}
