@@ -1606,3 +1606,18 @@ body.hdr-compact header.site{box-shadow:0 3px 14px rgba(10,25,45,.10)}
 @media(max-width:900px){.heute-grid{grid-template-columns:minmax(0,1fr);}}
 @media(max-width:720px){.heute-list{grid-template-columns:minmax(0,1fr);}}
 .heute-grid>*,.heute-list>li,.heute-list li>a{min-width:0;}
+
+/* #698 — иммерсивные «главы» (.chapter) + плейсхолдер-слоты «Foto folgt» (.photoslot): финальная структура строится до прихода всех фото; где фото нет — аккуратный слот, а не пустота. */
+.chapter{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);background:#fff;margin:20px 0}
+.chapter.rev .chapter-media{order:2}
+.chapter-media{position:relative;min-height:360px;background:var(--hellblau-l)}
+.chapter-media>img,.chapter-media>.photoslot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:flex}
+.chapter-text{padding:32px 38px;display:flex;flex-direction:column;justify-content:center}
+.chapter-text h3{color:var(--blau-dd);font-size:25px;margin:5px 0 10px;text-transform:none;letter-spacing:0}
+.chapter-gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.chapter-gallery>a,.chapter-gallery>.photoslot{aspect-ratio:4/3;border-radius:10px;overflow:hidden;display:block}
+.chapter-gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s ease}
+.chapter-gallery>a:hover img{transform:scale(1.06)}
+.photoslot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:8px;color:var(--blau-dd);border:1px dashed var(--blau);background:repeating-linear-gradient(135deg,var(--hellblau-l),var(--hellblau-l) 11px,#e7eff8 11px,#e7eff8 22px)}
+.photoslot .ps-tx{font-family:'Montserrat';font-weight:700;font-size:10.5px;letter-spacing:1px;text-transform:uppercase;opacity:.82;line-height:1.3}
+@media(max-width:768px){.chapter{grid-template-columns:1fr}.chapter.rev .chapter-media{order:0}.chapter-media{min-height:220px}.chapter-text{padding:22px 20px}.chapter-gallery{grid-template-columns:repeat(3,1fr)}}
