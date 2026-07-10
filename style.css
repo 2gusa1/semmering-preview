@@ -1769,3 +1769,9 @@ li.hide-dupe{display:none}
   .statusrow{flex-wrap:wrap;align-items:center}
   .statusrow .sr-meta{order:5;flex-basis:100%;margin-left:44px;margin-top:1px}
 }
+
+/* ═══ #fix-index-buycard-mobile — цена-оффер утоплена под списком на мобильном ═══
+   .heute-grid на ≤900px схлопывается в 1 колонку, .buy-card (All-In 55 € + «Im Shop kaufen»)
+   идёт ПОСЛЕ 8-строчного списка → цена/CTA видны только на ~2.5 экране.
+   Поднимаем оффер в начало секции на мобильном; десктоп (2 колонки) не трогаем. */
+@media(max-width:900px){.heute-grid>.buy-card{order:-1}.heute-grid{display:flex;flex-direction:column}}
