@@ -1718,3 +1718,18 @@ nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
    поэтому CTA опускалась на 23px ниже соседних. Inline style="margin-top:8px" бил
    любое CSS-правило → в gen_hotel_v2 заменён на класс .room-cta. */
 .cardgrid .exp-card .body > .room-cta{margin-top:auto}
+
+/* ═══ #fix-card-baseline-global — рваный низ карточек на 8 страницах ═══
+   Замер (getBoundingClientRect по рядам): разброс низа последнего элемента
+   до 146px на pakete, 123px на aktivitaeten, 22–63px на hotel/wellness/sommer/winter/lichten.
+   Причина одна: карточки-плитки растянуты в grid (stretch), но внутри — обычный поток,
+   поэтому CTA/цена/«Mehr →» садятся сразу под текстом разной длины.
+   Прижимаем последний интерактивный элемент к низу. Если последним идёт абзац
+   описания — правило не срабатывает (:is), дыры не будет. */
+.cardgrid .exp-card,.actgrid .exp-card{display:flex;flex-direction:column}
+.cardgrid .exp-card .body,.actgrid .exp-card .body{display:flex;flex-direction:column;flex:1 1 auto}
+.cardgrid .exp-card .body > :last-child:is(a,span,.price,.btn),
+.actgrid  .exp-card .body > :last-child:is(a,span,.price,.btn){margin-top:auto;padding-top:10px}
+/* пакеты: .pk-card уже flex-column, не хватало только прижатия CTA */
+.pk-grid .pk-card{display:flex;flex-direction:column}
+.pk-grid .pk-card .pk-cta{margin-top:auto}
