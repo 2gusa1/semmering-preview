@@ -1574,3 +1574,16 @@ body[data-season] .season-toggle{display:none!important}
     grid-column:1/-1;justify-self:center;width:calc(50% - 8px);
   }
 }
+
+/* #645 — Sommerfrische/Temp-Vergleich auf Mobile kompakter (Widget war zu groß) */
+@media(max-width:640px){
+  .tc-card{padding:9px 10px 8px;border-radius:11px}
+  .tc-val{font-size:23px!important;margin:1px 0 3px}
+  .tc-bar{height:34px;width:9px}
+  .tc-city{font-size:12.5px}
+  .tc-city span{font-size:10px}
+  .tc-note{font-size:10px;margin-top:3px}
+  .tc-delta{min-width:46px}
+  .tc-delta b{font-size:15px;padding:5px 7px}
+  .tempcmp{gap:7px}
+}
