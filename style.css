@@ -1818,3 +1818,13 @@ li.hide-dupe{display:none}
   .legal-row{justify-content:center;gap:6px 14px}
   .legal-row>a::before{display:none}
 }
+
+/* ═══ #fb-events-organizer — Events sichtbar nach Veranstalter trennen (Feedback Simona+Karoline) ═══
+   Jede ev-card trägt jetzt ein Veranstalter-Badge (berg=am Berg/Bergbahnen grün, hotel=Sporthotel bordeaux)
+   + Filter-Chips «Alle / Am Berg / Sporthotel». Nur Gruppierung/Kennzeichnung — keine neuen Fakten. */
+.ev-org{font-family:'Montserrat';font-weight:700;font-size:11px;padding:2px 9px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
+.ev-org--berg{color:#2f6b4f;background:#e6f1ea}
+.ev-org--hotel{color:#911233;background:#f6e7ec}
+.ev-filter{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.ev-filter .chip{cursor:pointer;border:1px solid var(--hellgrau);background:#fff}
+.ev-filter .chip.active{background:var(--blau-dd);color:#fff;border-color:var(--blau-dd)}
