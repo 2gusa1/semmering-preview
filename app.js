@@ -420,3 +420,15 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
   try{new MutationObserver(upd).observe(document.body,{attributes:true,attributeFilter:['class']});}catch(e){}
   if(document.readyState!=='loading')upd();else document.addEventListener('DOMContentLoaded',upd);
 })();
+
+/* #651 — kompakter Header beim Herunterscrollen, voll beim Hochscrollen (Headroom). Passive + rAF. */
+(function(){
+  var H=document.body, last=window.scrollY||0, ticking=false;
+  function onScroll(){
+    var y=window.scrollY||0;
+    if(y>180 && y>last+4) H.classList.add('hdr-compact');
+    else if(y<last-4 || y<120) H.classList.remove('hdr-compact');
+    last=y; ticking=false;
+  }
+  window.addEventListener('scroll',function(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } },{passive:true});
+})();

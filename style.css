@@ -1592,3 +1592,11 @@ body[data-season] .season-toggle{display:none!important}
 .calc-nudge{margin-top:10px;padding:12px 14px;border-radius:13px;background:linear-gradient(135deg,var(--blau-dd),var(--blau));color:#fff;font-size:13.5px;line-height:1.45;box-shadow:var(--shadow);animation:mo-nudge .3s ease}
 .calc-nudge a{color:#fff;font-weight:800;text-decoration:underline;white-space:nowrap}
 @keyframes mo-nudge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* #651 — kompakter Header beim Herunterscrollen (voll beim Hochscrollen). Graceful: ohne JS bleibt der Header normal. */
+header.site .wrap{transition:height .25s ease}
+header.site .logo{transition:font-size .22s ease}
+@media(prefers-reduced-motion:reduce){header.site .wrap,header.site .logo{transition:none}}
+body.hdr-compact header.site .wrap{height:52px}
+body.hdr-compact header.site .logo{font-size:18px}
+body.hdr-compact header.site{box-shadow:0 3px 14px rgba(10,25,45,.10)}
