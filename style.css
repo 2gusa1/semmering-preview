@@ -1733,3 +1733,25 @@ nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
 /* пакеты: .pk-card уже flex-column, не хватало только прижатия CTA */
 .pk-grid .pk-card{display:flex;flex-direction:column}
 .pk-grid .pk-card .pk-cta{margin-top:auto}
+
+/* ═══ #fix-trailgroup-contrast — названия групп трейлов тонули на тёмном фоне ═══
+   #trails на var(--bikedark-2)=#22262c. h2 забелены (.bp-section h2{color:#fff}),
+   а h3 наследовали глобальный h3{color:var(--anthrazit)=#312e2b} → контраст 1.13:1,
+   «Family & Einsteiger / Medium / Advanced / Jump & Airbag / Pro» почти невидимы.
+   Целим строго в #trails (светлая #tickets в той же .bp-section не трогается). */
+.bp-section#trails h3{color:#fff}
+
+/* ═══ #fix-formgrid-mobile — форма запроса на 360px: 2 колонки по 130px, поля разъезжаются ═══
+   .formgrid держит 1fr 1fr до 900px и НЕ спускается до 1 колонки (в отличие от .cardgrid,
+   у которой есть правило ≤540px). На 360px это 130px-поля, а из-за многострочных label
+   («Gruppentyp (Schule, Firma, Bus …)» = 3 строки) парные input встают на разной высоте.
+   Прямой конверсионный элемент — одна колонка на узких экранах. */
+@media(max-width:540px){.formgrid{grid-template-columns:1fr}}
+
+/* ═══ #fix-hero-scrim-midzone — надзаголовок/H1 hero тонули на светлых фото ═══
+   Глобальный скрим .hero .bg::after имел провал на 38% высоты (0.12) — ровно там,
+   где стоят eyebrow и H1. Замер яркости 10 hero: 4 светлых (winter 178, lichten 169,
+   gruppen 158, index 152 — текст ~1.8:1), лишь hotel тёмный (85). Поднимаем ТОЛЬКО
+   среднюю точку 0.12→0.26 (не до 0.40, как предлагалось — это переусилило бы hotel).
+   Аддитивное правило перебивает исходный градиент (идёт позже в каскаде). */
+.hero .bg::after{background:linear-gradient(180deg,rgba(18,34,54,.32) 0%,rgba(18,34,54,.26) 38%,rgba(18,34,54,.56) 76%,rgba(18,34,54,.82) 100%)}
