@@ -1760,3 +1760,12 @@ nav.main .navitem>a::after{font-size:10px;opacity:.5;right:2px}
    Напр. hotel perks: 2-я расплывчатая строка про лифт-карты дублировала «−10% auf Liftkarten».
    Владелец: объединить в одну, вторую скрыть (не удалять). */
 li.hide-dupe{display:none}
+
+/* ═══ #fix-statusrow-mobile — статус-бейдж отрывался от названия на телефоне ═══
+   .statusrow — flex-row [icon][name][meta][status margin-left:auto][→]. На узком экране
+   name+meta переносились, а status с margin-left:auto оставался справа-внизу с отрывом 45px.
+   Реструктурируем на мобильном: meta уходит на 2-ю строку под именем, статус остаётся рядом с названием. */
+@media(max-width:560px){
+  .statusrow{flex-wrap:wrap;align-items:center}
+  .statusrow .sr-meta{order:5;flex-basis:100%;margin-left:44px;margin-top:1px}
+}
