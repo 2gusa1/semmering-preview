@@ -1469,7 +1469,8 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .exp-card .ph{text-shadow:0 1px 6px rgba(0,0,0,.62)!important}
 
 /* doc#7 — Hirschi im Chat-FAB-Kreis vertikal etwas höher zentrieren */
-.hirschi-fab .hir-anim-v,.hirschi-fab .hir-anim-s{object-position:50% 40%!important}
+/* #7/#721 — Hirschi im Kreis vertikal zentriert (war 50% 40% → Kinn/Schal abgeschnitten) */
+.hirschi-fab .hir-anim-v,.hirschi-fab .hir-anim-s{object-position:50% 50%!important}
 
 /* doc#13 — Footer-Bottom: Inline-„·"-Trenner verrutschten beim Umbruch → sauberes Flex-Wrap mit ::before-Trenner. */
 .legal-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px}
