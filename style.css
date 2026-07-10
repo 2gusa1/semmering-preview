@@ -1601,3 +1601,8 @@ header.site .logo{transition:font-size .22s ease}
 body.hdr-compact header.site .wrap{height:52px}
 body.hdr-compact header.site .logo{font-size:18px}
 body.hdr-compact header.site{box-shadow:0 3px 14px rgba(10,25,45,.10)}
+
+/* ── FIX 10.07 (мобайл grid-track overflow): .heute-grid/.heute-list трек «1fr» имеет неявный auto-минимум (min-content) — неразрывный контент распирал трек до 532px в контейнере 358px, правая часть карточек (buy-card: цена/CTA) обрезалась на 390px (doc scrollWidth=390, не скроллилось). minmax(0,1fr) снимает минимум; min-width:0 даёт flex/grid-детям ужиматься. Только мобайл, десктоп не тронут. ── */
+@media(max-width:900px){.heute-grid{grid-template-columns:minmax(0,1fr);}}
+@media(max-width:720px){.heute-list{grid-template-columns:minmax(0,1fr);}}
+.heute-grid>*,.heute-list>li,.heute-list li>a{min-width:0;}
