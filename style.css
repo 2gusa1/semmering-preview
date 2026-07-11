@@ -11,7 +11,7 @@
   --anthrazit:#312e2b; --dunkel:#4d4d4d; --grau:#5b6470; --hellgrau:#ededed;
   --beige:#d8cab7; --beige-l:#f6f0e7;
   --lichten:#1f3d50; --lichten-2:#2d5670; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
-  --red:#911233; --green:#3a6a93;
+  --red:#75abd6; --green:#3a6a93;
   --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:var(--blau-dd); /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
 }
@@ -649,17 +649,17 @@ body.lichten .pc-hint,body.bikepark .pc-hint{color:rgba(255,255,255,.72);} /* п
 .hp-list .hq-sep{font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.5px;text-transform:uppercase;color:var(--blau-dd);padding:12px 2px 4px;border-top:1px solid var(--hellgrau);margin-top:4px;}
 .hp-list .hq-sep:first-child{border-top:none;margin-top:0;padding-top:2px;}
 
-/* ── HO-1: страница отеля в бренд-цветах Sporthotel (бордо #911233) ── */
-body.hotelbrand .eyebrow{color:#911233;}
-body.hotelbrand .btn.primary{background:#911233;}
-body.hotelbrand .btn.primary:hover{background:#7a0f2b;}
+/* ── HO-1: страница отеля в бренд-цветах Sporthotel (бордо #75abd6) ── */
+body.hotelbrand .eyebrow{color:var(--blau-dd);}
+body.hotelbrand .btn.primary{background:#75abd6;}
+body.hotelbrand .btn.primary:hover{background:#5e93bd;}
 /* Gafs 06.07: Header-Tickets-Button bleibt Semmering-Blau (nicht Hotel-Bordeaux) */
 body.hotelbrand header.site .btn.primary{background:var(--blau);}
 body.hotelbrand header.site .btn.primary:hover{background:var(--blau-dd);}
 body.hotelbrand h2.title{color:#3d2229;}
-body.hotelbrand .chip{border-color:#e3c6cd;}
-body.hotelbrand .tg{background:#f7ecef;color:#911233;}
-body.hotelbrand .price{color:#911233;}
+body.hotelbrand .chip{border-color:#bad5ea;}
+body.hotelbrand .tg{background:#e8f1f8;color:var(--blau-dd);}
+body.hotelbrand .price{color:var(--blau-dd);}
 
 /* ── Галерея главной: адаптив ── */
 @media(max-width:900px){.galgrid{grid-template-columns:repeat(3,1fr) !important;}}
@@ -750,14 +750,14 @@ footer.site .bottom{border-top-color:#2b4a5c;color:#8ba4b3;}
 
 /* ── Отель: полный бренд Sporthotel, минимум пересечений с курортной палитрой ── */
 body.hotelbrand{background:#fbf7f2;}
-body.hotelbrand section[style*="var(--hellblau-l)"]{background:#f7ecef !important;}
+body.hotelbrand section[style*="var(--hellblau-l)"]{background:#e8f1f8 !important;}
 body.hotelbrand section[style*="var(--beige-l)"]{background:#f3e7db !important;}
-body.hotelbrand section[style*="linear-gradient(135deg,var(--blau-dd)"]{background:linear-gradient(135deg,#5a1020,#911233) !important;}
-body.hotelbrand .btn.ghost2{border-color:#911233;color:#911233;}
-body.hotelbrand .btn.secondary{border-color:#911233;color:#911233;}
-body.hotelbrand .hq-q::after{color:#911233;}
-body.hotelbrand a[style*="color:var(--blau-dd)"]{color:#911233 !important;}
-body.hotelbrand .season-note a{color:#911233;}
+body.hotelbrand section[style*="linear-gradient(135deg,var(--blau-dd)"]{background:linear-gradient(135deg,#4f86b3,#75abd6) !important;}
+body.hotelbrand .btn.ghost2{border-color:var(--blau-dd);color:var(--blau-dd);}
+body.hotelbrand .btn.secondary{border-color:var(--blau-dd);color:var(--blau-dd);}
+body.hotelbrand .hq-q::after{color:var(--blau-dd);}
+body.hotelbrand a[style*="color:var(--blau-dd)"]{color:var(--blau-dd) !important;}
+body.hotelbrand .season-note a{color:var(--blau-dd);}
 
 /* ── N-10: floatpanel крупнее, в стилистике ── */
 .floatpanel a{width:56px;height:56px;font-size:22px;border:2px solid var(--hellblau);}
@@ -820,7 +820,7 @@ body.lichten section:not([style*="background"]) .lead{color:#dfe4ee;}
 body.hotelbrand section[style*="var(--beige-l)"] h2.title,
 body.hotelbrand section[style*="var(--beige-l)"] h3{color:#3d2229;}
 body.hotelbrand section[style*="var(--beige-l)"] .lead{color:var(--dunkel);}
-body.hotelbrand section[style*="var(--beige-l)"] .eyebrow{color:#911233;}
+body.hotelbrand section[style*="var(--beige-l)"] .eyebrow{color:var(--blau-dd);}
 body.hotelbrand section[style*="var(--beige-l)"] .season-note{color:#5b6470;}
 
 /* Fix-11. wellness-spa: ghost-кнопки (белые, для тёмных hero) на светлой секции */
@@ -877,7 +877,7 @@ body.bikepark .floatpanel{top:calc(50% + 8px);transform:none;}
 /* ══ WARROOM WA-01/WA-06 — контраст главных CTA и мелкого серого текста ══ */
 /* WA-01: белый на var(--blau) #75abd6 = 2.46:1 (фейл AA). → var(--blau-dd)
    #33617f = 6.6:1. Переменные проверены в :root (стр.81): --blau-dd, --blau-deep есть.
-   hotel.html не задет: body.hotelbrand .btn.primary{#911233} (стр.624) специфичнее.
+   hotel.html не задет: body.hotelbrand .btn.primary{#75abd6} (стр.624) специфичнее.
    Тёмные band'ы Color-Draft: их белые .btn.primary (стр.694) специфичнее — остаются. */
 .btn.primary{background:var(--blau-dd);}
 .btn.primary:hover{background:var(--blau-deep);}
@@ -886,8 +886,8 @@ body.bikepark .floatpanel{top:calc(50% + 8px);transform:none;}
    тоже темним + светлый бордер, чтобы чип не сливался с band-фоном */
 section[style*="var(--beige-l)"] .chip.active,
 section[style*="var(--beige-l)"] .chip:hover{background:var(--blau-dd);border-color:var(--hellblau);color:#fff;}
-/* hotelbrand: чипы в бордо — не тащим синий в палитру отеля (белый на #911233 ≈ 9:1) */
-body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;color:#fff;}
+/* hotelbrand: чипы в бордо — не тащим синий в палитру отеля (белый на #75abd6 ≈ 9:1) */
+body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#75abd6;color:#fff;}
 /* Betriebszeiten: текущий период (стр.616 задавал var(--blau)) */
 .hb-chip.hb-current{background:var(--blau-dd);border-color:var(--blau-dd);}
 /* CTA на тёмных заливках (gruppen-.formbox, .newsletter, футер-.foot-nl):
@@ -922,7 +922,7 @@ body.hotelbrand .chip.active,body.hotelbrand .chip:hover{background:#911233;colo
   .sticky-cta .sc-2nd{flex:0 0 auto;padding:14px 15px;}
 }
 /* отель — бордо-бренд у sticky-CTA (в тон body.hotelbrand) */
-body.hotelbrand .sticky-cta .btn.primary{background:#911233;}
+body.hotelbrand .sticky-cta .btn.primary{background:#75abd6;}
 
 /* ═══ HERO-GHOST-FROSTED (visual audit 04.07) — фикс невидимых ghost-кнопок на фото-героях.
    Причина: поздняя light-section .btn.ghost (тёмно-синий текст) перекрывала hero-правило.
@@ -1870,8 +1870,8 @@ li.hide-dupe{display:none}
 .hero-proof{text-shadow:0 1px 3px rgba(0,0,0,.88),0 2px 12px rgba(0,0,0,.62)!important}
 .hero .sub{text-shadow:0 1px 4px rgba(8,16,26,.78),0 2px 18px rgba(8,16,26,.55)}
 
-/* ═══ #fix-hotel-nl-btn — «Anmelden»-Button im Hotel-Newsletter war unlesbar (blau-dd Text auf rot #911233 = 1.57) ═══
-   Auf body.hotelbrand gewann .btn.primary{background:#911233} über den invertierten Weiß-Button (.foot-nl .btn.primary).
+/* ═══ #fix-hotel-nl-btn — «Anmelden»-Button im Hotel-Newsletter war unlesbar (blau-dd Text auf rot #75abd6 = 1.57) ═══
+   Auf body.hotelbrand gewann .btn.primary{background:#75abd6} über den invertierten Weiß-Button (.foot-nl .btn.primary).
    Höhere Spezifität stellt den lesbaren Weiß-Button + blauen Text sicher (~5.6:1). Pre-existing, nicht vom Farb-Realign. */
 body.hotelbrand .foot-nl .btn.primary,body.hotelbrand .newsletter .btn.primary,body.hotelbrand .formbox .btn.primary{background:#fff!important;color:var(--blau-dd)!important}
 body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.primary:hover,body.hotelbrand .formbox .btn.primary:hover{background:var(--hellblau-l)!important;color:var(--blau-dd)!important}
@@ -1899,7 +1899,7 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
 
 /* ═══ #brand-lighter (Sasha 11.07: «Сайт темнее чем брендовый цвет») — dominante Blau-Flächen auf Hero-Farbe #75abd6 ═══
    Marke: Semmering Blau #75abd6 soll DOMINIEREN + «weiß für Text auf blauem Hintergrund». Solid-Flächen & Verläufe
-   heller. --blau-dd bleibt NUR für Text-auf-hell (Eyebrow/Preis/Nav — lesbar). hotelbrand (#911233) unberührt (höhere Spez.). */
+   heller. --blau-dd bleibt NUR für Text-auf-hell (Eyebrow/Preis/Nav — lesbar). hotelbrand (#75abd6) unberührt (höhere Spez.). */
 .notif,.livebar2{background:var(--blau)!important}
 .hp-head,.menu-card .sig{background:var(--blau)}
 .btn.primary{background:var(--blau)}
@@ -1909,3 +1909,13 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
 .nextev .nx-go{background:var(--blau)}
 [data-audgrid] .exp-card.match::after{background:var(--blau)}
 .buy-card,.newsletter,.formbox,.ev-next-card,.nextev-band{background:linear-gradient(135deg,#5e93bd,var(--blau))}
+
+/* ═══ #foot-slogan — offizieller Marken-Slogan «Ganz nah. Ganz Berg.» (Sasha: der Haupt-Slogan) ═══ */
+.foot-slogan{font-family:'Montserrat',system-ui,sans-serif;font-weight:800;font-size:20px;letter-spacing:-.01em;color:#fff;margin:2px 0 12px;line-height:1.15}
+@media(max-width:640px){.foot-slogan{font-size:18px}}
+
+/* ═══ #calc-ages — Altersgruppen-Umschalter im Preisrechner (Erwachsene/Jugend/Kinder), reale Tarife ═══ */
+.calc-ages{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
+.calc-age{font-family:'Montserrat',system-ui,sans-serif;font-weight:700;font-size:13px;padding:7px 15px;border-radius:999px;border:1.5px solid var(--hellblau);background:#fff;color:var(--blau-dd);cursor:pointer;transition:.15s}
+.calc-age:hover{border-color:var(--blau)}
+.calc-age.on{background:var(--blau);color:#fff;border-color:var(--blau)}

@@ -299,14 +299,21 @@
 
 /* Preisrechner: Summe gewählter Erlebnisse × Personen (Sommer-Erwachsenenpreise) */
 document.querySelectorAll('[data-calc]').forEach(function(c){
-  var n=1;
+  var n=1, age='a';  // a=Erwachsene · j=Jugend/Sen. · k=Kinder — reale Tarife pro Altersgruppe
   // #716 — dynamischer, präziser All-In-Nudge: echte Ersparnis, sobald ≥2 All-In-Bausteine (Waldseilgarten+Bahn+Cart) > 55 € einzeln kosten
   var nudge=null, tot=c.querySelector('.calc-total');
   if(tot){ nudge=document.createElement('div'); nudge.className='calc-nudge'; nudge.style.display='none'; tot.parentNode.insertBefore(nudge, tot.nextSibling); }
+  function pf(v){ if(v.indexOf('.')>-1){ var s=v.split('.'); return s[0]+','+(s[1].length===2?s[1]:s[1]+'0'); } return v; }
+  function paint(){
+    c.querySelectorAll('input[data-pa]').forEach(function(i){
+      var raw=i.getAttribute('data-p'+age)||i.getAttribute('data-pa');
+      var b=i.parentNode.querySelector('[data-pd]'); if(b) b.textContent=pf(raw)+' €';
+    });
+  }
   function upd(){
     var sum=0, allin=0;
-    c.querySelectorAll('input[data-price]:checked').forEach(function(i){
-      var p=parseFloat(i.getAttribute('data-price'))||0; sum+=p;
+    c.querySelectorAll('input[data-pa]:checked').forEach(function(i){
+      var p=parseFloat(i.getAttribute('data-p'+age)||i.getAttribute('data-pa'))||0; sum+=p;
       if(i.hasAttribute('data-allin')) allin+=p;
     });
     var cn=c.querySelector('[data-cn]'), ct=c.querySelector('[data-ct]');
@@ -314,7 +321,7 @@ document.querySelectorAll('[data-calc]').forEach(function(c){
     var v=sum*n;
     if(ct) ct.textContent=(Number.isInteger(v)? String(v) : v.toFixed(2).replace('.',','))+' €';
     if(nudge){
-      if(allin>55){
+      if(age==='a' && allin>55){
         var save=Math.round((allin-55)*n), es=allin*n;
         nudge.innerHTML='💡 <span class="t-d"><b>Diese Erlebnisse kosten einzeln '+es+' €.</b> Mit der <b>All-In Card</b> (Waldseilgarten + Bahn + Mountaincart) ab 55 €/Erw. — du sparst bis zu '+save+' €. <a href="#allin">All-In ansehen →</a></span><span class="t-e"><b>These experiences cost '+es+' € separately.</b> With the <b>All-In Card</b> (ropes park + ride + mountain cart) from €55/adult — you save up to '+save+' €. <a href="#allin">See All-In →</a></span>';
         nudge.style.display='block';
@@ -322,10 +329,15 @@ document.querySelectorAll('[data-calc]').forEach(function(c){
     }
   }
   c.addEventListener('change',upd);
+  c.querySelectorAll('.calc-age').forEach(function(b){ b.addEventListener('click',function(){
+    age=b.getAttribute('data-age');
+    c.querySelectorAll('.calc-age').forEach(function(x){ x.classList.toggle('on',x===b); x.setAttribute('aria-selected',x===b?'true':'false'); });
+    paint(); upd();
+  }); });
   var cp=c.querySelector('[data-cp]'), cm=c.querySelector('[data-cm]');
   if(cp) cp.addEventListener('click',function(){ n=Math.min(20,n+1); upd(); });
   if(cm) cm.addEventListener('click',function(){ n=Math.max(1,n-1); upd(); });
-  upd();
+  paint(); upd();
 });
 
 /* FAQ-Suche: filtert .ac-Akkordeons live nach Stichwort (season-hidden bleibt versteckt) */
