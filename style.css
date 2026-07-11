@@ -10,7 +10,7 @@
   --hellblau:#bad5ea; --hellblau-l:#e8f1f8;
   --anthrazit:#312e2b; --dunkel:#4d4d4d; --grau:#5b6470; --hellgrau:#ededed;
   --beige:#d8cab7; --beige-l:#f6f0e7;
-  --lichten:#1a2f5a; --lichten-2:#22407a; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
+  --lichten:#1f3d50; --lichten-2:#2d5670; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
   --red:#911233; --green:#3a6a93;
   --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:#c6a15b; /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
@@ -141,7 +141,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .tile.t1{background:linear-gradient(160deg,#4f86b3,#3a6a93);}
 .tile.t2{background:linear-gradient(160deg,#5e93bd,#3a6a93);}
 .tile.t3{background:linear-gradient(160deg,#3a3f45,#16181c);}
-.tile.t4{background:linear-gradient(160deg,#5b6b9a,#1a2f5a);}
+.tile.t4{background:linear-gradient(160deg,#5e93bd,#1f3d50);}
 .tile.t5{background:linear-gradient(160deg,#c39b6a,#8a6a3a);}
 
 .filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;}
@@ -175,7 +175,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .ph-b{background:linear-gradient(150deg,#6aa0c8,#3a6a93);}
 .ph-c{background:linear-gradient(150deg,#caa46a,#8a6a3a);}
 .ph-d{background:linear-gradient(150deg,#b06a7a,#6a2a3a);}
-.ph-e{background:linear-gradient(150deg,#5b6b9a,#1a2f5a);}
+.ph-e{background:linear-gradient(150deg,#5e93bd,#1f3d50);}
 .ph-f{background:linear-gradient(150deg,#3a3f45,#16181c);}
 
 /* ---------- stats ---------- */
@@ -323,7 +323,7 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 /* ---------- lichten world ---------- */
 body.lichten{background:var(--lichten);color:#dfe4ee;}
 .li-hero{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;
-  background:radial-gradient(130% 90% at 60% 0%,#2a4684 0%,#1a2f5a 60%,#0f1d3a 100%);overflow:hidden;}
+  background:radial-gradient(130% 90% at 60% 0%,#2d5670 0%,#1f3d50 60%,#142936 100%);overflow:hidden;}
 .li-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,34,.28) 0%,transparent 36%,rgba(8,16,34,.74));}
 .li-hero .wrap{position:relative;z-index:2;padding-bottom:48px;}
 .li-hero h1{color:#fff;font-family:Georgia,'Times New Roman',serif;font-size:60px;font-weight:700;letter-spacing:-1px;text-shadow:0 2px 10px rgba(0,0,0,.45),0 2px 34px rgba(0,0,0,.5);}
@@ -335,7 +335,7 @@ body.lichten{background:var(--lichten);color:#dfe4ee;}
 .li-fact .ic{font-size:28px;}
 .li-fact .t{font-family:'Montserrat';font-weight:700;margin-top:8px;color:#fff;}
 .menu-card{background:var(--lichten-2);border-radius:14px;overflow:hidden;}
-.menu-card .ph{height:150px;background:linear-gradient(150deg,#3a5690,#1a2f5a);}
+.menu-card .ph{height:150px;background:linear-gradient(150deg,#3a6a93,#1f3d50);}
 .menu-card .body{padding:16px;}
 .menu-card .sig{display:inline-block;background:var(--blau-dd);color:#fff;font-family:'Montserrat';font-weight:700;
   font-size:11px;padding:3px 10px;border-radius:8px;margin-bottom:6px;}
@@ -1478,9 +1478,9 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .legal-row>a::before{content:"·";opacity:.5;margin-right:8px;text-decoration:none;display:inline-block}
 
 /* doc#1/#9 — Brand-Manual: Hero = „Semmering Blau" #75abd6. Dunkle UI-Balken (#33617f = grau-teal)
-   und das Liechtensteinhaus-Theme (#1a2f5a = lila-navy, falscher Farbton) auf ein sattes
+   und das Liechtensteinhaus-Theme (#1f3d50 = lila-navy, falscher Farbton) auf ein sattes
    Dunkel-Semmering-Blau (Ableitung aus #75abd6) vereinheitlichen. */
-:root{--lichten:#26506f;--lichten-2:#357099}
+:root{--lichten:#26506f;--lichten-2:#2d5f80}  /* S4: dunkel-Semmering-Blau (hue~205), --lichten-2 dunkler für AA (li-fact/menu-card Text) */
 .livebar2,.notif{background:#3a6a93!important}
 
 
