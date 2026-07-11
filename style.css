@@ -723,7 +723,7 @@ section[style*="var(--beige-l)"] .season-note{color:#a9c3d5;}
 section[style*="var(--beige-l)"] .season-note a[style]{color:#bfe0f7!important;}
 section[style*="var(--beige-l)"] .stb-num{color:#fff!important;}
 section[style*="var(--beige-l)"] .stb-num + div{color:#c4d6e5!important;}
-section[style*="var(--beige-l)"] .eyebrow[style]{color:#f2b8c6!important;}
+section[style*="var(--beige-l)"] .eyebrow[style]{color:#bad5ea!important;}
 section[style*="var(--beige-l)"] .chip{background:rgba(255,255,255,.13);color:#eaf3fa;}
 section[style*="var(--beige-l)"] .chip.active,
 section[style*="var(--beige-l)"] .chip:hover{background:var(--blau);color:#fff;}
@@ -1932,3 +1932,13 @@ body.hotelbrand .hero::after{
   background:#f3ecdf!important;z-index:6!important;
   -webkit-mask:url('assets/mountain-mask-solid.png') bottom/100% 100% no-repeat!important;
           mask:url('assets/mountain-mask-solid.png') bottom/100% 100% no-repeat!important;}
+
+/* ═══ 3-Schritte-Element WIEDERHERSTELLEN (Brand Manual §6 «Elemente» — 3 Dreiecke transparent→voll) ═══
+   audit-visual-4 hatte den Marken-Divider durch einen generischen Strich ersetzt → Marken-Element ging verloren.
+   Zurück zu den 3 Semmering-Dreiecken über der Eyebrow (Ausrichtung folgt der Eyebrow). */
+.eyebrow::before{
+  content:"";display:block;width:58px;height:13px;margin:0 0 8px 0;
+  background:url('assets/triangles.svg') left center/contain no-repeat!important;
+  border-radius:0!important;opacity:1!important;vertical-align:baseline!important;}
+/* Zentrierte Eyebrows (z. B. mittige Sektionen) → Dreiecke mittig */
+.center .eyebrow::before,[style*="text-align:center"] .eyebrow::before,.tac .eyebrow::before{margin-left:auto;margin-right:auto;background-position:center!important;}
