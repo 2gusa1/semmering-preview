@@ -1888,3 +1888,11 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
 .am-d1 .am-seg.on{background:var(--blau)}
 .am-d2 .am-seg.on{background:var(--blau-d)}
 .am-d3 .am-seg.on{background:var(--blau-dd)}
+
+/* ═══ #circle1-trailcard-blau — .tc2/.tc4 waren braun/rot-braun (off-brand), .tc1 alt-grau-teal ═══
+   Trailcard-Fallback-Verläufe (Bike-Events u.a.) auf Marken-Blau-Familie vereinheitlicht (#75abd6 dominiert),
+   unterscheidbar via Blau-Abstufung. Meist von Foto überdeckt — konsistenter Fallback ohne Braun/Rot-Blitz. */
+.tc1{background:linear-gradient(150deg,#5e93bd,#3a6a93)}
+.tc2{background:linear-gradient(150deg,#75abd6,#4f86b3)}
+.tc3{background:linear-gradient(150deg,#4f86b3,#274b63)}
+.tc4{background:linear-gradient(150deg,#6aa0c8,#33617f)}
