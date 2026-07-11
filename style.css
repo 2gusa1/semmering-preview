@@ -1919,3 +1919,11 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
 .calc-age{font-family:'Montserrat',system-ui,sans-serif;font-weight:700;font-size:13px;padding:7px 15px;border-radius:999px;border:1.5px solid var(--hellblau);background:#fff;color:var(--blau-dd);cursor:pointer;transition:.15s}
 .calc-age:hover{border-color:var(--blau)}
 .calc-age.on{background:var(--blau);color:#fff;border-color:var(--blau)}
+
+/* ═══ #hero-berge-white (Sasha IMG_0757: Berge-Divider unten am Hero war grau → WEISS) ═══
+   Marken-Element «Berge» = weiße Bergsilhouette. Solides Weiß + clip-path (Bergkamm) statt grauem PNG →
+   saubere weiße Berge, die über das Video ragen und in die helle Sektion darunter übergehen. */
+.hero::after,body.hotelbrand .hero::after{
+  background:#fff!important;
+  -webkit-mask:none!important;mask:none!important;
+  clip-path:polygon(0 60%,14% 42%,26% 58%,40% 36%,54% 56%,68% 34%,82% 54%,100% 40%,100% 100%,0 100%)!important;z-index:4!important;}
