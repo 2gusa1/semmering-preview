@@ -1881,3 +1881,10 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
    der hotel.html-Inhalte + des Pakete-Teasers. Ausgeblendet (Inhalt bleibt im HTML), Pakete-Teaser bleibt sichtbar
    → Hotel in unterstützender Rolle, Bergerlebnis im Fokus. Fakten (8 Min/2 Saunen/Grand View) leben auf hotel.html. */
 .hq-hide{display:none}
+
+/* ═══ #circle0-diff-blau — Schwierigkeits-Meter auf Marken-Blau-Intensität (Feedback-Runde: #75abd6 dominiert) ═══
+   Vorher d2=orange #e0a53b, d3=rot #c85a44 (off-brand). Level bleibt klar via Segment-Anzahl (1/2/3) +
+   Blau-Dunkelheit (hell=leicht → dunkel=schwer). Kein Info-Verlust, marken-konsistent. */
+.am-d1 .am-seg.on{background:var(--blau)}
+.am-d2 .am-seg.on{background:var(--blau-d)}
+.am-d3 .am-seg.on{background:var(--blau-dd)}
