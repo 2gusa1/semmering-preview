@@ -1896,3 +1896,16 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
 .tc2{background:linear-gradient(150deg,#75abd6,#4f86b3)}
 .tc3{background:linear-gradient(150deg,#4f86b3,#274b63)}
 .tc4{background:linear-gradient(150deg,#6aa0c8,#33617f)}
+
+/* ═══ #brand-lighter (Sasha 11.07: «Сайт темнее чем брендовый цвет») — dominante Blau-Flächen auf Hero-Farbe #75abd6 ═══
+   Marke: Semmering Blau #75abd6 soll DOMINIEREN + «weiß für Text auf blauem Hintergrund». Solid-Flächen & Verläufe
+   heller. --blau-dd bleibt NUR für Text-auf-hell (Eyebrow/Preis/Nav — lesbar). hotelbrand (#911233) unberührt (höhere Spez.). */
+.notif,.livebar2{background:var(--blau)!important}
+.hp-head,.menu-card .sig{background:var(--blau)}
+.btn.primary{background:var(--blau)}
+.btn.primary:hover{background:#5e93bd}
+.chip.active,.chip:hover{background:var(--blau);color:#fff}
+.hb-chip.hb-current,.aud-chip.active,.aud-actchip{background:var(--blau)}
+.nextev .nx-go{background:var(--blau)}
+[data-audgrid] .exp-card.match::after{background:var(--blau)}
+.buy-card,.newsletter,.formbox,.ev-next-card,.nextev-band{background:linear-gradient(135deg,#5e93bd,var(--blau))}
