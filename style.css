@@ -1942,3 +1942,9 @@ body.hotelbrand .hero::after{
   border-radius:0!important;opacity:1!important;vertical-align:baseline!important;}
 /* Zentrierte Eyebrows (z. B. mittige Sektionen) → Dreiecke mittig */
 .center .eyebrow::before,[style*="text-align:center"] .eyebrow::before,.tac .eyebrow::before{margin-left:auto;margin-right:auto;background-position:center!important;}
+
+/* ═══ #26 (Audit 07-07): Footer-Links — größere Tap-Targets auf Mobile (waren zu eng: 5px) ═══ */
+@media(max-width:640px){
+  footer.site a{padding:9px 0}
+  footer.site .fcol{margin-bottom:4px}
+}
