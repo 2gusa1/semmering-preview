@@ -10,8 +10,8 @@
   --hellblau:#bad5ea; --hellblau-l:#e8f1f8;
   --anthrazit:#312e2b; --dunkel:#4d4d4d; --grau:#5b6470; --hellgrau:#ededed;
   --beige:#d8cab7; --beige-l:#f6f0e7;
-  --lichten:#1a2f5a; --lichten-2:#22407a; --lichten-acc:#7fae6f; --lichten-green:#244319;
-  --red:#911233; --green:#07484b;
+  --lichten:#1a2f5a; --lichten-2:#22407a; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
+  --red:#911233; --green:#3a6a93;
   --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:#c6a15b; /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
 }
@@ -101,7 +101,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .bg-summer{background:
   radial-gradient(120% 80% at 70% 0%,#8fc4e8 0%,#5e93bd 40%,#3a6a93 100%);}
 .bg-summer::before{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,transparent 45%,#3c6b46 78%,#2d5436 100%);opacity:.92;
+  background:linear-gradient(180deg,transparent 45%,#4f86b3 78%,#3a6a93 100%);opacity:.92;
   clip-path:polygon(0 62%,18% 50%,32% 60%,48% 42%,63% 56%,80% 40%,100% 58%,100% 100%,0 100%);}
 .bg-winter{background:radial-gradient(120% 80% at 70% 0%,#cfe2f0 0%,#9bbdd6 40%,#5b7f9c 100%);}
 .bg-winter::before{content:"";position:absolute;inset:0;
@@ -139,7 +139,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .tile:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
 .tile .ic{position:absolute;top:14px;left:16px;font-size:24px;}
 .tile.t1{background:linear-gradient(160deg,#4f86b3,#3a6a93);}
-.tile.t2{background:linear-gradient(160deg,#79b06a,#3c6b46);}
+.tile.t2{background:linear-gradient(160deg,#5e93bd,#3a6a93);}
 .tile.t3{background:linear-gradient(160deg,#3a3f45,#16181c);}
 .tile.t4{background:linear-gradient(160deg,#5b6b9a,#1a2f5a);}
 .tile.t5{background:linear-gradient(160deg,#c39b6a,#8a6a3a);}
@@ -172,7 +172,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
   padding:3px 9px;border-radius:8px;}
 .exp-card .price{font-family:'Montserrat';font-weight:700;color:var(--blau-dd);}
 .ph-a{background:linear-gradient(150deg,#6aa0c8,#3a6a93);}
-.ph-b{background:linear-gradient(150deg,#79b06a,#3c6b46);}
+.ph-b{background:linear-gradient(150deg,#6aa0c8,#3a6a93);}
 .ph-c{background:linear-gradient(150deg,#caa46a,#8a6a3a);}
 .ph-d{background:linear-gradient(150deg,#b06a7a,#6a2a3a);}
 .ph-e{background:linear-gradient(150deg,#5b6b9a,#1a2f5a);}
@@ -290,12 +290,12 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 .trailcard>*{position:relative;z-index:1;}
 .trailcard .micro{font-family:'Montserrat';font-size:12px;opacity:.85;text-transform:uppercase;letter-spacing:1px;}
 .trailcard h3{color:#fff;font-size:24px;text-transform:uppercase;margin:4px 0;}
-.tc1{background:linear-gradient(150deg,#5a7d4a,#1c3b2a);}
+.tc1{background:linear-gradient(150deg,#5e93bd,#33617f);}
 .tc2{background:linear-gradient(150deg,#7a6a4a,#2a2418);}
 .tc3{background:linear-gradient(150deg,#4a6a8a,#16283a);}
 .tc4{background:linear-gradient(150deg,#8a4a3a,#3a1a14);}
 .statusrow{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bikedark-2);
-  border-radius:10px;margin-bottom:8px;border-left:4px solid #5a7d4a;}
+  border-radius:10px;margin-bottom:8px;border-left:4px solid var(--blau-d);}
 .statusrow .lvl{width:14px;height:14px;border-radius:50%;}
 .statusrow .open{color:#7fe08a;font-weight:700;font-family:'Montserrat';font-size:13px;margin-left:auto;}
 .statusrow .closed{color:#ff7a6d;}
@@ -337,7 +337,7 @@ body.lichten{background:var(--lichten);color:#dfe4ee;}
 .menu-card{background:var(--lichten-2);border-radius:14px;overflow:hidden;}
 .menu-card .ph{height:150px;background:linear-gradient(150deg,#3a5690,#1a2f5a);}
 .menu-card .body{padding:16px;}
-.menu-card .sig{display:inline-block;background:var(--lichten-green);color:#fff;font-family:'Montserrat';font-weight:700;
+.menu-card .sig{display:inline-block;background:var(--blau-dd);color:#fff;font-family:'Montserrat';font-weight:700;
   font-size:11px;padding:3px 10px;border-radius:8px;margin-bottom:6px;}
 .li-btn{background:#fff;color:var(--lichten);}
 
@@ -1208,7 +1208,7 @@ footer.site .cols.mega .fcol-brand{max-width:none;}
 .am-diff{gap:7px;}
 .am-bar{display:inline-flex;gap:3px;}
 .am-seg{width:13px;height:5px;border-radius:3px;background:rgba(20,40,60,.13);}
-.am-d1 .am-seg.on{background:#4a9c5d;}
+.am-d1 .am-seg.on{background:var(--blau-d);}
 .am-d2 .am-seg.on{background:#e0a53b;}
 .am-d3 .am-seg.on{background:#c85a44;}
 .am-k{color:var(--grau);}
@@ -1823,8 +1823,8 @@ li.hide-dupe{display:none}
    Jede ev-card trägt jetzt ein Veranstalter-Badge (berg=am Berg/Bergbahnen grün, hotel=Sporthotel bordeaux)
    + Filter-Chips «Alle / Am Berg / Sporthotel». Nur Gruppierung/Kennzeichnung — keine neuen Fakten. */
 .ev-org{font-family:'Montserrat';font-weight:700;font-size:11px;padding:2px 9px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:3px}
-.ev-org--berg{color:#2f6b4f;background:#e6f1ea}
-.ev-org--hotel{color:#911233;background:#f6e7ec}
+.ev-org--berg{color:var(--blau-dd);background:var(--hellblau-l)}
+.ev-org--hotel{color:var(--anthrazit);background:var(--beige)}
 .ev-filter{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
 .ev-filter .chip{cursor:pointer;border:1px solid var(--hellgrau);background:#fff}
 .ev-filter .chip.active{background:var(--blau-dd);color:#fff;border-color:var(--blau-dd)}
