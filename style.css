@@ -1869,3 +1869,15 @@ li.hide-dupe{display:none}
    Video-Frames aus. Stärkerer Doppelschatten macht ihn frame-robust. .sub ebenso leicht verstärkt. */
 .hero-proof{text-shadow:0 1px 3px rgba(0,0,0,.88),0 2px 12px rgba(0,0,0,.62)!important}
 .hero .sub{text-shadow:0 1px 4px rgba(8,16,26,.78),0 2px 18px rgba(8,16,26,.55)}
+
+/* ═══ #fix-hotel-nl-btn — «Anmelden»-Button im Hotel-Newsletter war unlesbar (blau-dd Text auf rot #911233 = 1.57) ═══
+   Auf body.hotelbrand gewann .btn.primary{background:#911233} über den invertierten Weiß-Button (.foot-nl .btn.primary).
+   Höhere Spezifität stellt den lesbaren Weiß-Button + blauen Text sicher (~5.6:1). Pre-existing, nicht vom Farb-Realign. */
+body.hotelbrand .foot-nl .btn.primary,body.hotelbrand .newsletter .btn.primary,body.hotelbrand .formbox .btn.primary{background:#fff!important;color:var(--blau-dd)!important}
+body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.primary:hover,body.hotelbrand .formbox .btn.primary:hover{background:var(--hellblau-l)!important;color:var(--blau-dd)!important}
+
+/* ═══ #hotel-quiet — Sporthotel weniger dominant auf Nicht-Hotel-Seiten (Feedback Simona+Karoline+Tania) ═══
+   Die grosse «Bleib über Nacht»-Übernachten-Sektion (index) und «Ski-Tag verlängern» (winter) sind Dubletten
+   der hotel.html-Inhalte + des Pakete-Teasers. Ausgeblendet (Inhalt bleibt im HTML), Pakete-Teaser bleibt sichtbar
+   → Hotel in unterstützender Rolle, Bergerlebnis im Fokus. Fakten (8 Min/2 Saunen/Grand View) leben auf hotel.html. */
+.hq-hide{display:none}
