@@ -12,7 +12,7 @@
   --beige:#d8cab7; --beige-l:#f6f0e7;
   --lichten:#1f3d50; --lichten-2:#2d5670; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
   --red:#911233; --green:#3a6a93;
-  --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:#c6a15b; /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
+  --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:var(--blau-dd); /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
 }
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -1388,7 +1388,7 @@ body.legal{background:#faf8f4}
 @media(prefers-color-scheme:dark){body.legal{background:#0f1922}}
 body.legal main>.sec{padding-top:0}
 body.legal .sec>.wrap{max-width:760px}
-body.legal .eyebrow{color:var(--gold,#c6871f);letter-spacing:.16em;font-size:12px}
+body.legal .eyebrow{color:var(--blau-dd);letter-spacing:.16em;font-size:12px}
 body.legal h1.title{font-size:42px;line-height:1.12;margin:6px 0 6px;color:var(--anthrazit,#1e2a38)}
 body.legal .lead{font-size:17px;line-height:1.6;color:var(--dunkel);margin-bottom:8px}
 body.legal .sec p{font-size:16px;line-height:1.7;margin:0 0 18px;color:#2a2f36}
