@@ -12,6 +12,10 @@
   // #664/#717 — saison-spezifische Seiten (data-season) erzwingen ihre Saison; sonst gespeicherte Wahl / Datum.
   var _forced = document.body.getAttribute('data-season');
   applySeason(_forced || localStorage.getItem('semmering_season') || seasonByDate());
+  // #live: Live-Status/Off-Banner по РЕАЛЬНОЙ дате (не форс-сезон страницы, не ручной тумблер)
+  var _rs = seasonByDate();
+  document.documentElement.classList.toggle('real-winter', _rs==='winter');
+  document.documentElement.classList.toggle('real-summer', _rs==='summer');
 
   // ---- Language toggle DE/EN (default DE, persists across pages) ----
   var monthsDE=['Jän','Feb','März','Apr','Mai','Juni','Juli','Aug','Sep','Okt','Nov','Dez'];

@@ -1978,3 +1978,9 @@ body.hotelbrand .hero::after{
 .exp-card .body::after{content:none}
 /* match-звезда аудитории уходит в НИЖ-правый угол фото, чтобы не сталкиваться с бейджем */
 [data-audgrid].aud-active .exp-card.match::after{top:auto;bottom:11px;right:11px}
+
+/* live-status by real date */
+/* .live-*/off-banner показываются по умолчанию; html.real-* (JS по реальной дате) прячет неверный сезон. */
+html.real-winter .live-summer{display:none!important;}
+html.real-summer .live-winter{display:none!important;}
+html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
