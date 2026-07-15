@@ -237,6 +237,7 @@
   var PLAY='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>';
   var PAUSE='<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>';
   vids.forEach(function(v){
+    try{v.playbackRate=0.8;}catch(e){}
     var host=v.parentElement; if(!host) return;
     var seas = v.classList.contains('only-winter')?' only-winter':(v.classList.contains('only-summer')?' only-summer':'');
     var btn=document.createElement('button');
