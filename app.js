@@ -438,8 +438,11 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
   var H=document.body, last=window.scrollY||0, ticking=false;
   function onScroll(){
     var y=window.scrollY||0;
-    if(y>180 && y>last+4) H.classList.add('hdr-compact');
-    else if(y<last-4 || y<120) H.classList.remove('hdr-compact');
+    /* #651-fix: абсолютный гистерезис (мёртвая зона 120–200) вместо порога по направлению ±4.
+       hdr-compact меняет высоту topstack (~38px: .wrap 70→52 + скрытый .nf-mood); при узком пороге
+       этот сдвиг + микро-реверсы скролла ре-триггерили тоггл → шапка дёргалась. Зона 80px > 38px сдвига. */
+    if(y>200) H.classList.add('hdr-compact');
+    else if(y<120) H.classList.remove('hdr-compact');
     last=y; ticking=false;
   }
   window.addEventListener('scroll',function(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } },{passive:true});

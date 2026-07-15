@@ -1964,3 +1964,10 @@ body.hotelbrand .hero::after{
 @media(max-width:520px){.lang-toggle span{padding:6px 8px}.season-toggle span{padding:6px 8px!important}}
 .act-reel{justify-content:center;gap:30px}
 .act-reel .ar-cap{flex:0 1 380px;max-width:380px}
+
+/* orphan-fix filtered cardgrid */
+/* #651-orphan: :nth-child orphan-центровка (стр.155) считает по DOM и игнорит display:none
+   сезонные/аудиторные карточки → одинокая карточка уезжала в колонку 2/3, слева пусто.
+   Для фильтруемой .cardgrid.big отключаем хак: карточки текут натурально слева (grid-column:auto). */
+.cardgrid.big>*:last-child:nth-child(3n+1){grid-column:auto}
+.cardgrid.big>*:last-child:nth-child(3n+2){grid-column:auto}
