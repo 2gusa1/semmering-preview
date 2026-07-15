@@ -1632,7 +1632,10 @@ html,body{overflow-x:clip}  /* #651: было overflow-x:hidden — оно со�
 .topstack{position:sticky;top:0;z-index:60}
 header.site{position:static}
 .notif .wrap:has(.nf-mood){height:auto;padding-top:5px;padding-bottom:6px}
-.nf-mood{width:100%;font-family:'Montserrat';font-weight:700;font-size:14px;line-height:1.3;color:#fff;margin:0}
+.nf-mood{width:100%;font-family:'Montserrat';font-weight:700;font-size:14px;line-height:1.3;color:#fff;margin:0;display:flex;align-items:center;gap:8px;text-decoration:none}
+.nf-mood svg{flex:none;opacity:.95}
+.nf-mood .nfm-arw{opacity:.8}
+.nf-mood:hover{opacity:.92}
 @media(max-width:768px){.nf-mood{font-size:13px}}
 body.hdr-compact .nf-mood{display:none}  /* #651: при скролле вниз прячем промо-слоган — залипающий бар компактится (богатый вверху, тонкий при скролле) */
 
@@ -1966,3 +1969,12 @@ body.hotelbrand .hero::after{
    Для фильтруемой .cardgrid.big отключаем хак: карточки текут натурально слева (grid-column:auto). */
 .cardgrid.big>*:last-child:nth-child(3n+1){grid-column:auto}
 .cardgrid.big>*:last-child:nth-child(3n+2){grid-column:auto}
+
+/* card-icon badge owner-fix */
+/* owner 15.07: значок активности висел криво в теле карточки (float:right не работает в flex-body → пустота слева).
+   → бейдж в правом-верхнем углу фото, тело карточки чистое. Белое кольцо = контраст над фото. */
+.exp-card{position:relative}
+.exp-card .actc-ico{position:absolute;top:11px;right:11px;float:none!important;margin:0!important;width:42px;height:42px;z-index:4;box-shadow:0 3px 10px rgba(10,20,35,.45),0 0 0 2px rgba(255,255,255,.95)}
+.exp-card .body::after{content:none}
+/* match-звезда аудитории уходит в НИЖ-правый угол фото, чтобы не сталкиваться с бейджем */
+[data-audgrid].aud-active .exp-card.match::after{top:auto;bottom:11px;right:11px}
