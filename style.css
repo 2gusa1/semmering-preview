@@ -1992,3 +1992,6 @@ html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
 
 /* HOME-001 buy-card height */
 @media(min-width:901px){.heute-grid>.buy-card{align-self:start}}
+
+/* CRO#1 mobile: head-right уже тесен на ≤400px (toggle+lang+Tickets+burger) — прячем season-toggle, чтобы бургер не обрезался; сезон авто-детектится+persist, Sommer/Winter есть в меню */
+@media(max-width:520px){.head-right .season-toggle{display:none!important}}
