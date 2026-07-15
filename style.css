@@ -1385,14 +1385,12 @@ footer.site .fh{color:#fff;font-size:14px;font-weight:700;text-transform:upperca
 
 /* audit-legal: юр-страницы — премиум-читаемость вместо «сырого Word» (визуал-аудит P0) */
 body.legal{background:#faf8f4}
-@media(prefers-color-scheme:dark){body.legal{background:#0f1922}}
 body.legal main>.sec{padding-top:0}
 body.legal .sec>.wrap{max-width:760px}
 body.legal .eyebrow{color:var(--blau-dd);letter-spacing:.16em;font-size:12px}
 body.legal h1.title{font-size:42px;line-height:1.12;margin:6px 0 6px;color:var(--anthrazit,#1e2a38)}
 body.legal .lead{font-size:17px;line-height:1.6;color:var(--dunkel);margin-bottom:8px}
 body.legal .sec p{font-size:16px;line-height:1.7;margin:0 0 18px;color:#2a2f36}
-@media(prefers-color-scheme:dark){body.legal .sec p{color:#c8d2dc}}
 body.legal .sec h2{font-size:23px!important;font-weight:700;margin:44px 0 12px;padding-top:22px;border-top:1px solid var(--line,#e5e2dc);color:var(--blau-dd)}
 body.legal .sec h2:first-of-type{border-top:none;padding-top:0;margin-top:22px}
 body.legal .sec ul,body.legal .sec ol{line-height:1.7;margin:0 0 18px}
