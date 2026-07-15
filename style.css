@@ -1984,3 +1984,6 @@ body.hotelbrand .hero::after{
 html.real-winter .live-summer{display:none!important;}
 html.real-summer .live-winter{display:none!important;}
 html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
+
+/* gallery snap-start */
+.pc-slide{scroll-snap-align:start}
