@@ -1955,12 +1955,7 @@ body.hotelbrand .hero::after{
   background:linear-gradient(180deg,rgba(8,16,26,.34) 0%,rgba(8,16,26,.15) 26%,rgba(8,16,26,.44) 56%,rgba(8,16,26,.80) 100%)!important;}
 .bp-hero h1,.li-hero h1{text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 18px rgba(0,0,0,.55)!important;}
 
-/* a11y & polish — round1 autonomous audit */
-.notif,.livebar2{background:var(--blau-dd)!important}
-.btn.primary{background:var(--blau-dd)}
-.btn.primary:hover{background:var(--blau-deep)}
-.chip.active,.chip:hover,.hb-chip.hb-current,.aud-chip.active,.aud-actchip{background:var(--blau-dd)}
-.submenu .sm-h,.nextev .nx-lbl{color:var(--blau-dd)}
+/* polish — round1 (ЦВЕТ-КОНТРАСТ ОТКАТАН по решению владельца 15.07: брендовый #75abd6 доминирует на CTA/статус-баре/чипах; AA-замечание 2.46:1 остаётся в OWNER_CONFIRMATION_LIST). Оставлены не-цветовые фиксы: тап-таргеты переключателей ≥24px (мобайл), центрирование reel-модуля bikepark/grandview. */
 @media(max-width:520px){.lang-toggle span{padding:6px 8px}.season-toggle span{padding:6px 8px!important}}
 .act-reel{justify-content:center;gap:30px}
 .act-reel .ar-cap{flex:0 1 380px;max-width:380px}
