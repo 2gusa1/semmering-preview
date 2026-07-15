@@ -1989,3 +1989,6 @@ html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
 
 /* DES-006 section rhythm */
 @media(min-width:900px){.sec{padding:52px 0}.sec-sm{padding:32px 0}}
+
+/* HOME-001 buy-card height */
+@media(min-width:901px){.heute-grid>.buy-card{align-self:start}}
