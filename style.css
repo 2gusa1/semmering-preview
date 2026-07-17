@@ -10,7 +10,7 @@
   --hellblau:#bad5ea; --hellblau-l:#e8f1f8;
   --anthrazit:#312e2b; --dunkel:#4d4d4d; --grau:#5b6470; --hellgrau:#ededed;
   --beige:#d8cab7; --beige-l:#f6f0e7;
-  --lichten:#1f3d50; --lichten-2:#2d5670; --lichten-acc:var(--blau-d); --lichten-green:#3a6a93;
+  --lichten:#1f3d50; 
   --red:#75abd6; --green:#3a6a93;
   --bikedark:#16181c; --bikedark-2:#22262c; --orange:#75abd6; --gold:var(--blau-dd); /* --orange → Semmering Blau: оранж НЕ в бренд-гайдлайнах (решение владельца 06.07) */
   --white:#fff; --shadow:0 6px 24px rgba(20,40,60,.10);
@@ -321,26 +321,7 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 .accordion .ac h4 .arr{transition:.2s;color:var(--blau);}
 .accordion .ac.open h4 .arr{transform:rotate(180deg);}
 
-/* ---------- lichten world ---------- */
-body.lichten{background:var(--lichten);color:#dfe4ee;}
-.li-hero{position:relative;min-height:560px;display:flex;align-items:flex-end;color:#fff;
-  background:radial-gradient(130% 90% at 60% 0%,#2d5670 0%,#1f3d50 60%,#142936 100%);overflow:hidden;}
-.li-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,16,34,.28) 0%,transparent 36%,rgba(8,16,34,.74));}
-.li-hero .wrap{position:relative;z-index:2;padding-bottom:48px;}
-.li-hero h1{color:#fff;font-family:'Montserrat',sans-serif;font-size:60px;font-weight:700;letter-spacing:-1px;text-shadow:0 2px 10px rgba(0,0,0,.45),0 2px 34px rgba(0,0,0,.5);}
-.li-hero .sub{font-size:19px;opacity:.92;margin:10px 0 18px;letter-spacing:1px;}
-.li-section{padding:54px 0;}
-.li-section h2{font-family:'Montserrat',sans-serif;color:#fff;font-size:34px;}
-.li-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px;}
-.li-fact{background:var(--lichten-2);border-radius:14px;padding:20px;text-align:center;}
-.li-fact .ic{font-size:28px;}
-.li-fact .t{font-family:'Montserrat';font-weight:700;margin-top:8px;color:#fff;}
-.menu-card{background:var(--lichten-2);border-radius:14px;overflow:hidden;}
-.menu-card .ph{height:150px;background:linear-gradient(150deg,#3a6a93,#1f3d50);}
-.menu-card .body{padding:16px;}
-.menu-card .sig{display:inline-block;background:var(--blau-dd);color:#fff;font-family:'Montserrat';font-weight:700;
-  font-size:11px;padding:3px 10px;border-radius:8px;margin-bottom:6px;}
-.li-btn{background:#fff;color:var(--lichten);}
+
 
 /* ---------- proto banner ---------- */
 .protobar{background:#2a2a2a;color:#fff;font-size:12.5px;text-align:center;padding:7px;font-family:'Montserrat';letter-spacing:.5px;}
@@ -363,8 +344,8 @@ body.lichten{background:var(--lichten);color:#dfe4ee;}
   .burger{display:block;margin-left:auto;}
   .heute-grid,.split,.adetail,.bpdet{grid-template-columns:1fr;}
   .tiles{grid-template-columns:repeat(2,1fr);}
-  .cardgrid,.cardgrid.c4,.stats,.bp-stats,.trailcards,.reviews,.li-facts,.principle,.formgrid{grid-template-columns:1fr 1fr;}
-  .hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1{font-size:40px;}
+  .cardgrid,.cardgrid.c4,.stats,.bp-stats,.trailcards,.reviews,.principle,.formgrid{grid-template-columns:1fr 1fr;}
+  .hero h1,.hero .hero-h1,.bp-hero h1{font-size:40px;}
   footer.site .cols{grid-template-columns:1fr 1fr;}
   .floatpanel,.bp-livepanel{display:none;}
   .booking-card{position:static;}.adetail>div:last-child{position:static;}
@@ -377,7 +358,7 @@ body.lichten{background:var(--lichten);color:#dfe4ee;}
     top:60px;left:0;right:0;background:#fff;padding:10px 4px;gap:2px;
     box-shadow:0 14px 34px rgba(0,0,0,.16);border-radius:0 0 12px 12px;z-index:80;}
   body.navopen nav.main a{padding:12px 6px;border-bottom:1px solid var(--hellgrau);font-size:16px;}
-  body.bikepark.navopen nav.main,body.lichten.navopen nav.main{background:#fff;}
+  body.bikepark.navopen nav.main{background:#fff;}
 }
 
 /* ===== i18n: paired DE/EN spans + language toggle ===== */
@@ -499,9 +480,9 @@ body.navopen .submenu .sm-h{padding:9px 6px 2px;}
 /* ===== P0 fix: горизонтальный overflow на мобиле (375px) ===== */
 html,body{overflow-x:hidden;max-width:100%;}
 .notif .wrap>*{min-width:0;}
-.hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1,.notif .wrap,.hero .sub{overflow-wrap:break-word;}
+.hero h1,.hero .hero-h1,.bp-hero h1,.notif .wrap,.hero .sub{overflow-wrap:break-word;}
 @media(max-width:400px){
-  .hero h1,.hero .hero-h1,.bp-hero h1,.li-hero h1{font-size:26px!important;}
+  .hero h1,.hero .hero-h1,.bp-hero h1{font-size:26px!important;}
   .head-right{gap:8px;}
   .logo{font-size:18px;}
 }
@@ -619,7 +600,7 @@ h1.title,h2.title{overflow-wrap:break-word;}
 .pc-slide img{width:100%;object-fit:cover;display:block;}
 .pc-slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:10px 14px;background:linear-gradient(to top,rgba(8,16,26,.8),rgba(8,16,26,0));color:#fff;font-family:'Montserrat';font-weight:700;font-size:13px;line-height:1.3;}
 .pc-hint{text-align:center;font-size:12px;color:var(--grau);margin-top:4px;font-family:'Montserrat';font-weight:600;letter-spacing:.5px;}
-body.lichten .pc-hint,body.bikepark .pc-hint{color:rgba(255,255,255,.72);} /* подсказка свайпа читаема на тёмных фонах */
+body.bikepark .pc-hint{color:rgba(255,255,255,.72);} /* подсказка свайпа читаема на тёмных фонах */
 @media(min-width:768px){.pc-slide{flex-basis:44%;}.pc-hint{display:none;}}
 @media(min-width:1100px){.pc-slide{flex-basis:31%;}}
 /* Events — индивидуальные карточки-посты + дата-рекомендация наверху */
@@ -809,11 +790,7 @@ section[style*="var(--beige-l)"] .split .txt h3{color:var(--anthrazit);}
 section[style*="var(--beige-l)"] .split .txt .eyebrow{color:var(--blau-dd);}
 section[style*="var(--beige-l)"] .split .txt .lead{color:var(--dunkel);}
 
-/* Fix-8. lichten: секции без фона лежат на тёмно-синем body —
-   h2 наследовал антрацит («Après-Hike…» был нечитаем) */
-body.lichten section:not([style*="background"]) h2.title{color:#fff;}
-body.lichten section:not([style*="background"]) .lead{color:#dfe4ee;}
-/* Fix-9. lichten: лейблы формы на белой секции наследовали светлый цвет body */
+/* лейблы формы резервации (#reservierung, lichten.html) */
 #reservierung .ff label{color:var(--blau-dd);}
 
 /* Fix-10. hotel: «Ein Haus mit Geschichte» — hotelbrand вернул бежевый фон,
@@ -825,7 +802,7 @@ body.hotelbrand section[style*="var(--beige-l)"] .eyebrow{color:var(--blau-dd);}
 body.hotelbrand section[style*="var(--beige-l)"] .season-note{color:#5b6470;}
 
 /* Fix-11. wellness-spa: ghost-кнопки (белые, для тёмных hero) на светлой секции */
-body:not(.lichten):not(.bikepark) section:not([style*="background"]) .btn.ghost{
+body:not(.bikepark) section:not([style*="background"]) .btn.ghost{
   background:transparent;border-color:var(--blau-dd);color:var(--blau-dd);}
 
 /* ── D-7: Promo-Popup ── */
@@ -928,20 +905,20 @@ body.hotelbrand .sticky-cta .btn.primary{background:#75abd6;}
 /* ═══ HERO-GHOST-FROSTED (visual audit 04.07) — фикс невидимых ghost-кнопок на фото-героях.
    Причина: поздняя light-section .btn.ghost (тёмно-синий текст) перекрывала hero-правило.
    Решение: матовое стекло (тёмная подложка + blur) = гарантированный контраст на ЛЮБОМ фото. ── */
-.hero .btn.ghost, .bp-hero .btn.ghost, .li-hero .btn.ghost,
-.hero .btn.ghost2, .li-hero .btn.ghost2, .bp-hero .btn.ghost2{
+.hero .btn.ghost, .bp-hero .btn.ghost, 
+.hero .btn.ghost2, .bp-hero .btn.ghost2{
   background:rgba(16,30,48,.66)!important;
   border-color:rgba(255,255,255,.72)!important;
   color:#fff!important;
   backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
   text-shadow:0 1px 3px rgba(0,0,0,.4);
 }
-.hero .btn.ghost:hover, .bp-hero .btn.ghost:hover, .li-hero .btn.ghost:hover,
-.hero .btn.ghost2:hover, .li-hero .btn.ghost2:hover{
+.hero .btn.ghost:hover, .bp-hero .btn.ghost:hover, 
+.hero .btn.ghost2:hover{
   background:rgba(16,30,48,.66)!important;border-color:#fff!important;
 }
 /* hero-why буллеты — тень для читаемости поверх фото */
-.hero .hero-why span, .bp-hero .hero-why span, .li-hero .hero-why span{
+.hero .hero-why span, .bp-hero .hero-why span{
   text-shadow:0 1px 3px rgba(0,0,0,.45);
 }
 
@@ -952,7 +929,7 @@ body.hotelbrand .sticky-cta .btn.primary{background:#75abd6;}
 @media(max-width:430px){.photo-strip.s3{grid-template-columns:1fr 1fr;}}
 
 /* ── CARD-TITLE-GRADIENT — читаемость белых заголовков карточек на светлых фото ── */
-.exp-card .ph, .trailcard, .li-hero, .split .ph{position:relative;}
+.exp-card .ph, .trailcard, .split .ph{position:relative;}
 .exp-card .ph::before{content:"";position:absolute;left:0;right:0;bottom:0;height:62%;
   background:linear-gradient(to top,rgba(10,20,35,.66),rgba(10,20,35,.12) 55%,transparent);
   pointer-events:none;border-radius:0 0 inherit inherit;}
@@ -1381,7 +1358,7 @@ footer.site .fh{color:#fff;font-size:14px;font-weight:700;text-transform:upperca
 /* audit: neutral price text не 30px-огромным */
 .exp-card .price:has(.t-d){font-size:18px;font-weight:700;color:var(--blau-dd)}
 
-/* audit: #res ловил позиционный светло-голубой (6-я секция) на тёмной lichten — вернуть тёмный */
+/* #res (grandview): тёмно-синяя рамка вокруг карточки резервации — вместо позиционного светло-голубого */
 #res{background:var(--lichten)}
 
 /* audit-legal: юр-страницы — премиум-читаемость вместо «сырого Word» (визуал-аудит P0) */
@@ -1451,7 +1428,6 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
    16:9 skaliert mit der Kartenbreite → jedes Foto lässt sich sauber beschneiden. */
 .exp-card .ph{height:auto!important;aspect-ratio:16/9}
 .actc .ph{height:auto!important;aspect-ratio:16/9}
-.menu-card .ph{height:auto!important;aspect-ratio:16/9}
 .pkm-img{height:auto!important;aspect-ratio:3/2}
 .pkm-img img{width:100%;height:100%;object-fit:cover}
 
@@ -1479,7 +1455,7 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 /* doc#1/#9 — Brand-Manual: Hero = „Semmering Blau" #75abd6. Dunkle UI-Balken (#33617f = grau-teal)
    und das Liechtensteinhaus-Theme (#1f3d50 = lila-navy, falscher Farbton) auf ein sattes
    Dunkel-Semmering-Blau (Ableitung aus #75abd6) vereinheitlichen. */
-:root{--lichten:#26506f;--lichten-2:#2d5f80}  /* S4: dunkel-Semmering-Blau (hue~205), --lichten-2 dunkler für AA (li-fact/menu-card Text) */
+:root{--lichten:#26506f}  /* S4: dunkel-Semmering-Blau (hue~205) — используется только #res на grandview */
 .livebar2,.notif{background:#3a6a93!important}
 
 
@@ -1509,9 +1485,9 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 .btn{margin:0}
 
 /* #696 — скрим для ВСЕХ видео-hero (не только главная): читаемость белого текста */
-.hero:has(video) .wrap::before,.bp-hero:has(video) .wrap::before,.li-hero:has(video) .wrap::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-45vh;bottom:-200px;pointer-events:none;
+.hero:has(video) .wrap::before,.bp-hero:has(video) .wrap::before{content:"";position:absolute;z-index:-1;left:-60vw;right:-60vw;top:-45vh;bottom:-200px;pointer-events:none;
   background:linear-gradient(to top,rgba(6,14,24,.60) 0%,rgba(6,14,24,.30) 26%,rgba(6,14,24,.08) 42%,rgba(6,14,24,0) 58%)}
-.bp-hero .wrap,.li-hero .wrap{position:relative;z-index:2}
+.bp-hero .wrap{position:relative;z-index:2}
 
 /* #677 — Animierte Hirschi entfernt → relevante Statik (Poster). TZ für Ilya (klasse Animation + Platzierungs-Liste) separat. */
 .hir-anim-v{display:none!important}
@@ -1536,8 +1512,7 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
   .sec{padding:38px 0!important}
   .sec-sm{padding:26px 0!important}
   .bp-section{padding:34px 0!important}
-  .li-section{padding:34px 0!important}
-  .wrap{padding:0 16px}
+    .wrap{padding:0 16px}
   .sec>.wrap>.title,.sec-sm>.wrap>.title{margin-bottom:12px}
   .sec>.wrap>.lead,.sec-sm>.wrap>.lead{margin-bottom:14px}
 }
@@ -1550,7 +1525,7 @@ footer.site .fpartners{margin-top:26px;padding-top:22px;border-top:1px solid rgb
 @media(max-width:760px){
   .lead{font-size:16.5px;line-height:1.55;color:var(--dunkel)}
   .hero .sub{font-size:16.5px;line-height:1.5}
-  .bp-hero .sub,.li-hero .sub{font-size:15.5px}
+  .bp-hero .sub{font-size:15.5px}
   h2.title{letter-spacing:-.3px;line-height:1.12}
   .split .txt h3,.newsletter h3{font-size:22px}
   p{line-height:1.6}
@@ -1570,10 +1545,7 @@ body[data-season] .season-toggle{display:none!important}
   .trailcards>*:last-child:nth-child(odd),
   .stats>*:last-child:nth-child(odd),
   .bp-stats>*:last-child:nth-child(odd),
-  .li-facts>*:last-child:nth-child(odd){
-    grid-column:1/-1;justify-self:center;width:calc(50% - 8px);
   }
-}
 
 /* #645 — Sommerfrische/Temp-Vergleich auf Mobile kompakter (Widget war zu groß) */
 @media(max-width:640px){
@@ -1903,7 +1875,7 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
    Marke: Semmering Blau #75abd6 soll DOMINIEREN + «weiß für Text auf blauem Hintergrund». Solid-Flächen & Verläufe
    heller. --blau-dd bleibt NUR für Text-auf-hell (Eyebrow/Preis/Nav — lesbar). hotelbrand (#75abd6) unberührt (höhere Spez.). */
 .notif,.livebar2{background:var(--blau)!important}
-.hp-head,.menu-card .sig{background:var(--blau)}
+.hp-head,{background:var(--blau)}
 .btn.primary{background:var(--blau)}
 .btn.primary:hover{background:#5e93bd}
 .chip.active,.chip:hover{background:var(--blau);color:#fff}
@@ -1953,9 +1925,9 @@ body.hotelbrand .hero::after{
 
 /* ═══ Bikepark/Lichten-Hero Lesbarkeit: Accent-Zeile (#75abd6) war auf hellem Himmel unlesbar (Kontrast ~1.3) ═══
    Stärkerer Scrim in der Text-Zone (Mitte) + kräftigerer Text-Shadow. Bild bleibt sichtbar, Text wird lesbar. */
-.bp-hero::after,.li-hero::after{
+.bp-hero::after{
   background:linear-gradient(180deg,rgba(8,16,26,.34) 0%,rgba(8,16,26,.15) 26%,rgba(8,16,26,.44) 56%,rgba(8,16,26,.80) 100%)!important;}
-.bp-hero h1,.li-hero h1{text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 18px rgba(0,0,0,.55)!important;}
+.bp-hero h1{text-shadow:0 1px 3px rgba(0,0,0,.85),0 2px 18px rgba(0,0,0,.55)!important;}
 
 /* polish — round1 (ЦВЕТ-КОНТРАСТ ОТКАТАН по решению владельца 15.07: брендовый #75abd6 доминирует на CTA/статус-баре/чипах; AA-замечание 2.46:1 остаётся в OWNER_CONFIRMATION_LIST). Оставлены не-цветовые фиксы: тап-таргеты переключателей ≥24px (мобайл), центрирование reel-модуля bikepark/grandview. */
 @media(max-width:520px){.lang-toggle span{padding:6px 8px}.season-toggle span{padding:6px 8px!important}}
@@ -2005,3 +1977,11 @@ html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
 footer.site .logo-img{height:44px;width:156px;}
 @media (max-width:640px){.logo-img{height:30px;width:106px;}}
 .logo{flex:none;}
+
+/* Owner-Entscheid #27: Zusatzleistungen (hotel.html#services) — Zeile mit Preis rechts */
+.xs-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+  padding:8px 0;border-bottom:1px solid var(--hellgrau);font-size:14.5px;color:var(--dunkel);}
+.xs-row:last-child{border-bottom:0;padding-bottom:0;}
+.xs-row b{color:var(--blau-dd);font-family:'Montserrat',sans-serif;white-space:nowrap;font-size:15px;}
+.exp-card .body h4+.xs-row{margin-top:8px;}
+@media(max-width:640px){.xs-row{font-size:14px;}}
