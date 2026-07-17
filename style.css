@@ -1995,3 +1995,13 @@ html:not(.real-summer):not(.real-winter) .live-winter{display:none!important;}
 
 /* CRO#1 mobile: head-right уже тесен на ≤400px (toggle+lang+Tickets+burger) — прячем season-toggle, чтобы бургер не обрезался; сезон авто-детектится+persist, Sommer/Winter есть в меню */
 @media(max-width:520px){.head-right .season-toggle{display:none!important}}
+
+/* ── Gafs 17.07: Logo war site-wide zu klein ──────────────────────────────
+   Ursache: 05.07 ersetzte das echte Marken-SVG (viewBox 1305×369 = 3.54:1)
+   das alte Freihand-SVG, aber height:30px blieb. Bei width:auto rendert das
+   nur 106px statt der im Markup deklarierten 150px Breite → 30% zu schmal.
+   42px ⇒ 149px Breite = die ursprünglich geplante Groesse. Header ist 70px hoch. */
+.logo-img{height:42px;width:149px;flex:none;}
+footer.site .logo-img{height:44px;width:156px;}
+@media (max-width:640px){.logo-img{height:30px;width:106px;}}
+.logo{flex:none;}
