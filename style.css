@@ -1985,3 +1985,7 @@ footer.site .logo-img{height:44px;width:156px;}
 .xs-row b{color:var(--blau-dd);font-family:'Montserrat',sans-serif;white-space:nowrap;font-size:15px;}
 .exp-card .body h4+.xs-row{margin-top:8px;}
 @media(max-width:640px){.xs-row{font-size:14px;}}
+
+/* reel-size — вертикальные видео крупнее (Саша 06-17.07: «мелкие вертикальные видео»; было 196/150px) */
+.ar-frame{width:280px;flex-basis:280px}
+@media(max-width:560px){.ar-frame{width:230px;flex-basis:230px}}
