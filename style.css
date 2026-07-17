@@ -1996,3 +1996,20 @@ footer.site .logo-img{height:44px;width:156px;}
 .pc-nav:focus-visible{outline:2px solid var(--blau-dd,#3a6a93);outline-offset:2px}
 .pc-prev{left:8px}.pc-next{right:8px}
 @media(max-width:560px){.pc-nav{width:34px;height:34px;font-size:22px}}
+
+/* ═══════════════ BUG-MOBILE (audit-verified 18.07) ═══════════════
+   Функц. баг: на ≤430px header не влезал → Ticketshop обрезан, бургер
+   уезжал за край (моб-меню недоступно). Причина — лого-фикс 17.07
+   (.logo-img width:106px). Ужимаем head-right БЕЗ увеличения уже
+   существующей ≤520-компактизации (:764/:768/:769/:1969). Также
+   notif-текст переносится, а не режется overflow:hidden(:50).
+   ══════════════════════════════════════════════════════════════ */
+@media(max-width:430px){
+  header.site .logo-img{height:26px;width:auto;}
+  .head-right{gap:6px;}
+  .lang-toggle span{padding:5px 6px;}
+}
+@media(max-width:540px){
+  .notif .wrap{overflow:visible;}
+  .notif .wrap>*{min-width:0;white-space:normal;overflow-wrap:anywhere;}
+}

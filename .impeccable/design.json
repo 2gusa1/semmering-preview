@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-17T14:31:37Z",
+  "title": "Design System: Semmering Hirschenkogel + Sporthotel",
+  "extensions": {
+    "colorMeta": {
+      "semmering-blau": { "role": "primary", "displayName": "Semmering Blau", "canonical": "#75abd6", "tonalRamp": ["oklch(15% 0.05 245)", "oklch(27% 0.07 245)", "oklch(38% 0.08 245)", "oklch(50% 0.09 245)", "oklch(61% 0.09 245)", "oklch(72% 0.09 245)", "oklch(84% 0.06 245)", "oklch(95% 0.03 245)"] },
+      "blau-deep": { "role": "primary", "displayName": "Blau Deep", "canonical": "#274b63", "tonalRamp": ["oklch(15% 0.04 240)", "oklch(24% 0.05 240)", "oklch(32% 0.06 240)", "oklch(38% 0.06 240)", "oklch(50% 0.06 240)", "oklch(64% 0.06 240)", "oklch(80% 0.05 240)", "oklch(93% 0.03 240)"] },
+      "hellblau": { "role": "primary", "displayName": "Hellblau", "canonical": "#bad5ea", "tonalRamp": ["oklch(18% 0.04 240)", "oklch(30% 0.05 240)", "oklch(44% 0.05 240)", "oklch(58% 0.05 240)", "oklch(72% 0.05 240)", "oklch(85% 0.05 240)", "oklch(91% 0.04 240)", "oklch(96% 0.02 240)"] },
+      "warm-beige": { "role": "secondary", "displayName": "Warmes Beige", "canonical": "#d8cab7", "tonalRamp": ["oklch(18% 0.02 80)", "oklch(30% 0.03 80)", "oklch(44% 0.03 80)", "oklch(58% 0.03 80)", "oklch(72% 0.03 80)", "oklch(84% 0.03 80)", "oklch(90% 0.02 80)", "oklch(95% 0.015 80)"] },
+      "anthrazit": { "role": "neutral", "displayName": "Anthrazit", "canonical": "#312e2b", "tonalRamp": ["oklch(15% 0.008 80)", "oklch(22% 0.008 80)", "oklch(30% 0.008 80)", "oklch(42% 0.008 80)", "oklch(55% 0.008 80)", "oklch(70% 0.007 80)", "oklch(84% 0.006 80)", "oklch(95% 0.004 80)"] },
+      "page-sky": { "role": "neutral", "displayName": "Page Sky", "canonical": "#f3f8fc", "tonalRamp": ["oklch(20% 0.02 230)", "oklch(33% 0.02 230)", "oklch(47% 0.02 230)", "oklch(60% 0.02 230)", "oklch(73% 0.015 230)", "oklch(85% 0.012 230)", "oklch(92% 0.01 230)", "oklch(97% 0.008 230)"] },
+      "footer-night": { "role": "neutral", "displayName": "Footer Night", "canonical": "#14242f", "tonalRamp": ["oklch(15% 0.025 240)", "oklch(22% 0.03 240)", "oklch(30% 0.03 240)", "oklch(42% 0.03 240)", "oklch(55% 0.03 240)", "oklch(70% 0.025 240)", "oklch(84% 0.02 240)", "oklch(95% 0.01 240)"] },
+      "beige-light": { "role": "neutral", "displayName": "Beige Light (только хекс, не var)", "canonical": "#f6f0e7", "tonalRamp": ["oklch(18% 0.01 85)", "oklch(30% 0.012 85)", "oklch(44% 0.014 85)", "oklch(58% 0.015 85)", "oklch(72% 0.015 85)", "oklch(84% 0.015 85)", "oklch(91% 0.015 85)", "oklch(95% 0.015 85)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "h1 страниц: Montserrat 900 UPPERCASE, 66px→34px, поверх фото с text-shield." },
+      "headline": { "displayName": "Headline", "purpose": "h2 секций: Montserrat 800 UPPERCASE 32px." },
+      "body": { "displayName": "Body", "purpose": "Source Sans 3 — честный дружелюбный текст." },
+      "label": { "displayName": "Eyebrow", "purpose": "Фирменный кикер с центрированными ▲▲▲ (элемент «3 Schritte»)." }
+    },
+    "shadows": [
+      { "name": "ambient-soft", "value": "0 6px 24px rgba(20,40,60,.10)", "purpose": "Карточки и приподнятые элементы; холодная и мягкая, вариант .13." },
+      { "name": "text-shield", "value": "0 2px 8px rgba(0,0,0,.4), 0 2px 30px rgba(0,0,0,.5)", "purpose": "Читаемость белых заголовков поверх фото." }
+    ],
+    "motion": [
+      { "name": "ease-out-soft", "value": "cubic-bezier(.22,.61,.36,1)", "purpose": "Основной ease-out для reveals и переходов (motion.css)." },
+      { "name": "pop-overshoot", "value": "cubic-bezier(.34,1.45,.64,1)", "purpose": "Лёгкий overshoot для микро-акцентов; использовать точечно." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Главное действие — бренд-синий, не затемнять (Brand-Over-AA Rule).",
+      "html": "<button class=\"ds-btn ds-btn-primary\">Tag planen</button>",
+      "css": ".ds-btn{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:15px;padding:12px 26px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;transition:background .16s ease,transform .16s ease}.ds-btn-primary{background:var(--blau,#75abd6);color:#fff}.ds-btn-primary:hover{background:var(--blau-d,#4f86b3)}.ds-btn-primary:focus-visible{outline:2px solid var(--blau-dd,#3a6a93);outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Вторичное действие — прозрачная с синим бордером.",
+      "html": "<button class=\"ds-btn ds-btn-secondary\">Alle Aktivitäten</button>",
+      "css": ".ds-btn{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:15px;padding:12px 26px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;transition:background .16s ease}.ds-btn-secondary{background:transparent;border-color:var(--blau,#75abd6);color:var(--blau-dd,#3a6a93)}.ds-btn-secondary:hover{background:var(--hellblau-l,#e8f1f8)}.ds-btn-secondary:focus-visible{outline:2px solid var(--blau-dd,#3a6a93);outline-offset:2px}"
+    },
+    {
+      "name": "Ghost Button (тёмный фон)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Для hero и тёмных бэндов — полупрозрачная белая.",
+      "html": "<div class=\"ds-darkband\"><button class=\"ds-btn ds-btn-ghost\">Mehr erfahren</button></div>",
+      "css": ".ds-darkband{background:#274b63;padding:20px;border-radius:14px}.ds-btn{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:15px;padding:12px 26px;border-radius:12px;border:1.5px solid transparent;cursor:pointer;transition:background .16s ease}.ds-btn-ghost{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.6);color:#fff}.ds-btn-ghost:hover{background:rgba(255,255,255,.28)}"
+    },
+    {
+      "name": "Audience Chip",
+      "kind": "chip",
+      "refersTo": "chip-audience",
+      "description": "Селектор аудитории Erlebnis-Planer — пилюля с hover-подъёмом.",
+      "html": "<button class=\"ds-chip\">Familie</button>",
+      "css": ".ds-chip{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:14px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--hellgrau,#ededed);background:#fff;color:var(--blau-dd,#3a6a93);cursor:pointer;transition:all .16s ease;line-height:1}.ds-chip:hover{border-color:var(--blau,#75abd6);transform:translateY(-1px)}"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "button-primary",
+      "description": "Базовая карточка: белая на Page Sky, радиус 14, холодная мягкая тень.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Rodelbahn</h3><p class=\"ds-card-text\">1.300 m Abfahrt — Spass für die ganze Familie.</p></div>",
+      "css": ".ds-card{background:#fff;border-radius:14px;padding:20px;box-shadow:0 6px 24px rgba(20,40,60,.10);max-width:300px}.ds-card-title{font-family:Montserrat,Arial,sans-serif;font-weight:800;font-size:19px;color:var(--anthrazit,#312e2b);margin:0 0 6px}.ds-card-text{font-family:'Source Sans 3',Arial,sans-serif;font-size:15px;color:var(--dunkel,#4d4d4d);margin:0}"
+    },
+    {
+      "name": "Triangle Eyebrow",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "Фирменный кикер ▲▲▲ («3 Schritte»), центрирован — не AI-скаффолд.",
+      "html": "<div class=\"ds-eyebrow-wrap\"><svg class=\"ds-tri\" width=\"42\" height=\"12\" viewBox=\"0 0 42 12\"><path d=\"M6 1l5 10H1z\" fill=\"#74ABD7\"/><path d=\"M21 1l5 10H16z\" fill=\"#74ABD7\" opacity=\".66\"/><path d=\"M36 1l5 10H31z\" fill=\"#74ABD7\" opacity=\".33\"/></svg><div class=\"ds-eyebrow\">Erlebnis-Planer</div></div>",
+      "css": ".ds-eyebrow-wrap{text-align:center}.ds-tri{display:block;margin:0 auto 6px}.ds-eyebrow{font-family:Montserrat,Arial,sans-serif;font-weight:700;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--blau-dd,#3a6a93)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Домашняя гора",
+    "overview": "Своя гора рядом с домом: тепло, просто, без пафоса — как выходные у хороших друзей в горах. Система строится на одном небесно-синем бренд-цвете круглый год, крупной уверенной типографике Montserrat и настоящих фотографиях вместо декоративных абстракций. Плотность — воздушная, но не пустая: страницы ведут посетителя по сценарию дня, а не выставляют каталог. Система прямо отвергает: шаблонный альпийский отель, холодный люкс-минимализм, AI-генерик лендинг. Тепло несут фото, Hirschi и конкретные факты — не бежевая «уютность» и не белые поля.",
+    "keyCharacteristics": [
+      "Один хозяин палитры — Semmering Blau #75abd6, круглый год, летом не зелёный",
+      "Montserrat 900 UPPERCASE для больших заявлений, Source Sans 3 для честного текста",
+      "Реальные фото 6000px как основной визуальный материал; горный силуэт логотипа как графическая система",
+      "Маскот Hirschi — системный элемент тепла (кроме юридических страниц)",
+      "Тональные миры: небесная страница → белые карточки → глубокие синие бэнды → ночной футер"
+    ],
+    "rules": [
+      { "name": "The Blau-Everywhere Rule", "body": "Semmering Blau #75abd6 — круглый год. Летний «зелёный лик» запрещён; сезонность передаётся контентом и фото, не сменой палитры.", "section": "colors" },
+      { "name": "The Brand-Over-AA Rule", "body": "Белый на #75abd6 (CTA, чипы, статус-бар) даёт 2.46:1 — осознанное решение владельца (15.07.2026). Не затемнять; мелкие текст-контрасты дотягивать можно.", "section": "colors" },
+      { "name": "The Alias Rule", "body": "Легаси-токены --orange/--red/--gold/--green ремапнуты на синюю лестницу. Не возвращать им «настоящие» цвета.", "section": "colors" },
+      { "name": "The Easter-Egg Slogan Rule", "body": "«Ganz nah. Ganz Berg.» — маленькая рукописная пасхалка, никогда не hero-заголовок. Hero несёт реальное УТП.", "section": "typography" },
+      { "name": "The Triangle Kicker Rule", "body": "Кикер ▲▲▲ — именованная фирменная система, центрирован; только где ведёт иерархию, не над каждой секцией.", "section": "typography" },
+      { "name": "The Cold-Shadow Rule", "body": "Тени всегда холодные (rgba(20,40,60,…)) и мягкие. Резкие тёмные тени ломают «домашность».", "section": "elevation" }
+    ],
+    "dos": [
+      "Do использовать Semmering Blau #75abd6 как главный цвет любых новых поверхностей — круглый год",
+      "Do ставить реальные фото, реальные цены и реальные отзывы; факт убедительнее эпитета",
+      "Do держать заголовки Montserrat 900 UPPERCASE с тень-подложкой поверх фото",
+      "Do завершать сезонные страницы cross-season CTA-полосой",
+      "Do прогонять prefers-reduced-motion альтернативу для всякой анимации",
+      "Do использовать хекс #f6f0e7 для светлых тёплых секций (не var(--beige-l))"
+    ],
+    "donts": [
+      "Don't делать «шаблонный альпийский отель»: сток-улыбки, взаимозаменяемый дизайн",
+      "Don't делать «холодный люкс-минимализм»: дорого-пусто, дистанция вместо тепла",
+      "Don't делать «AI-генерик лендинг»: одинаковые карточки-гриды, градиентный текст, глассморфизм",
+      "Don't использовать эмодзи в UI — только SVG-иконки",
+      "Don't затемнять #75abd6 на CTA/чипах/статус-баре ради AA — решение владельца",
+      "Don't ставить слоган как hero-заголовок — только пасхалка",
+      "Don't заливать горный дивайдер белым — заливка = цвет страницы",
+      "Don't рефакторить каскад style.css/app.js/motion.* — только аддитивные блоки в конец"
+    ]
+  }
+}
