@@ -1989,3 +1989,10 @@ footer.site .logo-img{height:44px;width:156px;}
 /* reel-size — вертикальные видео крупнее (Саша 06-17.07: «мелкие вертикальные видео»; было 196/150px) */
 .ar-frame{width:280px;flex-basis:280px}
 @media(max-width:560px){.ar-frame{width:230px;flex-basis:230px}}
+
+/* photocar-nav — стрелки каруселей (пара к app.js photocar-auto) */
+.pc-nav{position:absolute;top:calc(50% - 32px);transform:translateY(-50%);z-index:3;width:40px;height:40px;border-radius:50%;border:1px solid var(--hellgrau,#dde);background:rgba(255,255,255,.92);color:var(--blau-dd,#3a6a93);font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(20,40,60,.18);transition:background .15s}
+.pc-nav:hover{background:#fff}
+.pc-nav:focus-visible{outline:2px solid var(--blau-dd,#3a6a93);outline-offset:2px}
+.pc-prev{left:8px}.pc-next{right:8px}
+@media(max-width:560px){.pc-nav{width:34px;height:34px;font-size:22px}}

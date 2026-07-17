@@ -452,3 +452,45 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
   }
   window.addEventListener('scroll',function(){ if(!ticking){ requestAnimationFrame(onScroll); ticking=true; } },{passive:true});
 })();
+
+/* photocar-auto — карусели: стрелки + автолистание раз в ~3.5с (Саша 06-17.07: «листаются вручную и авто, везде»).
+   Пауза: hover/touch/фокус/ручной свайп (8с), вне вьюпорта, prefers-reduced-motion. */
+(function(){
+  var cars = document.querySelectorAll('.photocar');
+  if(!cars.length) return;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  cars.forEach(function(car){
+    var track = car.querySelector('.pc-track');
+    if(!track || track.children.length < 2) return;
+    car.style.position = 'relative';
+    function mkBtn(dir){
+      var b = document.createElement('button');
+      b.className = 'pc-nav pc-' + (dir<0?'prev':'next');
+      b.setAttribute('aria-label', dir<0 ? 'Zurück' : 'Weiter');
+      b.innerHTML = dir<0 ? '&#8249;' : '&#8250;';
+      b.addEventListener('click', function(){ step(dir); hold(); });
+      car.appendChild(b);
+      return b;
+    }
+    function slideW(){ var s = track.children[0]; return s ? s.getBoundingClientRect().width + 14 : 300; }
+    function step(dir){
+      var max = track.scrollWidth - track.clientWidth;
+      var x = track.scrollLeft + dir * slideW();
+      if(dir > 0 && track.scrollLeft >= max - 8) x = 0;
+      if(dir < 0 && track.scrollLeft <= 8) x = max;
+      track.scrollTo({left: x, behavior: 'smooth'});
+    }
+    mkBtn(-1); mkBtn(1);
+    if(reduce) return;
+    var paused = false, holdT = null, visible = false;
+    function hold(){ paused = true; clearTimeout(holdT); holdT = setTimeout(function(){ paused = false; }, 8000); }
+    ['mouseenter','touchstart','focusin','pointerdown','wheel'].forEach(function(ev){
+      car.addEventListener(ev, hold, {passive: true});
+    });
+    car.addEventListener('mouseleave', function(){ clearTimeout(holdT); paused = false; });
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ visible = e.isIntersecting; }); }, {threshold: .3}).observe(car);
+    } else { visible = true; }
+    setInterval(function(){ if(visible && !paused && !document.hidden) step(1); }, 3500);
+  });
+})();
