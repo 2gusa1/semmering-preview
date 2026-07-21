@@ -2013,3 +2013,110 @@ footer.site .logo-img{height:44px;width:156px;}
   .notif .wrap{overflow:visible;}
   .notif .wrap>*{min-width:0;white-space:normal;overflow-wrap:anywhere;}
 }
+
+/* === ФАЗА 0: ЕДИНЫЙ ТОКЕН-КОНТРАКТ (append-only, non-breaking) === */
+/* Дописать в САМЫЙ КОНЕЦ docs/style.css.
+   Секция (A) переобъявляет КАЖДЫЙ существующий токен его ЭФФЕКТИВНЫМ
+   (каскадно-побеждающим) значением из 4 блоков :root (L8-17, L688-694,
+   L1378, L1458). Так как этот :root идёт ПОСЛЕДНИМ в файле и имеет ту же
+   специфичность (document-root), он побеждает — но значения ИДЕНТИЧНЫ
+   текущим эффективным, поэтому рендер существующих правил не меняется.
+   Секция (B) ДОБАВЛЯЕТ новые шкалы; они пока нигде не используются = 0
+   визуального эффекта. Тёмная тема НЕ вводится (её фактически нет). */
+:root{
+  /* --- (A) ПЕРЕОБЪЯВЛЕНИЕ СУЩЕСТВУЮЩИХ 24 ТОКЕНОВ (эффективные значения) --- */
+  --blau:#75abd6;            /* L9  — Semmering Blau (=--orange=--red) */
+  --blau-d:#4f86b3;          /* L9 */
+  --blau-dd:#3a6a93;         /* L9  (=--green=--gold) */
+  --blau-deep:#274b63;       /* L9 */
+  --hellblau:#bad5ea;        /* L10 */
+  --hellblau-l:#e3eef7;      /* ЭФФ: L689 переопределяет L10 (#e8f1f8) */
+  --anthrazit:#312e2b;       /* L11 — цвет тела/заголовков */
+  --dunkel:#3a4048;          /* ЭФФ: L1378 переопределяет L11 (#4d4d4d) */
+  --grau:#5b6470;            /* L11 */
+  --hellgrau:#ededed;        /* L11 */
+  --beige:#d8cab7;           /* L12 */
+  --beige-l:#f6f0e7;         /* L12 */
+  --lichten:#26506f;         /* ЭФФ: L1458 переопределяет L13 (#1f3d50) */
+  --red:#75abd6;             /* L14 — нейтрализован под Blau (владелец 06.07) */
+  --green:#3a6a93;           /* L14 */
+  --bikedark:#16181c;        /* L15 */
+  --bikedark-2:#22262c;      /* L15 */
+  --orange:#75abd6;          /* L15 — нейтрализован под Blau */
+  --gold:var(--blau-dd);     /* L15 — ссылочный, резолвится в #3a6a93 */
+  --white:#fff;              /* L16 */
+  --shadow:0 6px 24px rgba(20,40,60,.13);   /* ЭФФ: L693 переопределяет L16 (.10) */
+  --v-page:#f3f8fc;          /* L690 */
+  --v-deep:linear-gradient(168deg,#33617f 0%,#274b63 55%,#1d3a4e 100%);  /* L691 */
+  --v-footer:#14242f;        /* L692 */
+
+  /* --- (B) НОВЫЕ ШКАЛЫ (пока не используются = 0 визуального эффекта) --- */
+
+  /* type: модульная шкала ~1.2, якорь --text-base=17px (=body) */
+  --text-2xs:10px;
+  --text-xs:12px;
+  --text-sm:14px;            /* самый частый UI-размер */
+  --text-base:17px;          /* = body font-size */
+  --text-lg:20px;
+  --text-xl:24px;
+  --text-2xl:30px;
+  --text-3xl:34px;           /* верх дискретной шкалы; hero/display — через clamp() поверх */
+  --leading-none:1;
+  --leading-tight:1.12;      /* = h1-h5 line-height */
+  --leading-snug:1.25;
+  --leading-normal:1.5;
+  --leading-relaxed:1.6;     /* = body line-height */
+  --leading-loose:1.75;
+
+  /* space: база 4px */
+  --sp-1:4px;
+  --sp-2:8px;
+  --sp-3:12px;
+  --sp-4:16px;
+  --sp-5:20px;
+  --sp-6:24px;
+  --sp-7:32px;
+  --sp-8:40px;               /* = .sec-sm вертикаль */
+  --sp-9:48px;
+  --sp-10:64px;              /* = .sec вертикаль */
+  --sp-11:80px;
+  --sp-12:96px;
+
+  /* radius */
+  --r-sm:8px;
+  --r-md:12px;
+  --r-card:14px;             /* доминанта карточек (×24) — сохранена пиксельно во избежание сдвига в Фазе 3 */
+  --r-lg:16px;
+  --r-xl:24px;
+  --r-pill:999px;
+
+  /* elevation */
+  --elev-1:0 1px 3px rgba(0,0,0,.04);          /* низкая — chips/gtype */
+  --elev-2:0 6px 24px rgba(20,40,60,.13);       /* средняя = текущий эффективный --shadow */
+  --elev-3:0 18px 50px rgba(0,0,0,.25);         /* высокая — оверлеи/панели */
+
+  /* color: синяя лестница (якорь --blue-500 = Semmering Blau) */
+  --blue-50:#f3f8fc;         /* = --v-page */
+  --blue-100:#e3eef7;        /* = эфф. --hellblau-l */
+  --blue-200:#c4d6e5;
+  --blue-300:#bad5ea;        /* = --hellblau */
+  --blue-400:#9cc7e8;
+  --blue-500:#75abd6;        /* ЯКОРЬ = --blau */
+  --blue-600:#5e93bd;
+  --blue-700:#4f86b3;        /* = --blau-d */
+  --blue-750:#3a6a93;        /* = --blau-dd */
+  --blue-800:#33617f;
+  --blue-850:#274b63;        /* = --blau-deep */
+  --blue-900:#1d3a4e;
+  --blue-950:#14242f;        /* = --v-footer */
+  /* нейтрали (сине-нейтральный уклон, hue~210) */
+  --ink:#22303c;             /* НОВЫЙ основной текст (замена тёплого --anthrazit в Фазе 3, сейчас unused) */
+  --muted:#5b6470;           /* = эфф. --grau */
+  --border:#dfe3e8;          /* НОВЫЙ бордюр (замена --hellgrau в Фазе 3); имя --line занято fallback'ом на legal-стр (style.css:1372) */
+  --surface:#ffffff;         /* = --white */
+  --bg:#f3f8fc;              /* = --v-page */
+
+  /* font */
+  --font-head:'Montserrat',Arial,sans-serif;                                  /* = h1-h5 стек */
+  --font-body:'Source Sans 3',-apple-system,'Helvetica Neue',Arial,sans-serif; /* = body стек */
+}
