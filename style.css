@@ -2120,3 +2120,109 @@ footer.site .logo-img{height:44px;width:156px;}
   --font-head:'Montserrat',Arial,sans-serif;                                  /* = h1-h5 стек */
   --font-body:'Source Sans 3',-apple-system,'Helvetica Neue',Arial,sans-serif; /* = body стек */
 }
+/* === ФАЗА 1: БАЗОВЫЕ КОМПОНЕНТЫ (append-only, unused until Phase 3) ===
+   Дописать в САМЫЙ КОНЕЦ docs/style.css, ПОСЛЕ токен-блока Фазы 0 (:root L2017+).
+   Все имена ниже проверены грепом: 0 совпадений как CSS-селекторы в style.css,
+   0 как class-строки в src/gen_*.py, 0 bare-токенов в built HTML docs/*.html.
+   Классы пока НИГДЕ не применяются => 0 визуального эффекта. Существующие
+   используемые классы (.btn/.chip/.price/.sec/.exp-card и пр.) НЕ трогаются.
+   Значения на токенах Фазы 0 воспроизводят доминирующий текущий вид
+   (визуально-нейтральная миграция в Фазе 3). */
+
+/* ---------- КАРТОЧКИ ---------- */
+
+/* .card — панель, воспроизводит доминантный вид .exp-card
+   (surface + 1px border + r-card + elev-2). Паддинга нет — как у .exp-card,
+   внутренний отступ живёт на дочернем .body. */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--r-card);
+  box-shadow:var(--elev-2);
+  overflow:hidden;
+}
+
+/* .card-media — .card с верхним изображением/бейджем.
+   Применяется как class="card card-media". Слот .card-media__ph = аналог .exp-card .ph. */
+.card-media{
+  position:relative;
+}
+.card-media__ph{
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  min-height:170px;
+  padding:var(--sp-3);
+  color:#fff;
+  font-family:var(--font-head);
+  font-weight:700;
+  background-color:#9db8cf;
+  background-size:cover;
+  background-position:center;
+}
+.card-media__badge{
+  position:absolute;
+  top:var(--sp-2);
+  left:var(--sp-2);
+  z-index:2;
+  background:rgba(0,0,0,.55);
+  color:#fff;
+  font-family:var(--font-head);
+  font-size:var(--text-2xs);
+  font-weight:600;
+  padding:3px 9px;
+  border-radius:var(--r-pill);
+}
+
+/* .card-flat — панель без тени и бордюра (tile/trailcard/buy-card-основа). */
+.card-flat{
+  background:var(--surface);
+  border-radius:var(--r-card);
+  overflow:hidden;
+}
+
+/* единый hover-лифт (опциональный модификатор, воспроизводит exp-card:hover@1381) */
+.card-hover{transition:transform .18s ease,box-shadow .18s ease;}
+.card-hover:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(20,40,60,.15);}
+
+/* ---------- КНОПКИ ---------- */
+/* Базовый слой кнопок = существующий .btn + варианты (.primary/.secondary/.ghost/
+   .ghost2/.dark/.orange/.sm/.xs-btn). Все УЖЕ применяются в разметке/генераторах,
+   поэтому в Фазе 0/1 НЕ переопределяются и НЕ добавляются. Консолидация — Фаза 3
+   (менять разметку, не CSS-базу). Новых классов здесь нет. */
+
+/* ---------- ЦЕНА / БЕЙДЖ / СЕКЦИЯ ---------- */
+
+/* под-компоненты цены (statt-цена + акцент) */
+.price-strike{                 /* «statt»-цена: перечёркнута, приглушена */
+  font-family:var(--font-head);
+  font-weight:400;
+  font-size:var(--text-sm);    /* 14px ≈ текущие .p-was 15px */
+  text-decoration:line-through;
+  opacity:.55;
+  white-space:nowrap;
+}
+.price-now{                    /* акцент актуальной цены (воспроизводит .exp-card .price) */
+  font-family:var(--font-head);
+  font-weight:700;
+  color:var(--blue-750);       /* = эфф. --blau-dd #3a6a93 */
+  white-space:nowrap;
+}
+.price-now.is-lg{ font-size:var(--text-3xl); font-weight:800; }  /* = buy-card 34px */
+.price-now.is-md{ font-size:var(--text-2xl); font-weight:800; }  /* ≈ booking-card 32px */
+
+/* pill-badge (НЕ .badge: bare-.badge уже используется под .exp-card .ph @167/937) */
+.badge-pill{
+  display:inline-block;
+  font-family:var(--font-head);
+  font-weight:600;
+  font-size:var(--text-xs);    /* 12px ≈ текущие 11px бэйджи/теги */
+  padding:var(--sp-1) var(--sp-2);          /* 4px 8px */
+  border-radius:var(--r-pill);
+  background:var(--blue-100);  /* = эфф. --hellblau-l #e3eef7 */
+  color:var(--blue-750);
+  line-height:var(--leading-tight);
+}
+
+/* крупная секция (аддитивный вариант ритма, между .sec и hero) */
+.sec-lg{ padding:var(--sp-11) 0; }           /* 80px — новый шаг, не пересекает .sec/.sec-sm */
