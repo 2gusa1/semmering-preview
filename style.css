@@ -2392,3 +2392,17 @@ body.hdr-compact header.site .wrap{height:64px;}
 /* legal dl-подобные списки impressum/agb/datenschutz — читаемая колонка */
 .sec>.wrap>ul,.sec>.wrap>ol{max-width:72ch;}
 /* конец V1 POLISH #2 */
+
+
+/* ═══ V1 POLISH #3 2026-07-23 (AVT: планшет-проход) ═══ */
+/* [проход 768] Hirschi-greeting-пузырь перекрывал заголовки секций на планшете (hide был ≤720). Расширяем до ≤900 (весь компакт-режим). */
+@media(max-width:900px){.hirschi-hint{display:none!important;}}
+/* конец V1 POLISH #3 */
+
+
+/* [проход 768/desktop] In-Aktion (.act-reel): портрет 9:16 был высоким (~498px) → секция высокая, caption короткий, пустота. Компактнее + top-align (без кропа рила). */
+@media(min-width:561px){
+  .act-reel{align-items:flex-start;justify-content:flex-start!important;}
+  .act-reel .ar-frame{width:230px!important;flex-basis:230px!important;}
+  .act-reel .ar-cap{align-self:flex-start;}
+}
