@@ -2376,3 +2376,9 @@ body.hdr-compact header.site .wrap{height:64px;}
   body.has-stickycta .hirschi{bottom:84px;}
 }
 /* конец PREMIUM PASS #2 */
+
+
+/* ═══ V1 POLISH #1 2026-07-23 (лево-закон: hero-контент) ═══ */
+/* [аудит] .hero=display:flex, .hero .wrap без width → сжимался до ширины контента и margin:auto центрировал → hero вдавлен вправо на всех стр. Выравниваем по левому контент-краю (как breadcrumb/секции). */
+.hero .wrap,.bp-hero .wrap{width:100%;}
+/* конец V1 POLISH #1 */
