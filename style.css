@@ -2226,3 +2226,153 @@ footer.site .logo-img{height:44px;width:156px;}
 
 /* крупная секция (аддитивный вариант ритма, между .sec и hero) */
 .sec-lg{ padding:var(--sp-11) 0; }           /* 80px — новый шаг, не пересекает .sec/.sec-sm */
+
+/* ═══════════════════════════════════════════════════════════════════
+   VISUAL-QA ROUND 2026-07-22 (веер 9 кластеров, адверсариально проверено).
+   Аддитивно в конец. Каждый фикс закрывает несколько находок сразу.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* [QA #1,9,13,16,25] Приветственный пузырь Hirschi (.hirschi-hint) на money-
+   страницах с sticky-CTA налезал на нижнюю фикс-панель и обрезался. Панель видна
+   только ≤720px на body.has-stickycta — там прячем транзиентный пузырь (FAB остаётся). */
+@media(max-width:720px){
+  body.has-stickycta .hirschi-hint{display:none!important;}
+}
+
+/* [QA #8,18,23] Контактные ссылки футера ловили footer.site a{display:block}
+   → <a> уезжал на новую строку, а ведущий разделитель «·» из nowrap-спана
+   оставался висеть один. Возвращаем контактам инлайн. */
+footer.site .cols p a{display:inline;padding:0;}
+
+/* [QA #6] Оверлей-заголовки карточек хаба активностей (.exp-card .ph) на мобиле
+   в 2-колоночной сетке обрезали длинные односоставные слова (Goldwaschanlage,
+   Sonnenaufgang). Разрешаем перенос и чуть уменьшаем кегль на узких. */
+@media(max-width:430px){
+  .exp-card .ph{font-size:15px;}
+  .exp-card .ph .t-d,.exp-card .ph .t-e{overflow-wrap:anywhere;word-break:break-word;min-width:0;}
+}
+
+/* [QA #27] .actc-name (заголовок компактной act-card) обрезал «Schneeschuhwandern»
+   у правого края в 2-колоночной сетке. Разрешаем перенос + даём грид-детям ужиматься. */
+.actc-name{overflow-wrap:anywhere;word-break:break-word;}
+.actgrid>a,.actgrid>div,.actgrid>.actc,.actgrid>.exp-card{min-width:0;}
+
+/* [QA #7,20] На мобиле в блоке «In Aktion» подпись .ar-cap сохраняла flex-basis
+   380px из десктопа; в column-флексе это резервировало ~380px ПУСТОЙ ВЫСОТЫ. */
+@media(max-width:560px){
+  .act-reel .ar-cap{flex:0 1 auto;max-width:none;}
+}
+
+/* [QA #12] Короткие карты без .act-meta растягивались до высоты соседа → пустой
+   провал внутри. На мобиле выравниваем по верху — карты сжимаются по контенту. */
+@media(max-width:560px){
+  .actgrid{align-items:start;}
+}
+
+/* [QA #3,21] Контраст hero-текста на светлых фото/видео: дисклеймер .geo-pos имел
+   opacity:.85 без тени, .hero-proof — слабую тень. Усиливаем (глобальный скрим не трогаем). */
+.hero .geo-pos{opacity:1;text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 12px rgba(0,0,0,.62);}
+.hero .hero-proof{text-shadow:0 1px 3px rgba(0,0,0,.9),0 2px 12px rgba(0,0,0,.62);}
+/* конец VISUAL-QA ROUND 2026-07-22 */
+
+
+/* ═══ TOP-AREA REDESIGN 2026-07-22 (запрос Саши: шапка/лого крупнее, нотиф аккуратнее+симметрично, бургер без задвоения) ═══ */
+
+/* Бургер: убрать CSS-псевдолинии (::before дублировал инлайн-SVG = «хуйня») — оставляем чистый SVG, крупнее */
+.burger::before{display:none!important;content:none!important;}
+.burger::after{display:none!important;content:none!important;}
+.burger{display:none;}
+@media(max-width:900px){
+  .burger{display:flex!important;align-items:center;justify-content:center;margin-left:auto;
+    width:44px;height:44px;padding:0;color:var(--blau-dd);background:none;border:none;}
+  .burger svg{display:block!important;width:26px;height:26px;}
+  body.navopen nav.main{top:100%!important;}   /* дропдаун под подросшей шапкой */
+}
+
+/* Шапка и лого крупнее */
+header.site .wrap{height:82px;}
+.logo-img{height:42px;}
+@media(max-width:900px){ header.site .wrap{height:76px;} }
+@media(max-width:640px){ .logo-img{height:32px!important;} }
+body.hdr-compact header.site .wrap{height:64px;}
+
+/* Нотиф-бар: симметрично, без перегруза */
+.notif .wrap{gap:12px 26px;}
+.nf-live{display:flex;align-items:center;gap:8px 22px;flex-wrap:wrap;}
+@media(min-width:721px){
+  .notif .wrap{justify-content:center;}   /* центр — симметрично, консистентно с мобайлом; одна строка если влезает, иначе 2 центр. строки */
+}
+@media(max-width:720px){
+  .notif .wrap{flex-direction:column;align-items:center;text-align:center;gap:5px;padding-top:8px;padding-bottom:8px;}
+  .nf-live{justify-content:center;gap:4px 16px;}
+  .nf-mood{justify-content:center;}
+}
+/* конец TOP-AREA REDESIGN 2026-07-22 */
+
+
+/* ═══ CRAFT PASS 2026-07-22 (фидбек Саши: тонкий текст, нотиф 1 строка-лево, синие иконки чипов, hero-кнопки, Waldmaus) ═══ */
+
+/* Тонкий текст: было font-weight:300 (Source Sans Light) — нечитаемо, особенно на мобиле */
+.lead{font-weight:400;}
+.hero .sub{font-weight:400;}
+@media(max-width:640px){
+  body{font-weight:420;}
+  .lead,.hero .sub,p,li{font-weight:445;}
+  .small,.chip,.tg{font-weight:500;}
+}
+
+/* Нотиф-бар: ОДНА строка, ЛЕВО, не перегружено (перекрывает центрирование TOP-AREA) */
+.notif .wrap{flex-wrap:nowrap!important;justify-content:flex-start!important;align-items:center!important;text-align:left!important;gap:6px 18px;overflow:hidden;}
+.nf-live{flex-wrap:nowrap!important;gap:6px 16px;min-width:0;}
+.notif .nf-mood{flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.notif .nf-mood>span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block;max-width:100%;}
+.nf-live>a,.nf-live>span{white-space:nowrap;}
+@media(max-width:720px){
+  .notif .wrap{flex-direction:row!important;}
+  .notif .nf-mood{display:none!important;}   /* мобайл: промо прячем → 1 чистая строка статуса слева */
+  .nf-live>span.inline{overflow:hidden;text-overflow:ellipsis;}
+}
+
+/* Синие уродские иконки на чипах — убрать (эмодзи→.ic и программные первого svg) */
+.chip .ic{display:none!important;}
+.chip>svg:first-child{display:none!important;}
+
+/* Hero pause/Video кнопки налезали на белый гребень гор (::after 132px) — поднять выше */
+.hero-vidbtn{bottom:150px!important;}
+@media(max-width:640px){.hero-vidbtn{bottom:150px!important;right:12px!important;}}
+/* конец CRAFT PASS 2026-07-22 */
+
+/* нотиф мобайл: прячем оперстатус (обрезался) — остаётся 1 чистая строка погода+статус-линк */
+@media(max-width:720px){.notif .nf-live .live-summer.inline,.notif .nf-live .live-winter.inline{display:none!important;}}
+
+
+/* ═══ PREMIUM PASS #1 2026-07-22 (grounded-аудит: топ AI-slop) ═══ */
+/* [аудит #1, все шаблоны] ▲▲▲-divider над КАЖДОЙ eyebrow = хрестоматийный slop (закон 8) + центрирован (против лево-закона). Убираем — бренд несут лого/цвет/типографика/hero-гребень. */
+.eyebrow::before{display:none!important;content:none!important;}
+
+/* [аудит index] hero-pill .frische = глассморфизм-по-умолчанию (bg 18% white) + белый текст на пёстром фото = нечитаемо. Делаем читаемым: тёмный тинт + тень, лево. */
+.hero .frische{background:rgba(16,28,44,.5)!important;border-color:rgba(255,255,255,.28)!important;text-shadow:0 1px 6px rgba(0,0,0,.55);backdrop-filter:none!important;}
+
+/* [аудит grandview] отзывы 2 колонки на телефоне → рубленые строки. 1 колонка ≤560. */
+@media(max-width:560px){.reviews{grid-template-columns:1fr!important;}}
+
+/* [аудит index/tickets] развёрнутый пузырь Hirschi-FAB перекрывает контент на мобиле — прячем транзиентный greeting на всём мобиле (FAB остаётся). */
+@media(max-width:720px){.hirschi-hint{display:none!important;}}
+/* конец PREMIUM PASS #1 */
+
+
+/* ═══ PREMIUM PASS #2 2026-07-22 (grounded-аудит: компоненты/пустоты/перекрытия) ═══ */
+/* [component] синий значок-квадрат .actc-ico на карточках активностей — непоследовательный декор-slop */
+.actc-ico,.exp-card .actc-ico{display:none!important;}
+/* [component] декор-иконки на фильтр-чипах (.aud-chip) и тег-чипах (.tg) — text-only, консистентно */
+.aud-chip .ic,.aud-chip>svg,.tg .ic,.tg>svg:first-child{display:none!important;}
+/* [component] бейдж «Paketvorteil» (.pkm-badge) растягивался на всю ширину в flex-колонке — сжать по тексту */
+.pkm-badge{align-self:flex-start!important;width:auto!important;}
+/* [image] пустые провалы в карточных сетках — карточки по контенту, не тянутся под соседа */
+.actgrid,.cardgrid{align-items:start;}
+/* [overlap] FAB×sticky-CTA на money-мобиле: поднять FAB над баром (greeting-пузырь уже скрыт) */
+@media(max-width:720px){
+  .hirschi-fab{width:60px;height:60px;}
+  body.has-stickycta .hirschi{bottom:84px;}
+}
+/* конец PREMIUM PASS #2 */
