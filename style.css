@@ -2382,3 +2382,13 @@ body.hdr-compact header.site .wrap{height:64px;}
 /* [аудит] .hero=display:flex, .hero .wrap без width → сжимался до ширины контента и margin:auto центрировал → hero вдавлен вправо на всех стр. Выравниваем по левому контент-краю (как breadcrumb/секции). */
 .hero .wrap,.bp-hero .wrap{width:100%;}
 /* конец V1 POLISH #1 */
+
+
+/* ═══ V1 POLISH #2 2026-07-23 (AVT: типографика/читаемость) ═══ */
+/* [аудит] .season-note был font-style:italic — целый справочный абзац курсивом читается дёшево. Прямое начертание (отличается цветом). */
+.season-note{font-style:normal!important;}
+/* [аудит] мера строки на текстовых/legal-страницах: абзацы-прямые-дети .sec .wrap не тянутся >70ch. */
+.sec>.wrap>p{max-width:72ch;}
+/* legal dl-подобные списки impressum/agb/datenschutz — читаемая колонка */
+.sec>.wrap>ul,.sec>.wrap>ol{max-width:72ch;}
+/* конец V1 POLISH #2 */
