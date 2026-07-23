@@ -2428,3 +2428,9 @@ body.hdr-compact header.site .wrap{height:64px;}
 
 /* [анти-slop] .statusrow имел border-left:4px (side-stripe, бан) — всегда синий = декор, статус уже в точке .lvl. Убираем side-stripe. */
 .statusrow{border-left:none!important;}
+
+
+/* ═══ ЦИКЛ 2 (арт-директор) 2026-07-23 ═══ */
+/* Hirschi-greeting-пузырь (.hirschi-hint) перекрывал контент/money-CTA на десктопе (напр. Preisrechner «Im Shop kaufen»). Скрываем глобально — FAB-аватар остаётся (клик открывает помощь). Чище, без перекрытий. */
+.hirschi-hint{display:none!important;}
+/* конец ЦИКЛ 2 */
