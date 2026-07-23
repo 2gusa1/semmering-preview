@@ -2415,3 +2415,12 @@ body.hdr-compact header.site .wrap{height:64px;}
   header.site .burger{display:flex!important;align-items:center;justify-content:center;margin-left:auto;}
 }
 /* конец V1 POLISH #5 */
+
+
+/* [FIX бага моего же #5] бургер-дропдаун должен работать на всём диапазоне сворачивания ≤1460 (был ≤900) */
+@media(max-width:1460px){
+  header.site .wrap{position:relative;}
+  body.navopen nav.main{display:flex!important;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:10px 6px;gap:2px;box-shadow:0 16px 38px rgba(10,20,35,.18);border-radius:0 0 14px 14px;z-index:80;max-height:80vh;overflow-y:auto;}
+  body.navopen nav.main a,body.navopen nav.main .navitem>a{padding:13px 10px;border-bottom:1px solid var(--hellgrau);font-size:16px;color:var(--anthrazit)!important;}
+  body.navopen nav.main .navitem{display:block;}
+}
