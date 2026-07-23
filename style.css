@@ -2406,3 +2406,12 @@ body.hdr-compact header.site .wrap{height:64px;}
   .act-reel .ar-frame{width:230px!important;flex-basis:230px!important;}
   .act-reel .ar-cap{align-self:flex-start;}
 }
+
+
+/* ═══ V1 POLISH #5 2026-07-23 (AVT 1024-проход: шапка не влезала) ═══ */
+/* [1024] full-nav сворачивался только ≤900 → на 901-1180 nav+season-toggle+DE/EN+Ticketshop не влезали, Ticketshop (главный CTA) клипался за краем (overflow:clip). Сворачиваем в бургер до ≤1180. */
+@media(max-width:1460px){
+  header.site nav.main,.season-toggle{display:none!important;}
+  header.site .burger{display:flex!important;align-items:center;justify-content:center;margin-left:auto;}
+}
+/* конец V1 POLISH #5 */
