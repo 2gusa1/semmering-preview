@@ -2424,3 +2424,7 @@ body.hdr-compact header.site .wrap{height:64px;}
   body.navopen nav.main a,body.navopen nav.main .navitem>a{padding:13px 10px;border-bottom:1px solid var(--hellgrau);font-size:16px;color:var(--anthrazit)!important;}
   body.navopen nav.main .navitem{display:block;}
 }
+
+
+/* [анти-slop] .statusrow имел border-left:4px (side-stripe, бан) — всегда синий = декор, статус уже в точке .lvl. Убираем side-stripe. */
+.statusrow{border-left:none!important;}
