@@ -131,18 +131,7 @@ body.winter .season-toggle .s{background:transparent;color:var(--grau);box-shado
 .buy-card .price{font-family:'Montserrat';font-weight:800;font-size:34px;}
 .buy-card .small{opacity:.85;font-size:14px;}
 
-/* ---------- scenario tiles / filters ---------- */
-.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:8px;}
-.tile{position:relative;border-radius:14px;overflow:hidden;min-height:150px;display:flex;align-items:flex-end;
-  color:#fff;padding:16px;font-family:'Montserrat';font-weight:700;font-size:16px;cursor:pointer;transition:.2s;
-  background:var(--blau-dd);}
-.tile:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
-.tile .ic{position:absolute;top:14px;left:16px;font-size:24px;}
-.tile.t1{background:linear-gradient(160deg,#4f86b3,#3a6a93);}
-.tile.t2{background:linear-gradient(160deg,#5e93bd,#3a6a93);}
-.tile.t3{background:linear-gradient(160deg,#3a3f45,#16181c);}
-.tile.t4{background:linear-gradient(160deg,#5e93bd,#1f3d50);}
-.tile.t5{background:linear-gradient(160deg,#6aa0c8,#33617f);}
+/* DEAD-TILE: .tiles/.tile удалены 2026-08-03 — разметки не существует (STATUS DEAD-TILE) */
 
 .filterbar{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0;}
 .chip{font-family:'Montserrat';font-weight:600;font-size:13px;padding:8px 16px;border-radius:30px;
@@ -340,10 +329,9 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
 .formgrid .full{grid-column:1/-1;}
 
 @media(max-width:900px){
-  nav.main,.season-toggle,.lang{display:none;}
+  nav.main,.season-toggle{display:none;} /* .lang был мёртвым селектором (реальный класс .lang-toggle); DE/EN оставляем видимым — в бургере переключателя языка нет */
   .burger{display:block;margin-left:auto;}
   .heute-grid,.split,.adetail,.bpdet{grid-template-columns:1fr;}
-  .tiles{grid-template-columns:repeat(2,1fr);}
   .cardgrid,.cardgrid.c4,.stats,.bp-stats,.trailcards,.reviews,.principle,.formgrid{grid-template-columns:1fr 1fr;}
   .hero h1,.hero .hero-h1,.bp-hero h1{font-size:40px;}
   footer.site .cols{grid-template-columns:1fr 1fr;}
@@ -2434,3 +2422,28 @@ body.hdr-compact header.site .wrap{height:64px;}
 /* Hirschi-greeting-пузырь (.hirschi-hint) перекрывал контент/money-CTA на десктопе (напр. Preisrechner «Im Shop kaufen»). Скрываем глобально — FAB-аватар остаётся (клик открывает помощь). Чище, без перекрытий. */
 .hirschi-hint{display:none!important;}
 /* конец ЦИКЛ 2 */
+
+/* ---------- 2026-08-03: Wetter-Widget (.wxw) — сезонный live-виджет (index/sommer/winter) ---------- */
+.wxw{display:flex;align-items:center;gap:20px 26px;flex-wrap:wrap;background:#fff;border-radius:16px;padding:16px 22px;box-shadow:var(--shadow);}
+.wxw-main{display:flex;align-items:center;gap:14px;min-width:170px;}
+.wxw-ico svg{width:46px;height:46px;color:var(--blau-dd);display:block;}
+.wxw-temp{font-family:Montserrat;font-weight:800;font-size:32px;line-height:1;color:var(--blau-deep);}
+.wxw-cond{font-size:13.5px;color:var(--grau);font-weight:600;margin-top:4px;}
+.wxw-chips{display:flex;gap:10px;flex-wrap:wrap;}
+body.winter .wxw-chips.only-winter{display:flex;} /* .only-winter даёт display:block — возвращаем flex */
+.wxw-chip{background:var(--hellblau-l);border-radius:12px;padding:8px 14px;display:flex;flex-direction:column;gap:2px;}
+.wxw-chip .wxw-k{font-size:11px;letter-spacing:.5px;color:var(--grau);font-weight:700;font-family:Montserrat;text-transform:uppercase;}
+.wxw-chip b{font-size:15px;color:var(--blau-deep);}
+.wxw-link{margin-left:auto;font-weight:700;font-size:14px;color:var(--blau-dd);text-decoration:none;white-space:nowrap;}
+.wxw-link:hover{text-decoration:underline;text-underline-offset:3px;}
+@media(max-width:640px){.wxw{gap:12px 16px;padding:14px 16px;}.wxw-link{margin-left:0;}}
+
+/* ---------- 2026-08-03: OWN-21 (решение #21) — сезон-пилюля скрыта на страницах с принудительным сезоном ---------- */
+body[data-season] .season-toggle{display:none!important;}
+
+/* ---------- 2026-08-03: узкие экраны — компактная DE/EN-пилюля, чтобы не теснить Ticketshop-CTA ---------- */
+@media(max-width:420px){
+  .lang-toggle{font-size:12px;}
+  .lang-toggle span{padding:4px 8px;}
+  header.site .btn.sm{padding:8px 12px;font-size:13px;}
+}
