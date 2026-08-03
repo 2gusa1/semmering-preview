@@ -266,7 +266,7 @@ body.bikepark{background:var(--bikedark);color:#dfe3e8;}
   border:1px solid #333;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:12px;text-align:center;
   font-family:'Montserrat';font-size:12px;color:#cfd3d8;min-width:74px;}
 .bp-livepanel .v{font-weight:800;font-size:16px;color:#fff;}
-.bp-livepanel .live{color:#ff5a4d;font-weight:800;}
+.bp-livepanel .live{color:#75abd6;font-weight:800;} /* 03.08: остаток bikepark-orange → Semmering Blau (owner-решение) */
 .bp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center;}
 .bp-stats .n{font-family:'Montserrat';font-weight:900;font-size:46px;color:#fff;}
 .bp-stats .n .o{color:var(--orange);}
