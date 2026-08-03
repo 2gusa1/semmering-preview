@@ -2492,3 +2492,7 @@ body.winter .hero .frische.only-winter{display:inline-block;}
 .actgrid .only-winter{display:none;}
 body.winter .actgrid .only-summer{display:none;}
 body.winter .actgrid .only-winter{display:block;}
+
+/* ---------- 2026-08-03 (свип): одиночная карточка пакета растягивалась на всю ширину с гигантским фото ---------- */
+.pkt-grid > *{max-width:560px;}
+.pkt-grid:has(> .only-summer:only-of-type),.pkt-grid:has(> .only-winter:only-of-type){justify-content:start;}
