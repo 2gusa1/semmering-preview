@@ -2456,3 +2456,13 @@ body.winter .wxw-chips.only-winter{display:flex;} /* .only-winter даёт displ
 /* ---------- 2026-08-03 v2: Winterbericht-карточка (правая колонка split-блока) ---------- */
 .wxw-card{flex-direction:column;align-items:flex-start;gap:12px;}
 .wxw-card .wxw-main{min-width:0;}
+
+/* ---------- 2026-08-03: карта курорта была растянута во всю ширину (2000px-картинка на full-bleed) ---------- */
+.resortmap{max-width:1040px;margin:0 auto;}
+.resortmap img{display:block;}
+
+/* ---------- 2026-08-03: сезонные спотлайты планера — .only-* внутри grid-колонки не должны ломать сетку ---------- */
+.aud-spot-media.only-summer,.aud-spot-media.only-winter{display:none;}
+.aud-spot-media.only-summer{display:block;}
+body.winter .aud-spot-media.only-summer{display:none;}
+body.winter .aud-spot-media.only-winter{display:block;}
