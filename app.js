@@ -362,6 +362,11 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
 /* Gafs 06.07: Foto-Karussells (.pc-track) rücken alle ~4 s automatisch eine Folie weiter,
    loopen am Ende zurück; Pause bei Hover/Touch/Wheel/Fokus & wenn außer Sicht; reduced-motion aus. */
 (function(){
+  /* 03.08: ОТКЛЮЧЁН. Ниже (блок «photocar-auto») живёт вторая, более полная реализация
+     (стрелки + автолистание 3.5 с). Оба таймера крутили одни и те же треки — слайды
+     проматывались парами, hover останавливал только один. Проверено: все 27 .pc-track
+     лежат внутри .photocar, поэтому этот блок полностью избыточен. */
+  return;
   if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var tracks=document.querySelectorAll('.pc-track'); if(!tracks.length) return;
   tracks.forEach(function(track){
