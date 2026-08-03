@@ -171,6 +171,8 @@ document.addEventListener('click', function(e){
   }
   function apply(city,sem,geo){
     if(typeof city!=='number'||typeof sem!=='number') return;
+    /* 03.08: гард как в инлайн-скрипте — при дельте <3° блок скрываем (иначе показывал «−0° fresher») */
+    if(Math.round(city-sem)<3){q('.tempcmp').forEach(function(el){el.style.display='none';});return;}
     q('[data-live="temp-wien"]').forEach(function(el){el.textContent=Math.round(city)+'°';});
     q('[data-live="temp-semmering"]').forEach(function(el){el.textContent=Math.round(sem)+'°';});
     var d=Math.round(city-sem);

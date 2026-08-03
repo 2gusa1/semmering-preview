@@ -2453,3 +2453,7 @@ body[data-season] .season-toggle{display:none!important;}
   .notif .wrap:has(.nf-mood) .live-summer,
   .notif .wrap:has(.nf-mood) .live-winter{display:none;}
 }
+
+/* ---------- 2026-08-03 v2: Winterbericht-карточка (правая колонка split-блока) ---------- */
+.wxw-card{flex-direction:column;align-items:flex-start;gap:12px;}
+.wxw-card .wxw-main{min-width:0;}
