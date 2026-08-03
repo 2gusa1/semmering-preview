@@ -2457,9 +2457,12 @@ body.winter .wxw-chips.only-winter{display:flex;} /* .only-winter даёт displ
 .wxw-card{flex-direction:column;align-items:flex-start;gap:12px;}
 .wxw-card .wxw-main{min-width:0;}
 
-/* ---------- 2026-08-03: карта курорта была растянута во всю ширину (2000px-картинка на full-bleed) ---------- */
-.resortmap{max-width:1040px;margin:0 auto;}
-.resortmap img{display:block;}
+/* ---------- 2026-08-03: карта курорта (2000×1776) доминировала на странице ----------
+   Ограничиваем и по ширине, и по высоте экрана: блок больше не выше ~65vh,
+   пропорции сохраняются (object-fit:contain), полный размер — по клику. */
+.resortmap{max-width:820px;margin:0 auto;display:block;}
+.resortmap img{display:block;width:100%;height:auto;max-height:65vh;object-fit:contain;}
+@media(max-width:640px){.resortmap img{max-height:none;}}
 
 /* ---------- 2026-08-03: сезонные спотлайты планера — .only-* внутри grid-колонки не должны ломать сетку ---------- */
 .aud-spot-media.only-summer,.aud-spot-media.only-winter{display:none;}
