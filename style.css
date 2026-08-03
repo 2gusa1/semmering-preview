@@ -1808,7 +1808,7 @@ li.hide-dupe{display:none}
    Vorher stand nur «18. Juni – 6. September» prominent → las sich, als schließe alles am 6.9.
    Tag «Hauptsaison» macht klar, dass das die Hauptzeit ist; der Zusatz verweist auf den Betrieb bis 1. Nov
    (alle Zeiträume als Chips darunter). Keine neuen Daten — 1. Nov steht bereits in der Zeitraum-Liste. */
-.hb-tag{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--blau-dd);background:var(--hellblau-l);padding:3px 10px;border-radius:999px;margin-bottom:5px}
+.hb-tag{display:inline-block;font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.6px;text-transform:uppercase;color:var(--blau-dd);background:var(--hellblau-l);padding:3px 10px;border-radius:999px;margin:0 8px 5px 0} /* 03.08: слипался с датой */
 
 /* ═══ #fb-brand-color — --blau-dd von grau-teal #33617f auf ein satteres Semmering-Blau #3a6a93
    verschoben (näher an --blau #75abd6, Feedback aller 5 Reviewer «zu dunkel»). Kontrast geprüft:
@@ -2446,4 +2446,10 @@ body[data-season] .season-toggle{display:none!important;}
   .lang-toggle{font-size:12px;}
   .lang-toggle span{padding:4px 8px;}
   header.site .btn.sm{padding:8px 12px;font-size:13px;}
+}
+
+/* ---------- 2026-08-03: notif на index (промо+лайв) не влезает 901–1440px — прячем второй статус-чип, температура и промо остаются ---------- */
+@media(min-width:901px) and (max-width:1440px){
+  .notif .wrap:has(.nf-mood) .live-summer,
+  .notif .wrap:has(.nf-mood) .live-winter{display:none;}
 }
