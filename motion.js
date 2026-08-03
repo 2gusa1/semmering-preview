@@ -171,8 +171,12 @@ document.addEventListener('click', function(e){
   }
   function apply(city,sem,geo){
     if(typeof city!=='number'||typeof sem!=='number') return;
-    /* 03.08: гард как в инлайн-скрипте — при дельте <3° блок скрываем (иначе показывал «−0° fresher») */
-    if(Math.round(city-sem)<3){q('.tempcmp').forEach(function(el){el.style.display='none';});return;}
+    /* 03.08 v2: при дельте <3° сравнение нечестное («−0° fresher») — прячем карточку города и дельту,
+       оставляем одну карточку Semmering (не дырка в layout, как при display:none всего блока) */
+    if(Math.round(city-sem)<3){
+      q('.tempcmp .tc-card:not(.tc-hl),.tempcmp .tc-delta').forEach(function(el){el.style.display='none';});
+      q('[data-live="temp-semmering"]').forEach(function(el){el.textContent=Math.round(sem)+'\u00b0';});
+      return;}
     q('[data-live="temp-wien"]').forEach(function(el){el.textContent=Math.round(city)+'°';});
     q('[data-live="temp-semmering"]').forEach(function(el){el.textContent=Math.round(sem)+'°';});
     var d=Math.round(city-sem);
