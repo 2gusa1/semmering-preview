@@ -2469,3 +2469,20 @@ body.winter .wxw-chips.only-winter{display:flex;} /* .only-winter даёт displ
 .aud-spot-media.only-summer{display:block;}
 body.winter .aud-spot-media.only-summer{display:none;}
 body.winter .aud-spot-media.only-winter{display:block;}
+
+/* ---------- 2026-08-03 (фидбэк Саши, скрин index-winter) ---------- */
+/* 1. Серая hero-пилюля (.frische) растягивалась: body.winter .only-winter даёт display:block и
+      перебивает inline-block. Возвращаем компактность в обоих сезонах. */
+.hero .frische.only-summer{display:inline-block;}
+body.winter .hero .frische.only-summer{display:none;}
+body.winter .hero .frische.only-winter{display:inline-block;}
+/* 2. Кнопки видео (пауза + «Video») стояли в зоне горной маски (105px) — маска их накрывала,
+      а разный right/размер делал их кривыми. Единая колонка над маской, один правый край. */
+.hero-vidbtn{right:18px;bottom:122px;}
+.hero-textbtn{right:18px;bottom:170px;}
+@media (max-width:640px){
+  .hero-vidbtn{right:14px;bottom:118px;width:42px;height:42px;}
+  .hero-textbtn{right:14px;bottom:166px;height:38px;}
+}
+/* 3. Winterbericht: карточка погоды/снега — по центру своей колонки, не прилипает к краю. */
+#wetter-heute .wxw-card{margin:0 auto;max-width:520px;width:100%;}
