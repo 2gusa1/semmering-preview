@@ -2486,3 +2486,9 @@ body.winter .hero .frische.only-winter{display:inline-block;}
 }
 /* 3. Winterbericht: карточка погоды/снега — по центру своей колонки, не прилипает к краю. */
 #wetter-heute .wxw-card{margin:0 auto;max-width:520px;width:100%;}
+
+/* ---------- 2026-08-03: сезонные карточки в .actgrid — display:block от .only-* не должен убивать grid-item ---------- */
+.actgrid .only-summer{display:block;}
+.actgrid .only-winter{display:none;}
+body.winter .actgrid .only-summer{display:none;}
+body.winter .actgrid .only-winter{display:block;}
