@@ -2514,3 +2514,12 @@ body.winter .actgrid .only-winter{display:block;}
 .rwin-note,.rsum-note{display:none;}
 html.real-winter .rwin-note{display:block;}
 html.real-summer .rsum-note{display:block;}
+
+/* ---------- 2026-08-04 (свип остатка) ---------- */
+/* uebersicht на мобиле: 80 карточек-заглушек растягивались в километр — плотнее и ниже */
+@media(max-width:640px){
+  body.en .cardgrid .exp-card .ph.ph-a,body.en .cardgrid .exp-card .ph.ph-b,body.en .cardgrid .exp-card .ph.ph-c,
+  body.en .cardgrid .exp-card .ph.ph-d,body.en .cardgrid .exp-card .ph.ph-e,body.en .cardgrid .exp-card .ph.ph-f{height:56px;font-size:13px;}
+}
+/* одиночная карточка неполного ряда прижимается к левому краю (заголовки секций левые) */
+.cardgrid>*:only-child{margin-right:auto;max-width:560px;}
