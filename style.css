@@ -2507,3 +2507,10 @@ body.winter .actgrid .only-winter{display:block;}
 
 /* ---------- 2026-08-04: зимний hero-H1 (div.hero-h1) наследовал line-height текста — строки разъезжались ---------- */
 .hero .hero-h1{line-height:1.1;margin:0 0 12px;}
+
+/* ---------- 2026-08-04 (свип активностей): офф-сезонные заметки в booking-card по РЕАЛЬНОЙ дате ----------
+   .only-* мертвы на страницах с форс-сезоном (data-season) — заметка «Im Winter geschlossen»
+   на летней странице никогда не показывалась. real-winter/real-summer ставит _SEASONBOOT по дате. */
+.rwin-note,.rsum-note{display:none;}
+html.real-winter .rwin-note{display:block;}
+html.real-summer .rsum-note{display:block;}
