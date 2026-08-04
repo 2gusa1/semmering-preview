@@ -1096,7 +1096,7 @@ footer.site .logo-img{height:32px;}
 
 /* Mobile-Menü Akkordeon: Untermenüs (Sommer/Winter) einklappbar — additiv */
 .nav-toggle{display:none;background:none;border:none;padding:0;font:inherit;}
-@media(max-width:900px){
+@media(max-width:1460px){ /* 04.08 P0: бургер живёт до 1460px (V1 POLISH #5), а аккордеон сабменю оставался ≤900 — на 901–1460 подменю было недостижимо тапом */
   body.navopen .navitem.has-sub{position:relative;}
   body.navopen .navitem.has-sub > a{display:block;text-align:left;padding-right:50px !important;}
   body.navopen .nav-toggle{display:flex;align-items:center;justify-content:center;position:absolute;top:0;right:2px;height:47px;width:46px;color:var(--blau-dd);font-size:15px;cursor:pointer;transition:transform .2s;z-index:2;}

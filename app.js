@@ -71,7 +71,7 @@
       var subj = f.getAttribute('data-subject') || 'Anfrage · semmering.com';
       var lines = [];
       f.querySelectorAll('input,textarea,select').forEach(function(el){
-        var lbl = el.getAttribute('placeholder') || el.getAttribute('name') || '';
+        var lbl = el.getAttribute('name') || el.getAttribute('placeholder') || '';
         if(el.value) lines.push(lbl + ': ' + el.value);
       });
       window.location.href = 'mailto:'+to+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(lines.join('\n'));
@@ -218,7 +218,7 @@
         +'background:rgba(127,224,138,.16);border:1px solid rgba(127,224,138,.55);color:inherit;';
       f.appendChild(fb);
     }
-    fb.innerHTML='📨 <span class="t-d">Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht. '
+    fb.innerHTML='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-3px;margin-right:4px" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> <span class="t-d">Dein E-Mail-Programm öffnet sich mit der fertigen Nachricht. '
       +'Falls sich nichts öffnet: schreib direkt an <a href="mailto:'+to
       +'" style="font-weight:700;text-decoration:underline;color:inherit">'+to+'</a>.</span>'
       +'<span class="t-e">Your e-mail app opens with the pre-filled message. '

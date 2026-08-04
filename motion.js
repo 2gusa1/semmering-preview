@@ -322,6 +322,21 @@ document.addEventListener('click', function(e){
   b.appendChild(bar);
 })();
 
+/* ═══ 04.08 CRO-P1: header-CTA на десктопе всегда продавал Axess-билет — теперь читает
+   те же data-stickycta-* (на hotel → бронь номера, lichten → стол, gruppen → заявка). */
+(function(){
+  var b=document.body, href=b.getAttribute('data-stickycta-href');
+  if(!href) return;
+  var btn=document.querySelector('header.site .head-right .btn');
+  if(!btn) return;
+  var lde=b.getAttribute('data-stickycta-label-de')||'Jetzt buchen';
+  var len=b.getAttribute('data-stickycta-label-en')||'Book now';
+  btn.setAttribute('href',href);
+  if(/^https?:/.test(href)){btn.setAttribute('target','_blank');btn.setAttribute('rel','noopener');}
+  else {btn.removeAttribute('target');btn.removeAttribute('rel');}
+  btn.innerHTML='<span class="t-d">'+lde+'</span><span class="t-e">'+len+'</span>';
+})();
+
 /* ── #fix-hirschi-overlap: на мобильном FAB не перекрывает hero (кликабельная .cta-live
    попадала под маскот) — показываем его, как только клиент начал скроллить ── */
 (function(){
