@@ -2541,3 +2541,9 @@ html.real-summer .rsum-note{display:block;}
 .actc:hover,.dl-card:hover,.pkm:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(15,30,50,.14);}
 .statusrow:hover{transform:translateX(3px);}
 a.aud-actchip:hover{background:var(--hellblau);}
+
+/* ---------- 2026-08-04: тап-зоны (сезон/мобайл-охота): футер, крошки, чипы, hp-close ---------- */
+footer.site a{display:inline-block;padding:5px 2px;}
+.crumbs a{display:inline-block;padding:9px 4px;}
+.hp-close{min-width:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center;}
+@media(max-width:640px){.chip{padding:9px 14px;}}
