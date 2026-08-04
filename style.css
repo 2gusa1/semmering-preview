@@ -2496,3 +2496,11 @@ body.winter .actgrid .only-winter{display:block;}
 /* ---------- 2026-08-03 (свип): одиночная карточка пакета растягивалась на всю ширину с гигантским фото ---------- */
 .pkt-grid > *{max-width:560px;}
 .pkt-grid:has(> .only-summer:only-of-type),.pkt-grid:has(> .only-winter:only-of-type){justify-content:start;}
+
+/* ---------- 2026-08-04: мобайл — контролы видео уходят в верхний правый угол hero ----------
+   Внизу hero на мобиле места нет: текст доходит до горной маски, кнопки налезали на трастовую
+   строку (скрин Саши + свой скрин). Сверху справа свободно (слева только eyebrow). */
+@media (max-width:640px){
+  .hero-vidbtn{top:14px;bottom:auto;right:14px;width:38px;height:38px;}
+  .hero-textbtn{top:14px;bottom:auto;right:60px;height:38px;padding:0 12px;}
+}
