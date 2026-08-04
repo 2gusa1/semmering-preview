@@ -2523,3 +2523,12 @@ html.real-summer .rsum-note{display:block;}
 }
 /* одиночная карточка неполного ряда прижимается к левому краю (заголовки секций левые) */
 .cardgrid>*:only-child{margin-right:auto;max-width:560px;}
+
+/* ---------- 2026-08-04: калькулятор v2 — групповые счётчики и брейкдаун ---------- */
+.calc-grps{display:flex;gap:10px 18px;flex-wrap:wrap;margin-bottom:12px;}
+.calc-grp{display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 12px;box-shadow:var(--shadow);font-size:14px;}
+.calc-grp span{font-family:Montserrat;font-weight:600;color:var(--dunkel);}
+.calc-grp button{width:30px;height:30px;border-radius:50%;border:1px solid var(--hellblau);background:var(--hellblau-l);color:var(--blau-dd);font-size:17px;font-weight:800;cursor:pointer;line-height:1;}
+.calc-grp button:hover{background:var(--hellblau);}
+.calc-grp b{min-width:18px;text-align:center;font-family:Montserrat;}
+.calc-bd{margin-top:8px;font-size:13.5px;color:var(--dunkel);background:#fff;border-radius:10px;padding:10px 14px;line-height:1.6;}

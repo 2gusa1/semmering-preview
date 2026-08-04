@@ -304,45 +304,60 @@
 
 /* Preisrechner: Summe gewählter Erlebnisse × Personen (Sommer-Erwachsenenpreise) */
 document.querySelectorAll('[data-calc]').forEach(function(c){
-  var n=1, age='a';  // a=Erwachsene · j=Jugend/Sen. · k=Kinder — reale Tarife pro Altersgruppe
-  // #716 — dynamischer, präziser All-In-Nudge: echte Ersparnis, sobald ≥2 All-In-Bausteine (Waldseilgarten+Bahn+Cart) > 55 € einzeln kosten
+  /* 04.08 v2: групповые счётчики (семья = 2 Erw + 2 Kinder считается честно);
+     «—» у группы = продукт для неё недоступен (не 0 €); брейкдаун по группам под итогом. */
+  var q={a:1,j:0,k:0};
   var nudge=null, tot=c.querySelector('.calc-total');
   if(tot){ nudge=document.createElement('div'); nudge.className='calc-nudge'; nudge.style.display='none'; tot.parentNode.insertBefore(nudge, tot.nextSibling); }
-  function pf(v){ if(v.indexOf('.')>-1){ var s=v.split('.'); return s[0]+','+(s[1].length===2?s[1]:s[1]+'0'); } return v; }
-  function paint(){
-    c.querySelectorAll('input[data-pa]').forEach(function(i){
-      var raw=i.getAttribute('data-p'+age)||i.getAttribute('data-pa');
-      var b=i.parentNode.querySelector('[data-pd]'); if(b) b.textContent=pf(raw)+' €';
-    });
-  }
+  function price(i,g){ var r=i.getAttribute('data-p'+g); if(!r||r==='—'||r==='-') return null; var v=parseFloat(r.replace(',','.')); return isFinite(v)?v:null; }
+  function fmt(v){ return (Number.isInteger(v)? String(v) : v.toFixed(2).replace('.',','))+' €'; }
   function upd(){
-    var sum=0, allin=0;
+    var sum=0, parts=[], allinA=0, allinK=0;
     c.querySelectorAll('input[data-pa]:checked').forEach(function(i){
-      var p=parseFloat(i.getAttribute('data-p'+age)||i.getAttribute('data-pa'))||0; sum+=p;
-      if(i.hasAttribute('data-allin')) allin+=p;
+      ['a','j','k'].forEach(function(g){
+        if(!q[g]) return;
+        var p=price(i,g);
+        if(p===null) return;
+        sum+=p*q[g];
+        if(i.hasAttribute('data-allin')){ if(g==='a') allinA+=p; if(g==='k') allinK+=p; }
+      });
     });
-    var cn=c.querySelector('[data-cn]'), ct=c.querySelector('[data-ct]');
-    if(cn) cn.textContent=n;
-    var v=sum*n;
-    if(ct) ct.textContent=(Number.isInteger(v)? String(v) : v.toFixed(2).replace('.',','))+' €';
+    ['a','j','k'].forEach(function(g){ var el=c.querySelector('[data-gn="'+g+'"]'); if(el) el.textContent=q[g]; });
+    var ct=c.querySelector('[data-ct]'); if(ct) ct.textContent=fmt(sum);
+    var bd=c.querySelector('[data-bd]');
+    if(bd){
+      var lines=[];
+      var names={a:['Erwachsene','adults'],j:['Jugend/Senioren','youth/seniors'],k:['Kinder','children']};
+      ['a','j','k'].forEach(function(g){
+        if(!q[g]) return;
+        var gs=0, skip=[];
+        c.querySelectorAll('input[data-pa]:checked').forEach(function(i){
+          var p=price(i,g);
+          if(p===null){ var lb=i.parentNode.querySelector('span'); if(lb){var d=lb.querySelector('.t-d'); skip.push((d||lb).textContent.trim());} }
+          else gs+=p;
+        });
+        if(gs>0) lines.push(q[g]+'× '+'<span class="t-d">'+names[g][0]+'</span><span class="t-e">'+names[g][1]+'</span>'+' à '+fmt(gs)
+          +(skip.length?' <span style="opacity:.7">(<span class="t-d">ohne</span><span class="t-e">excl.</span> '+skip.join(', ')+')</span>':''));
+      });
+      bd.innerHTML=lines.join('<br>');
+      bd.style.display=lines.length?'block':'none';
+    }
     if(nudge){
-      if(age==='a' && allin>55){
-        var save=Math.round((allin-55)*n), es=allin*n;
-        nudge.innerHTML='💡 <span class="t-d"><b>Diese Erlebnisse kosten einzeln '+es+' €.</b> Mit der <b>All-In Card</b> (Waldseilgarten + Bahn + Mountaincart) ab 55 €/Erw. — du sparst bis zu '+save+' €. <a href="#allin">All-In ansehen →</a></span><span class="t-e"><b>These experiences cost '+es+' € separately.</b> With the <b>All-In Card</b> (ropes park + ride + mountain cart) from €55/adult — you save up to '+save+' €. <a href="#allin">See All-In →</a></span>';
+      var na=q.a, nk=q.k;
+      var save=(na>0?Math.max(0,(allinA-55))*na:0)+(nk>0?Math.max(0,(allinK-28))*nk:0);
+      if(save>0 && allinA>55){
+        nudge.innerHTML='\ud83d\udca1 <span class="t-d"><b>Tipp:</b> Mit dem <b>All-In-Ticket</b> (Waldseilgarten + Bahn + Mountaincart, 55 \u20ac/Erw. \u00b7 Kinder ab 28 \u20ac) sparst du bis zu '+Math.round(save)+' \u20ac. <a href="#allin">All-In ansehen \u2192</a></span><span class="t-e"><b>Tip:</b> with the <b>All-In-Ticket</b> (ropes park + ride + mountain cart, \u20ac55/adult \u00b7 children from \u20ac28) you save up to \u20ac'+Math.round(save)+'. <a href="#allin">See All-In \u2192</a></span>';
         nudge.style.display='block';
       } else nudge.style.display='none';
     }
   }
   c.addEventListener('change',upd);
-  c.querySelectorAll('.calc-age').forEach(function(b){ b.addEventListener('click',function(){
-    age=b.getAttribute('data-age');
-    c.querySelectorAll('.calc-age').forEach(function(x){ x.classList.toggle('on',x===b); x.setAttribute('aria-selected',x===b?'true':'false'); });
-    paint(); upd();
-  }); });
-  var cp=c.querySelector('[data-cp]'), cm=c.querySelector('[data-cm]');
-  if(cp) cp.addEventListener('click',function(){ n=Math.min(20,n+1); upd(); });
-  if(cm) cm.addEventListener('click',function(){ n=Math.max(1,n-1); upd(); });
-  paint(); upd();
+  c.addEventListener('click',function(e){
+    var gp=e.target.closest('[data-gp]'), gm=e.target.closest('[data-gm]');
+    if(gp){ var g=gp.getAttribute('data-gp'); q[g]=Math.min(20,q[g]+1); upd(); }
+    if(gm){ var g2=gm.getAttribute('data-gm'); q[g2]=Math.max(0,q[g2]-1); if(q.a+q.j+q.k===0) q[g2]=1; upd(); }
+  });
+  upd();
 });
 
 /* FAQ-Suche: filtert .ac-Akkordeons live nach Stichwort (season-hidden bleibt versteckt) */
