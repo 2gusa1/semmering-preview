@@ -1863,7 +1863,7 @@ body.hotelbrand .foot-nl .btn.primary:hover,body.hotelbrand .newsletter .btn.pri
    Marke: Semmering Blau #75abd6 soll DOMINIEREN + «weiß für Text auf blauem Hintergrund». Solid-Flächen & Verläufe
    heller. --blau-dd bleibt NUR für Text-auf-hell (Eyebrow/Preis/Nav — lesbar). hotelbrand (#75abd6) unberührt (höhere Spez.). */
 .notif,.livebar2{background:var(--blau)!important}
-.hp-head,{background:var(--blau)}
+.hp-head{background:var(--blau)}
 .btn.primary{background:var(--blau)}
 .btn.primary:hover{background:#5e93bd}
 .chip.active,.chip:hover{background:var(--blau);color:#fff}
@@ -2532,3 +2532,12 @@ html.real-summer .rsum-note{display:block;}
 .calc-grp button:hover{background:var(--hellblau);}
 .calc-grp b{min-width:18px;text-align:center;font-family:Montserrat;}
 .calc-bd{margin-top:8px;font-size:13.5px;color:var(--dunkel);background:#fff;border-radius:10px;padding:10px 14px;line-height:1.6;}
+
+/* ---------- 2026-08-04 (охота по компонентам) ---------- */
+/* Ритм секций: в окне 761–899px действовал base 72px — БОЛЬШЕ десктопных 52px. Планшет = между мобилом и десктопом. */
+@media(min-width:761px) and (max-width:899px){.sec{padding:46px 0;}.sec-sm{padding:30px 0;}}
+/* ~700 интерактивных карточек были «мёртвыми» рядом с анимированными exp-card — единый лёгкий hover */
+.actc,.dl-card,.aud-spot .aud-actchip,.statusrow,.pkm{transition:transform .18s ease,box-shadow .18s ease;}
+.actc:hover,.dl-card:hover,.pkm:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(15,30,50,.14);}
+.statusrow:hover{transform:translateX(3px);}
+a.aud-actchip:hover{background:var(--hellblau);}
