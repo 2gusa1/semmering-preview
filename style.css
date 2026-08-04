@@ -2504,3 +2504,6 @@ body.winter .actgrid .only-winter{display:block;}
   .hero-vidbtn{top:14px;bottom:auto;right:14px;width:38px;height:38px;}
   .hero-textbtn{top:14px;bottom:auto;right:60px;height:38px;padding:0 12px;}
 }
+
+/* ---------- 2026-08-04: зимний hero-H1 (div.hero-h1) наследовал line-height текста — строки разъезжались ---------- */
+.hero .hero-h1{line-height:1.1;margin:0 0 12px;}
