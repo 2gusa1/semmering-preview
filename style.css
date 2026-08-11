@@ -2569,3 +2569,24 @@ a.ts-row:hover{background:rgba(255,255,255,.15);}
 .snowbar span{display:block;width:100%;background:linear-gradient(180deg,#bcd9f0,#75abd6);border-radius:0 0 7px 7px;transition:height .5s ease;}
 .wxw-qico{color:var(--blau-dd);display:inline-flex;}
 .wxw-qico svg{display:block;}
+
+
+/* ---------- 2026-08-11 НОЧЬ S15: кнопки hero-видео — одна аккуратная линия справа внизу ---------- */
+.hero-vidbtn{right:16px !important;bottom:16px !important;}
+.hero-textbtn{right:64px !important;bottom:16px !important;height:40px;}
+@media (max-width:640px){
+  .hero-vidbtn{width:40px;height:40px;right:12px !important;bottom:12px !important;}
+  .hero-textbtn{right:60px !important;bottom:12px !important;height:40px;font-size:12px;padding:0 12px;}
+}
+/* S10: читаемость — live-статус трасс (diff сливался), формы на hellblau-l, светлые заголовки на фото */
+.ts-diff{color:#c3ccd6;}
+.ts-row{background:rgba(255,255,255,.12);}
+.formgrid label{color:var(--anthrazit);font-weight:700;}
+/* S10: bikepark #tickets — фон явно тёмный (h2 белый мог оказаться на светлой соседке) */
+body.bikepark .bp-section{background:var(--bikedark);}
+/* S6: свёрнутый прайс другого сезона */
+.season-alt{margin:14px 0;background:#fff;border:1.5px solid var(--hellblau);border-radius:14px;padding:0 16px;}
+.season-alt>summary{cursor:pointer;font-family:Montserrat;font-weight:700;color:var(--blau-dd);padding:14px 0;list-style:none;}
+.season-alt>summary::before{content:"▸ ";}
+.season-alt[open]>summary::before{content:"▾ ";}
+.season-alt[open]{padding-bottom:14px;}
