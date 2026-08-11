@@ -2648,3 +2648,13 @@ section[style*="var(--beige-l)"] .wrap>.season-note{color:#b8c9d8!important;}
   .ar-frame{width:250px;flex-basis:250px;}
   .ar-cap{font-size:15px;}
 }
+
+/* ---------- 2026-08-11 НОЧЬ I2: дропдаун статуса в нотиф-полосе (hover/фокус, деликатно) ---------- */
+.nf-drop{position:relative;cursor:default;}
+.nf-drop .nf-panel{display:none;position:absolute;top:calc(100% + 8px);left:0;z-index:80;min-width:250px;
+  background:#fff;color:var(--anthrazit);border-radius:12px;box-shadow:0 10px 34px rgba(10,25,40,.25);
+  padding:12px 14px;flex-direction:column;gap:6px;font-size:13px;font-weight:500;}
+.nf-drop:hover .nf-panel,.nf-drop:focus-within .nf-panel{display:flex;}
+.nf-drop .nf-panel b{font-family:Montserrat;font-size:12px;letter-spacing:.6px;text-transform:uppercase;color:var(--grau);}
+.nf-drop .nf-panel a{color:var(--blau-dd);font-weight:700;margin-top:4px;}
+@media(max-width:700px){.nf-drop .nf-panel{display:none!important;}}  /* на мобиле статус скрыт (I1) — дроп не нужен */
