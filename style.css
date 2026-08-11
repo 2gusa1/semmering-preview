@@ -2547,3 +2547,25 @@ footer.site a{display:inline-block;padding:5px 2px;}
 .crumbs a{display:inline-block;padding:9px 4px;}
 .hp-close{min-width:40px;min-height:40px;display:inline-flex;align-items:center;justify-content:center;}
 @media(max-width:640px){.chip{padding:9px 14px;}}
+
+/* ---------- 2026-08-04: детальный статус трасс на live (лето: 14 трейлов, зима: пиcты по легенде) ---------- */
+.trailstatus{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px;margin-top:8px;}
+.ts-row{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.08);border-radius:11px;padding:9px 13px;color:#fff;font-size:13.5px;text-decoration:none;}
+a.ts-row:hover{background:rgba(255,255,255,.15);}
+.ts-row b{font-family:Montserrat;min-width:26px;}
+.ts-dot{width:13px;height:13px;flex:0 0 13px;border-radius:50%;}
+.ts-blue{background:#3b7dc9;}
+.ts-red{background:#d64545;}
+.ts-black{background:#16181c;border-radius:3px;transform:rotate(45deg);width:11px;height:11px;flex-basis:11px;}
+.ts-purple{background:#8b5cb8;}
+.ts-green{background:#3f9e57;}
+.ts-diff{color:#9aa0a8;font-size:12px;}
+.ts-state{margin-left:auto;color:#7fe08a;font-size:12px;font-weight:700;white-space:nowrap;}
+@media(max-width:640px){.trailstatus{grid-template-columns:1fr;}}
+
+/* ---------- 2026-08-04: снег столбиком (как температурные бары) + иконка качества ---------- */
+.wxw-snowcol{flex-direction:row;align-items:center;gap:10px;}
+.snowbar{width:16px;height:44px;background:var(--hellblau-l);border:1px solid var(--hellblau);border-radius:8px;display:flex;align-items:flex-end;overflow:hidden;}
+.snowbar span{display:block;width:100%;background:linear-gradient(180deg,#bcd9f0,#75abd6);border-radius:0 0 7px 7px;transition:height .5s ease;}
+.wxw-qico{color:var(--blau-dd);display:inline-flex;}
+.wxw-qico svg{display:block;}
