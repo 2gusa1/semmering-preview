@@ -2591,17 +2591,34 @@ body.bikepark .bp-section{background:var(--bikedark);}
 .season-alt[open]>summary::before{content:"▾ ";}
 .season-alt[open]{padding-bottom:14px;}
 
-/* ---------- 2026-08-11 НОЧЬ S2: ряды 3+1 больше не существуют — 4/7 карточек = 4 колонки, 5/10 = авто ---------- */
-.cardgrid:has(> :nth-child(4):last-child),
-.cardgrid:has(> :nth-child(8):last-child){grid-template-columns:repeat(4,1fr);}
-.cardgrid:has(> :nth-child(7):last-child){grid-template-columns:repeat(4,1fr);}
-.cardgrid:has(> :nth-child(5):last-child),
-.cardgrid:has(> :nth-child(10):last-child){grid-template-columns:repeat(5,1fr);}
+/* ---------- 2026-08-11 НОЧЬ S2 v2: колонки по ЧИСЛУ ВИДИМЫХ карточек (data-vis ставит app.js —
+   nth-child не годится: сезонно скрытые карточки считаются) ---------- */
+.cardgrid[data-vis="4"],.cardgrid[data-vis="7"],.cardgrid[data-vis="8"],
+.cardgrid[data-vis="11"],.cardgrid[data-vis="12"]{grid-template-columns:repeat(4,1fr);}
+.cardgrid[data-vis="5"],.cardgrid[data-vis="10"]{grid-template-columns:repeat(5,1fr);}
 @media(max-width:1100px){
-  .cardgrid:has(> :nth-child(4):last-child),
-  .cardgrid:has(> :nth-child(7):last-child),
-  .cardgrid:has(> :nth-child(8):last-child){grid-template-columns:repeat(2,1fr);}
-  .cardgrid:has(> :nth-child(5):last-child),
-  .cardgrid:has(> :nth-child(10):last-child){grid-template-columns:repeat(2,1fr);}
+  .cardgrid[data-vis]{grid-template-columns:repeat(2,1fr)!important;}
 }
-/* прежний костыль «сирота по центру» гасим — сироты устранены сеткой */
+@media(max-width:640px){
+  .cardgrid[data-vis]{grid-template-columns:1fr!important;}
+}
+
+/* ---------- 2026-08-11 НОЧЬ: SVG-иконки floatpanel (размер обязателен, иначе невидимы) ---------- */
+.floatpanel .fp-ic{display:flex;align-items:center;justify-content:center;}
+.floatpanel .fp-ic svg{width:21px;height:21px;display:block;}
+
+/* ---------- 2026-08-11 НОЧЬ I1: нотиф-полоса — единый шрифт, ничего не обрезается ---------- */
+.notif{font-family:Montserrat,system-ui,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.2px;}
+.notif .wrap{height:auto;min-height:38px;padding-top:4px;padding-bottom:4px;overflow:visible;}
+.notif a,.notif .nf-live span{font-weight:600;}
+.notif b{font-weight:800;}
+@media(max-width:700px){
+  .notif{font-size:12px;}
+  .notif .wrap{gap:6px 14px;}
+  .notif .live-summer,.notif .live-winter{display:none;}  /* на телефоне только температура+ссылка — без обрезанных статусов */
+}
+
+/* ---------- 2026-08-11 НОЧЬ I4: равные высоты карточек в сетках ---------- */
+.cardgrid .exp-card{display:flex;flex-direction:column;}
+.cardgrid .exp-card .body{flex:1;display:flex;flex-direction:column;}
+.cardgrid .exp-card .body>:last-child{margin-top:auto;}

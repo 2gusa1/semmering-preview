@@ -514,3 +514,16 @@ document.querySelectorAll('[data-faqsearch]').forEach(function(inp){
     setInterval(function(){ if(visible && !paused && !document.hidden) step(1); }, 3500);
   });
 })();
+
+/* ---------- 2026-08-11 НОЧЬ S2: балансировка сеток — считаем ВИДИМЫЕ карточки (сезон!) и подбираем колонки ---------- */
+(function(){
+  function balance(){
+    document.querySelectorAll('.cardgrid').forEach(function(g){
+      var vis=[].filter.call(g.children,function(c){return getComputedStyle(c).display!=='none';}).length;
+      g.setAttribute('data-vis',vis);
+    });
+  }
+  window.addEventListener('DOMContentLoaded',balance);
+  document.addEventListener('click',function(e){if(e.target.closest('.season-toggle,[data-set-season],.lang-toggle'))setTimeout(balance,80);});
+  window.__gridBalance=balance;
+})();
