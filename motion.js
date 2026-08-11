@@ -171,12 +171,12 @@ document.addEventListener('click', function(e){
   }
   function apply(city,sem,geo){
     if(typeof city!=='number'||typeof sem!=='number') return;
-    /* 03.08 v2: при дельте <3° сравнение нечестное («−0° fresher») — прячем карточку города и дельту,
-       оставляем одну карточку Semmering (не дырка в layout, как при display:none всего блока) */
-    if(Math.round(city-sem)<3){
-      q('.tempcmp .tc-card:not(.tc-hl),.tempcmp .tc-delta').forEach(function(el){el.style.display='none';});
-      q('[data-live="temp-semmering"]').forEach(function(el){el.textContent=Math.round(sem)+'\u00b0';});
+    /* 11.08 (Саша №4): у нас прохладно (<21°) ИЛИ разница невыгодна → скрываем ВЕСЬ блок сравнения.
+       Гео-город с малой дельтой больше не режет блок до одного столбика — идёт фолбэк к Вене (см. run()). */
+    if(sem<21 || Math.round(city-sem)<3){
+      q('.tempcmp').forEach(function(el){var sec=el.closest('section'); (sec||el).style.display='none';});
       return;}
+    q('.tempcmp').forEach(function(el){var sec=el.closest('section'); (sec||el).style.display='';});
     q('[data-live="temp-wien"]').forEach(function(el){el.textContent=Math.round(city)+'°';});
     q('[data-live="temp-semmering"]').forEach(function(el){el.textContent=Math.round(sem)+'°';});
     var d=Math.round(city-sem);
@@ -191,7 +191,10 @@ document.addEventListener('click', function(e){
     q('[data-live="temp-src"]').forEach(function(el){el.innerHTML='<span class="t-d">Live-Wetter · open-meteo.com</span><span class="t-e">Live weather · open-meteo.com</span>';});
   }
   var semP=get(47.63,15.83);
-  function run(lat,lon,geo){ Promise.all([get(lat,lon),semP]).then(function(v){apply(v[0],v[1],geo);}).catch(function(){}); }
+  function run(lat,lon,geo){ Promise.all([get(lat,lon),semP]).then(function(v){
+    if(geo && (v[1]<21 || Math.round(v[0]-v[1])<3)){ run(48.21,16.37,false); return; }  /* гео невыгодно → пробуем Вену */
+    apply(v[0],v[1],geo);
+  }).catch(function(){}); }
   if(navigator.geolocation){
     navigator.geolocation.getCurrentPosition(
       function(p){ run(p.coords.latitude,p.coords.longitude,true); },
