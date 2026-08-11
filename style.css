@@ -2632,3 +2632,19 @@ body.bikepark .bp-section{background:var(--bikedark);}
 .hist-row{display:grid;grid-template-columns:76px 1fr;gap:14px;align-items:start;}
 .hist-row b{font-family:Montserrat;font-size:20px;font-weight:800;color:#9fc4e8;line-height:1.3;}
 .hist-row span{font-size:14.5px;color:#dbe5ee;line-height:1.65;}
+
+/* ---------- 2026-08-11 НОЧЬ H7/S10 v2: labels форм — тёмные на светлых секциях, светлые только в .formbox (градиент gruppen) ---------- */
+.formgrid .ff label{color:var(--anthrazit);}
+.formbox .formgrid .ff label{color:#dfeaf3;}
+
+/* ---------- 2026-08-11 НОЧЬ S10 v3: тёмные (экс-беж) секции — прямые тексты и ссылки читаемы.
+   Только прямые дети .wrap — тексты ВНУТРИ белых карточек (.exp-card и т.п.) не трогаем. ---------- */
+section[style*="var(--beige-l)"] .wrap>p{color:#dbe5ee!important;}
+section[style*="var(--beige-l)"] .wrap>p a:not(.btn){color:#cfe6ff!important;text-decoration:underline;text-underline-offset:2px;}
+section[style*="var(--beige-l)"] .wrap>.season-note{color:#b8c9d8!important;}
+
+/* ---------- 2026-08-11 НОЧЬ P1/P6: рилсы крупнее на десктопе, подпись объёмнее ---------- */
+@media(min-width:900px){
+  .ar-frame{width:250px;flex-basis:250px;}
+  .ar-cap{font-size:15px;}
+}
